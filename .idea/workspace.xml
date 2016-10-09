@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fc89916-cab0-4cec-81aa-1ae69ecaf575" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/qqcss.css" afterPath="$PROJECT_DIR$/qq_register/qqcss.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/index.html" afterPath="$PROJECT_DIR$/qq_register/index.html" />
     </list>
     <ignored path="tinazbh.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,21 +25,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qq_register/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="259">
+              <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
               <folding>
                 <element signature="e#2180#2188#0" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#5451#5457#0" expanded="true" />
+                <element signature="e#5501#5507#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="qqcss.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="qqcss.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qq_register/qqcss.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -80,8 +79,8 @@
         <option value="$PROJECT_DIR$/dog/icon/iconfont.css" />
         <option value="$PROJECT_DIR$/dog/index.html" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/qq_register/index.html" />
         <option value="$PROJECT_DIR$/qq_register/qqcss.css" />
+        <option value="$PROJECT_DIR$/qq_register/index.html" />
       </list>
     </option>
   </component>
@@ -273,7 +272,7 @@
       <updated>1475805191780</updated>
       <workItem from="1475805193944" duration="1093000" />
       <workItem from="1475973368765" duration="997000" />
-      <workItem from="1475995824694" duration="15570000" />
+      <workItem from="1475995824694" duration="15785000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1475805331660</created>
@@ -286,7 +285,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17660000" />
+    <option name="totallyTimeSpent" value="17875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -336,8 +335,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#2180#2188#0" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#5451#5457#0" expanded="true" />
+            <element signature="e#5501#5507#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -399,23 +397,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qq_register/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#2180#2188#0" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#5451#5457#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qq_register/qqcss.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qq_register/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+          <folding>
+            <element signature="e#2180#2188#0" expanded="true" />
+            <element signature="e#5501#5507#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
