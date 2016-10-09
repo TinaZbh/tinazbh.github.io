@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    background-image: url("background1.jpg");
+    background-size: 100% 100%;
+}
+
+#header {
+    margin: 20px auto;
+    width: 950px;
+}
+
+#header::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+#header > h1 {
+    float: left;
+}
+
+.choose_btn > a, .feedback > a {
+    float: right;
+    text-decoration: none;
+    font-size: 12px;
+    color: gray;
+}
+
+.choose_btn a:nth-child(2) {
+    border-right: 2px solid aliceblue;
+    border-left: 2px solid aliceblue;
+}
+
+#content {
+    width: 950px;
+    background-color: aliceblue;
+    margin: 0 auto;
+    border: 1px solid #999;
+}
+
+#content:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+#content > .side {
+    width: 200px;
+    /*height: 1000px;*/
+    border-right: 1px solid #999;
+    background-color: rgba(64, 150, 193, 0.5);
+    float: left;
+    padding-top: 40px;
+    /*padding-bottom: 40px;*/
+}
+
+/*账号注册用的a标签*/
+.fis_btn {
+    width: 178px;
+    /*height: 40px;*/
+    display: inline-block;
+    background-color: rgba(64, 150, 193, 0.5);
+    box-shadow: 1px 1px 3px #aaa;
+    margin-left: 2px;
+    outline: none;
+    border: none;
+    border-radius: 2px 0px 0px 2px;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.fis_btn span:first-child {
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.fis_btn span:nth-child(3) {
+    font-size: 12px;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/*邮箱注册用的button标签*/
+.fir_btn {
+    width: 198px;
+    /*height: 40px;*/
+    background-color: rgba(64, 150, 193, 0.5);
+    box-shadow: 1px 1px 3px #aaa;
+    margin-left: 2px;
+    outline: none;
+    border: none;
+    border-radius: 2px 0px 0px 2px;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.custom_btn span:nth-child(1), .custom_btn span:nth-child(2) {
+    display: inline-block;
+    padding-top: 10px;
+
+}
+
+.custom_btn span:nth-child(4) {
+    font-size: 12px;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.icon {
+    font-family: iconfont;
+}
+
+.icon.email {
+    color: #66cdaa;
+    font-weight: bold;
+}
+
+.side button {
+    cursor: pointer;
+}
+
+.side button:link {
+    color: rgba(64, 150, 193, 0.6);
+}
+
+.side button:nth-child(2) {
+    margin-top: 10px;
+}
+
+.side_search {
+    margin-top: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    /*width: 190px;*/
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px #aaa;
+}
+
+.search_hint {
+    margin: 0;
+    color: white;
+    background-color: rgba(64, 150, 193, 0.6);
+    text-align: center;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.search_wrap {
+    margin-top: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid #aaa;
+}
+
+.search_wrap input {
+    border: 0;
+    height: 28px;
+    width: 145px;
+    font-size: 13px;
+}
+
+.search_wrap .icon {
+    height: 30px;
+    text-align: center;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #999999;
+}
+
+.search_other {
+    margin-top: 25px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.search_other a {
+    display: inline-block;
+    color: #999;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.search_other a:hover {
+    color: rgba(64, 150, 193, 0.6);
+}
+
+#main {
+    width: 740px;
+    margin: 0 auto;
+    float: left;
+    /*background-color: red;*/
+}
+
+#main > div {
+    padding: 10px 0;
+}
+
+#main .submit {
+    text-align: center;
+}
+
+.cellphone p {
+    padding-top: 8px;
+    font-size: 12px;
+}

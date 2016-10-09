@@ -3,214 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="./qqcss.css">
     <link rel="stylesheet" href="./iconfont/iconfont.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            outline: none;
-            text-decoration: none;
-        }
 
-        body, html {
-            height: 100%;
-        }
-
-        body {
-            background-image: url("background1.jpg");
-            background-size: 100% 100%;
-        }
-
-        #header {
-            margin: 20px auto;
-            width: 950px;
-        }
-
-        #header::after {
-            display: block;
-            content: '';
-            clear: both;
-        }
-
-        #header > h1 {
-            float: left;
-        }
-
-        .choose_btn > a, .feedback > a {
-            float: right;
-            text-decoration: none;
-            font-size: 12px;
-            color: gray;
-        }
-
-        .choose_btn a:nth-child(2) {
-            border-right: 2px solid aliceblue;
-            border-left: 2px solid aliceblue;
-        }
-
-        #content {
-            width: 950px;
-            background-color: aliceblue;
-            margin: 0 auto;
-            border: 1px solid #999;
-        }
-
-        #content:after {
-            display: block;
-            content: '';
-            clear: both;
-        }
-
-        #content > .side {
-            width: 200px;
-            /*height: 1000px;*/
-            border-right: 1px solid #999;
-            background-color: rgba(64, 150, 193, 0.5);
-            float: left;
-            padding-top: 40px;
-            /*padding-bottom: 40px;*/
-        }
-        /*账号注册用的a标签*/
-        .fis_btn{
-            width: 178px;
-            /*height: 40px;*/
-            display: inline-block;
-            background-color: rgba(64, 150, 193, 0.5);
-            box-shadow: 1px 1px 3px #aaa;
-            margin-left: 2px;
-            outline: none;
-            border: none;
-            border-radius: 2px 0px 0px 2px;
-            font-size: 20px;
-            text-align: left;
-            padding-left: 20px;
-            cursor: pointer;
-        }
-        .fis_btn span:first-child{
-            display: inline-block;
-            padding-top: 10px;
-        }
-        .fis_btn span:nth-child(3){
-            font-size: 12px;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        /*邮箱注册用的button标签*/
-        .fir_btn {
-            width: 198px;
-            /*height: 40px;*/
-            background-color: rgba(64, 150, 193, 0.5);
-            box-shadow: 1px 1px 3px #aaa;
-            margin-left: 2px;
-            outline: none;
-            border: none;
-            border-radius: 2px 0px 0px 2px;
-            font-size: 20px;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .custom_btn span:nth-child(1), .custom_btn span:nth-child(2) {
-            display: inline-block;
-            padding-top: 10px;
-
-        }
-
-        .custom_btn span:nth-child(4) {
-            font-size: 12px;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .icon {
-            font-family: iconfont;
-        }
-
-        .icon.email {
-            color: #66cdaa;
-            font-weight: bold;
-        }
-        .side button{
-            cursor: pointer;
-        }
-        .side button:link{
-            color: rgba(64, 150, 193, 0.6);
-        }
-        .side button:nth-child(2) {
-            margin-top: 10px;
-        }
-
-        .side_search {
-            margin-top: 100px;
-            margin-left: 5px;
-            margin-right: 5px;
-            /*width: 190px;*/
-            border: 1px solid #aaa;
-            border-radius: 4px;
-            box-shadow: 1px 1px 3px #aaa;
-        }
-        .search_hint {
-            margin: 0;
-            color: white;
-            background-color: rgba(64, 150, 193, 0.6);
-            text-align: center;
-            padding-top: 9px;
-            padding-bottom: 9px;
-        }
-        .search_wrap{
-            margin-top: 10px;
-            margin-left: 3px;
-            margin-right: 3px;
-            border: 1px solid #aaa;
-        }
-        .search_wrap input{
-            border: 0;
-            height: 28px;
-            width: 145px;
-            font-size: 13px;
-        }
-        .search_wrap .icon{
-            height: 30px;
-            text-align: center;
-            padding-right: 5px;
-            padding-left: 5px;
-            text-decoration: none;
-            font-weight:bold;
-            color: #999999;
-        }
-        .search_other{
-            margin-top: 25px;
-            margin-bottom:80px;
-            text-align: center;
-        }
-        .search_other a{
-            display: inline-block;
-            color: #999;
-            padding: 5px;
-            font-size: 13px;
-        }
-        .search_other a:hover{
-            color: rgba(64, 150, 193, 0.6);
-        }
-        #main {
-            width: 740px;
-            margin: 0 auto;
-            float: left;
-            /*background-color: red;*/
-        }
-
-        #main > div {
-            padding: 10px 0;
-        }
-
-        #main .submit {
-            text-align: center;
-        }
-
-        .cellphone p {
-            padding-top: 8px;
-            font-size: 12px;
-        }
 
     </style>
 </head>
@@ -227,12 +23,12 @@
 </div>
 <div id="content">
     <div class="side">
-        <a target="main" class="fis_btn" >
+        <a target="main" class="fis_btn">
             <!--<div class="custom_btn">-->
-                <span class="icon">&#xe602; 注册账号</span>
-                <!--<span class="ctm_btn_register"></span>-->
-                <br/>
-                <span>由数字组成,经典通行账号</span>
+            <span class="icon">&#xe602; 注册账号</span>
+            <!--<span class="ctm_btn_register"></span>-->
+            <br/>
+            <span>由数字组成,经典通行账号</span>
             <!--</div>-->
         </a>
         <button type="button" onclick="" class="fir_btn">
@@ -253,64 +49,88 @@
             </div>
             <div class="search_other">
                 <div>
-                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=date&from=zc" target="_blank">&#xe603; 生日</a>
-                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=love&from=zc" target="_blank">&#xe604; 爱情</a>
+                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=date&from=zc" target="_blank">&#xe603;
+                        生日</a>
+                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=love&from=zc" target="_blank">&#xe604;
+                        爱情</a>
                 </div>
                 <div>
-                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=phone&from=zc" target="_blank">&#xe601; 手机</a>
-                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=date&from=zc" target="_blank">&#xe600; 年度</a>
+                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=phone&from=zc" target="_blank">&#xe601;
+                        手机</a>
+                    <a class="icon" href="http://haoma.qq.com/shop.html#topic=date&from=zc" target="_blank">&#xe600;
+                        年度</a>
                 </div>
             </div>
         </div>
     </div>
-    <form action="#" name="login" method="post" id="main">
-        <div class="nickname">
-            昵称&nbsp;&nbsp;&nbsp;<input type="text" name="nickname" maxlength="10"/>
+    <div class="main_content">
+        <img src="" alt="">
+        <form action="#" name="login" method="post" id="main">
+            <div class="menu_1">
+                <label for="nickname" class="item">昵称</label>
+                <div class="item_box">
+                    <input type="text" id="nickname" name="nickname" maxlength="10"/>
+                </div>
 
-        </div>
-        <div class="password">
-            密码&nbsp;&nbsp;&nbsp;<input type="text" name="password"/>
+            </div>
+            <div class="menu_2">
+                <label for="password" class="item">密码</label>
+                <div class="item_box">
+                    <input type="text" id="password" name="password"/>
+                </div>
 
-        </div>
-        <div class="confirm_pw">
-            确认密码&nbsp;&nbsp;&nbsp;<input type="text" name="confirm_password"/>
+            </div>
+            <div class="menu_3">
+                <label for="confirm_psw" class="item">确认密码</label>
+                <div class="item_box">
+                    <input type="text" id="confirm_psw" name="confirm_psw"/>
+                </div>
+            </div>
+            <div class="menu_4">
+                <div class="item">性别</div>
+                <div class="sex_box">
+                    <input type="radio" name="sex" value="male" checked/>男
+                    <input type="radio" name="sex" value="female"/>女
+                </div>
 
-        </div>
-        <div class="sex">
-            性别&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="sex" value="male" checked/>男
-            <input type="radio" name="sex" value="female"/>女
-        </div>
-        <div class="birthday">
-            生日&nbsp;&nbsp;&nbsp;
-            <select name="birthday">
-                <option value="solar_calendar">公历</option>
-                <option value="lunar_calendar">农历</option>
-            </select>
-            <select name="birthday" id="year">
-                <option value="2016">2016年</option>
-            </select>
-            <select name="birthday" id="month">
-                <option value="1月">1月</option>
-            </select>
-            <select name="birthday" id="day">
-                <option value="1日">1日</option>
-            </select>
-        </div>
-        <div class="address">
-            所在地&nbsp;&nbsp;&nbsp;<input type="text" name="address"/>
-        </div>
-        <div class="cellphone">
-            手机号码&nbsp;&nbsp;&nbsp;<input type="text" name="cellphone_number"/>
-            <p class="reminder">可通过该手机找到密码</p>
-        </div>
-        <div class="submit">
-            <input type="submit" value="立即注册"/>
-        </div>
-        <div class="last_hint">
-            <input type="checkbox" name="agree" checked>我已经阅读并同意相关条款
-        </div>
-    </form>
+            </div>
+            <div class="menu_5">
+                <div class="item">生日</div>
+                <select name="birthday">
+                    <option value="solar_calendar">公历</option>
+                    <option value="lunar_calendar">农历</option>
+                </select>
+                <select name="birthday" id="year">
+                    <option value="2016">2016年</option>
+                </select>
+                <select name="birthday" id="month">
+                    <option value="1月">1月</option>
+                </select>
+                <select name="birthday" id="day">
+                    <option value="1日">1日</option>
+                </select>
+            </div>
+            <div class="menu_6">
+                <label for="birthplace" class="item">所在地</label>
+                <div class="item_box">
+                    <input type="text" id="birthplace" name="address"/>
+                </div>
+            </div>
+            <div class="menu_7">
+                <label for="telephone" class="item">手机号码</label>
+                <div class="item_box">
+                    <input type="text" id="telephone" name="cellphone_number"/>
+                </div>
+                <p class="reminder">可通过该手机找到密码</p>
+            </div>
+            <div class="submit">
+                <input type="submit" value="立即注册"/>
+            </div>
+            <div class="last_hint">
+                <input type="checkbox" name="agree" checked>我已经阅读并同意相关条款
+            </div>
+        </form>
+    </div>
 </div>
 <script>
     for (var i = 2016; i > 1887; i--) {
