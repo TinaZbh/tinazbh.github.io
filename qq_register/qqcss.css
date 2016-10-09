@@ -27,6 +27,7 @@ body {
 
 #header > h1 {
     float: left;
+    color: #eee;
 }
 
 .choose_btn > a, .feedback > a {
@@ -45,23 +46,21 @@ body {
     width: 950px;
     background-color: aliceblue;
     margin: 0 auto;
-    border: 1px solid #999;
+    border: 1px solid #cfcfcf;
 }
 
-#content:after {
+#content::after {
     display: block;
     content: '';
     clear: both;
 }
 
 #content > .side {
-    width: 200px;
-    /*height: 1000px;*/
-    border-right: 1px solid #999;
-    background-color: rgba(64, 150, 193, 0.5);
+    width:200px;
+    /*border-right: 1px solid #cfcfcf;*/
+    background-color: rgba(64, 150, 193, 0.1);
     float: left;
     padding-top: 40px;
-    /*padding-bottom: 40px;*/
 }
 
 /*账号注册用的a标签*/
@@ -79,6 +78,7 @@ body {
     text-align: left;
     padding-left: 20px;
     cursor: pointer;
+    color: #616c72;
 }
 
 .fis_btn span:first-child {
@@ -105,6 +105,7 @@ body {
     font-size: 20px;
     text-align: left;
     padding-left: 20px;
+    color: #616c72;
 }
 
 .custom_btn span:nth-child(1), .custom_btn span:nth-child(2) {
@@ -200,22 +201,132 @@ body {
     color: rgba(64, 150, 193, 0.6);
 }
 
-#main {
-    width: 740px;
+.main_content {
+    width: 749px;
     margin: 0 auto;
     float: left;
-    /*background-color: red;*/
+    padding-bottom: 80px;
+    border-left: 1px solid #cfcfcf;
 }
-
-#main > div {
-    padding: 10px 0;
+.rem_img{
+    width: 610px;
+    height: 165px;
+    margin-left: 65px;
+    margin-top: 40px;
 }
-
-#main .submit {
-    text-align: center;
+.home_title{
+    font-size: 20px;
+    border-left:3px solid rgb(64, 150, 193);
+    padding-left: 10px;
+    margin-left: 65px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
-
-.cellphone p {
-    padding-top: 8px;
+.tran_line{
+    border:none;
+    border-top:1px solid #cfcfcf;
+    width: 610px;
+    margin-left: 65px;
+    margin-bottom: 20px;
+}
+/*#main::after{*/
+    /*display: block;*/
+    /*content: '';*/
+    /*clear: both;*/
+/*}*/
+#main{
+}
+.menu{
+    margin-top: 10px;
+}
+.menu::after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.item,.item_box{
+    float: left;
+    display: block;
+}
+.item{
+    width: 180px;
+    height: 45px;
+    text-align: right;
+    font-size: 14px;
+    line-height: 45px;
+}
+.item_box{
+    margin-left: 10px;
+    width: 300px;
+    height: 35px;
+    border: 0.5px solid rgba(64, 150, 193,0.2);
+    border-radius: 4px;
+}
+.item_box>input{
+    width: 284px;
+    height: 18px;
+    border: none;
+    padding: 8px;
+}
+.sex_box,.birthday_box{
+    border:none;
+    display:inline-block;
+}
+.sex_box>input{
+    width:30px;
+    height: 16px;
+    padding: 0;
+}
+.sex_box>span{
+    font-size: 10px;
+    color: #84a8c8;
+    cursor: pointer;
+}
+.male_item,.female_item{
+    margin-top: 12px;
+}
+.female_item {
+    margin-left: 30px;
+}
+.birthday_box>select{
+    margin-top: 10px;
+}
+.menu_7 .reminder{
+    clear: both;
     font-size: 12px;
+    color: #616c72;
+    margin-left: 190px;
+    margin-top: 10px;
+}
+.reminder>p{display: inline-block;}
+.reminder>a{
+    text-decoration: none;
+    color: #84a8c8;
+    margin-left: 20px;
+}
+.submit>input{
+    width:300px;
+    height: 50px;
+    background-color: #69b946;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 190px;
+    margin-top: 20px;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+.last_hint{
+    margin-left: 190px;
+    font-size: 12px;
+    margin-top: 30px;
+}
+#footer{
+    width: 956px;
+    color: #616c72;
+    font-size: 13px;
+    margin: 0 auto;/*让div居中*/
+    padding: 20px 0;
+    text-align: center;/*让文本在宽度为956px*/
 }
