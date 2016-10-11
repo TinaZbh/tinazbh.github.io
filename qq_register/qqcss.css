@@ -18,10 +18,15 @@ body {
 .container {
     background: url("http://6.url.cn/zc/chs/img/bg_chs.jpg?v=10090") center top no-repeat;
 }
+.container2{
+    width: 956px;
+    margin: 0 auto;
+    background: url("http://6.url.cn/zc/chs/img/left.png?v=10090") left bottom no-repeat;
+}
 
 #header {
     margin: 0 auto;
-    width: 956px;
+    /*width: 956px;*/
     height: 94px;
     background: url("http://6.url.cn/zc/chs/img/bg_chs.jpg?v=10090") center top no-repeat;
 }
@@ -62,7 +67,7 @@ body {
 }
 
 #content {
-    width: 956px;
+    /*width: 956px;*/
     margin: 0 auto;
 }
 
@@ -75,8 +80,6 @@ body {
 #content > .side {
     width: 210px;
     background: url("http://6.url.cn/zc/chs/img/left.png?v=10090") left top no-repeat #f8fdff;
-    -webkit-background-size:100% 100%;
-    background-size:100% 100%;
     float: left;
     padding-top: 30px;
     height: 650px;
