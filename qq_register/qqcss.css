@@ -7,14 +7,14 @@
 
 body, html {
     height: 100%;
-    font:400 12px/14px Geneva,"å®‹ä½“",Tahoma,sans-serif;
+    font:400 12px/14px Geneva,Tahoma,sans-serif;
 }
+
 
 body {
     background: url("https://6.url.cn/zc/chs/img/body.png?v=10090") repeat-x #fff;
 
 }
-
 .container {
     background: url("http://6.url.cn/zc/chs/img/bg_chs.jpg?v=10090") center top no-repeat;
 }
@@ -83,9 +83,8 @@ body {
 /*账号注册用的a标签*/
 .fis_btn {
     width: 206px;
-    height: 80px;
+    height: 82px;
     display: inline-block;
-    background: url("http://6.url.cn/zc/chs/img/left_2.png?v=10090") left bottom no-repeat;
     margin-left: 2px;
     outline: none;
     font-size: 20px;
@@ -95,15 +94,27 @@ body {
     /*color: #616c72;*/
     color: white;
 }
-
-.fis_btn span:first-child {
+.fis_btn:first-child{
+    background: url("http://6.url.cn/zc/chs/img/left_2.png?v=10090") left bottom no-repeat;
+}
+.fis_btn:nth-child(2){
+    background: url("http://6.url.cn/zc/chs/img/left_2.png?v=10090") left top no-repeat;
+}
+.fis_btn:nth-child(2) span{
+    color:#616c72;
+}
+.fis_btn:nth-child(2) .icon{
+    color: #69b946;
+    font-weight: bolder;
+}
+.fis_btn span:nth-child(2) {
     display: inline-block;
     padding-top: 10px;
     height: 26px;
     line-height: 26px;
 }
 
-.fis_btn span:nth-child(2) {
+.fis_btn span:nth-child(3) {
     font-size: 12px;
     display: inline-block;
     height: 16px;
@@ -112,68 +123,6 @@ body {
 .icon {
     font-family: iconfont;
 }
-
-/*自制的搜索框的style开始处*/
-/*.side_search {*/
-/*margin-top: 100px;*/
-/*margin-left: 5px;*/
-/*margin-right: 5px;*/
-/*!*width: 190px;*!*/
-/*border: 1px solid #aaa;*/
-/*border-radius: 4px;*/
-/*box-shadow: 1px 1px 3px #aaa;*/
-/*}*/
-
-/*.search_hint {*/
-/*margin: 0;*/
-/*color: white;*/
-/*background-color: rgba(64, 150, 193, 0.6);*/
-/*text-align: center;*/
-/*padding-top: 9px;*/
-/*padding-bottom: 9px;*/
-/*}*/
-
-/*.search_wrap {*/
-/*margin-top: 10px;*/
-/*margin-left: 3px;*/
-/*margin-right: 3px;*/
-/*border: 1px solid #aaa;*/
-/*}*/
-
-/*.search_wrap input {*/
-/*border: 0;*/
-/*height: 28px;*/
-/*width: 145px;*/
-/*font-size: 13px;*/
-/*}*/
-
-/*.search_wrap .icon {*/
-/*height: 30px;*/
-/*text-align: center;*/
-/*padding-right: 5px;*/
-/*padding-left: 5px;*/
-/*text-decoration: none;*/
-/*font-weight: bold;*/
-/*color: #999999;*/
-/*}*/
-
-/*.search_other {*/
-/*margin-top: 25px;*/
-/*margin-bottom: 80px;*/
-/*text-align: center;*/
-/*}*/
-
-/*.search_other a {*/
-/*display: inline-block;*/
-/*color: #999;*/
-/*padding: 5px;*/
-/*font-size: 13px;*/
-/*}*/
-
-/*.search_other a:hover {*/
-/*color: rgba(64, 150, 193, 0.6);*/
-/*}*/
-/*结束处*/
 
 .left_search {
     width: 179px;
@@ -230,10 +179,12 @@ body {
 }
 
 .rem_img {
-    width: 610px;
-    height: 165px;
-    margin-left: 65px;
-    margin-top: 40px;
+    /*width: 610px;*/
+    /*height: 165px;*/
+    /*margin-left: 65px;*/
+    /*margin-top: 40px;*/
+    display: block;
+    margin:40px auto;
 }
 
 .home_title {
@@ -252,11 +203,13 @@ body {
 .tran_line {
     border: none;
     border-top: 1px solid #cfcfcf;
-    width: 610px;
+    width: 600px;
     margin-left: 65px;
     margin-bottom: 20px;
 }
-
+#main{
+    position: relative;
+}
 .menu {
     margin-top: 10px;
 }
@@ -274,7 +227,7 @@ body {
 
 .item {
     width: 180px;
-    height: 45px;
+    height: 40px;
     text-align: right;
     font-size: 14px;
     line-height: 45px;
@@ -285,7 +238,7 @@ body {
     height: 35px;
     border: none;
     margin-left: 10px;
-    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") no-repeat;
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") 0 0 no-repeat;
 }
 
 .item_box > input {
@@ -298,36 +251,200 @@ body {
     background: none;
 }
 
-.sex_box, .birthday_box {
-    border: none;
-    display: inline-block;
-    margin-left: 5px;
-}
-
-.sex_box > input {
-    width: 30px;
-    height: 16px;
-    padding: 0;
-}
-
-.sex_box > span {
-    font-size: 10px;
-    color: #84a8c8;
-    cursor: pointer;
-}
-
-.male_item, .female_item {
+.sex_box{
+    float: left;
+    margin-left: 10px;
     margin-top: 12px;
+    color: #84a8c8;
+    height: 18px;
+    line-height: 18px;
+}
+.sex_box .male_item{
+    display: inline-block;
+    height: 18px;
+    width: 12px;
+    padding-left: 20px;
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat;
+}
+.sex_box .female_item{
+    display: inline-block;
+    margin-left: 25px;
+    height: 18px;
+    width: 12px;
+    padding-left: 20px;
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
 
-.female_item {
-    margin-left: 30px;
-}
-
-.birthday_box > select {
+.birthday_box1,.birthday_box2,.birthday_box3,.birthday_box4{
+    float: left;
     margin-top: 10px;
 }
+#year_value,#month_value,#day_value{
+    color: #57a8e4;
+}
+.birthday_box1{
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -197px -176px no-repeat;
+    height: 23px;
+    line-height: 23px;
+    width: 60px;
+    position: relative;
+    margin-left: 10px;
+}
+.birthday_box1 a{
+    /*去掉outline,tabindex就不起作用了,height和width的设置是为了间接调整outline的框框大小*/
+    height: 21px;
+    line-height: 21px;
+    width: 54px;
+    display: inline-block;
+    padding-left: 4px;
+    color: #57a8e4;
 
+}
+.birthday_box1 ul{
+    width: 58px;
+    height: 49px;
+    display: none;
+    position: absolute;
+    left: 0;
+    top:100%;
+    border: 1px solid #57a8e4;
+    border-radius: 1px;
+
+    overflow: scroll;
+}
+.birthday_box1 ul>li{
+    padding-left: 3px;
+    margin: 1px;
+}
+.birthday_box1 ul>li:hover{
+    background-color: #57a8e4;
+    padding-left:3px;
+    margin: 1px;
+}
+
+
+.birthday_box2{
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -106px -246px no-repeat;
+    height: 23px;
+    line-height: 23px;
+    width: 97px;
+    position: relative;
+    margin-left: 5px;
+}
+.birthday_box2 input{
+    height: 23px;
+    line-height: 23px;
+    width: 94px;
+    display: inline-block;
+    padding-left: 4px;
+    border: 0;
+    background: transparent;
+}
+.birthday_box2 ul{
+    width: 96px;
+    height: 145px;
+    display: none;
+    position: absolute;
+    left: 0;
+    top:100%;
+    border: 1px solid #57a8e4;
+    border-radius: 1px;
+
+    overflow: scroll;
+}
+.birthday_box2 ul>li{
+    padding-left: 3px;
+    margin: 1px;
+}
+.birthday_box2 ul>li:hover{
+    background-color: #57a8e4;
+    padding-left:3px;
+    margin: 1px;
+}
+
+.birthday_box3{
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -197px -176px no-repeat;
+    height: 23px;
+    line-height: 23px;
+    width: 60px;
+    position: relative;
+    margin-left: 5px;
+}
+.birthday_box3 input{
+    display: inline-block;
+    padding-left: 4px;
+    border: none;
+    height: 23px;
+    line-height: 23px;
+    width: 56px;
+    background: transparent;
+}
+.birthday_box3 ul{
+    width: 58px;
+    height: 145px;
+    display: none;
+    position: absolute;
+    left: 0;
+    top:100%;
+    border: 1px solid #57a8e4;
+    border-radius: 1px;
+
+    overflow: scroll;
+}
+.birthday_box3 ul>li{
+    padding-left: 3px;
+    margin: 1px;
+}
+.birthday_box3 ul>li:hover{
+    background-color: #57a8e4;
+    padding-left:3px;
+    margin: 1px;
+}
+.birthday_box4{
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -197px -176px no-repeat;
+    height: 23px;
+    line-height: 23px;
+    width: 60px;
+    position: relative;
+    margin-left: 5px;
+}
+.birthday_box4 input{
+    display: inline-block;
+    padding-left: 4px;
+    border: none;
+    height: 23px;
+    line-height: 23px;
+    width: 56px;
+    background: transparent;
+
+}
+.birthday_box4 ul{
+    width: 58px;
+    height: 145px;
+    display: none;
+    position: absolute;
+    left: 0;
+    top:100%;
+    border: 1px solid #57a8e4;
+    border-radius: 1px;
+
+    overflow: scroll;
+}
+.birthday_box4 ul>li{
+    padding-left: 3px;
+    margin: 1px;
+}
+.birthday_box4 ul>li:hover{
+    background-color: #57a8e4;
+    padding-left:3px;
+    margin: 1px;
+}
 .menu_7 .reminder {
     clear: both;
     font-size: 12px;
@@ -345,7 +462,106 @@ body {
     color: #84a8c8;
     margin-left: 20px;
 }
+.menu_8 .item_box {
+    width: 169px;
+    margin-left: 10px;
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") 0 -597px no-repeat;
+}
 
+.menu_8 .item_box > input {
+    width: 153px;
+}
+.menu_8 .confirm_btn{
+    margin-left: 10px;
+    float: left;
+    width: 121px;
+    height: 34px;
+    font-size: 15px;
+    color: #444;
+    line-height: 34px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #d0dae3;
+    background-color: #f4f9fd;
+    cursor: pointer;
+}
+.confirm_code{
+    float: left;
+    margin-left: 10px;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    color: #444;
+    font-size: 15px;
+    border:1px solid #d0dae3;
+    /*padding-left: 30px;*/
+}
+.confirm_code .icon{
+    position: relative;
+    top:5px;
+    left: 10px;
+    font-size: 32px;
+    color: dodgerblue;
+}
+.regEmail .item_box{
+    width: 197px;
+    margin-left: 10px;
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") 0 -176px no-repeat;
+}
+.regEmail .item_box>input {
+    width: 181px;
+}
+.regEmail .eSuffix{
+    width: 99px;
+    height: 35px;
+    line-height: 36px;
+    color: grey;
+    float: left;
+    margin-left: 5px;
+    background: url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -166px -70px no-repeat;
+}
+.warn{
+    color: grey;
+    float: left;
+    width: 230px;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+.warn.nickname,.warn.confPsw,.warn.birth,.warn.birthP,.warn.confC{
+    height: 35px;
+    line-height: 35px;
+}
+
+.warn.emailCode a{
+    cursor: pointer;
+    color: #4099d6;
+}
+.warn.emailCode1{
+    height: 22px;
+    line-height: 22px;
+    padding-left: 18px;
+    background: url("http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090") 0 -348px no-repeat;
+    color: red;
+
+}
+.hint_psw{
+    width: 158px;
+    height: 81px;
+    position: absolute;
+    top:32px;
+    left: 490px;
+    background: url("http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090") left top no-repeat;
+}
+.hint_psw .hPsw{
+    height: 22px;
+    line-height: 22px;
+    margin-left: 15px;
+    padding-left: 18px;
+    background: url("http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090") 0 -216px no-repeat;
+}
+.hint_psw .hPsw:first-child {
+    margin-top: 5px;
+}
 .submit > input {
     width: 300px;
     height: 50px;
@@ -366,6 +582,26 @@ body {
     margin-top: 30px;
 }
 
+ /*一些动态的display设置*/
+
+.email{
+    display: none;
+}
+/*创建邮箱*/
+.regEmail{
+    display: none;
+}
+
+/*输入手机号获取验证码*/
+.menu_8{
+    display: none;
+}
+.warn{
+    display: none;
+}
+.hint_psw{
+    display: none;
+}
 #footer {
     width: 956px;
     color: #616c72;

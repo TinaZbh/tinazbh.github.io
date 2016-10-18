@@ -1,46 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<head lang="en">
     <meta charset="UTF-8">
     <title></title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            /*background: url(http://6.url.cn/zc/chs/img/bg_chs.jpg?v=10090) center top no-repeat;*/
+        *{  margin: 0; padding: 0;  list-style: none;  }
+        form{
+            width:500px;
+            margin:0 auto;
+            position:relative;
+            zoom:1;
         }
-        /*div{*/
-            /*float: left;*/
-            /*width: 100px;*/
-            /*height: 100px;*/
-            /*position: relative;*/
-            /*background: url(http://www.ruanyifeng.com/blog/2008/05/bg2008050703.png)  no-repeat red;*/
-        /*}*/
-        /*.box1{*/
-            /*background-position: 0 0;*/
-        /*}*/
-        /*.box2{*/
-            /*background-position: 0 -100px;*/
-
-        /*}*/
-        /*.box3{*/
-            /*background-position: 0 -200px;*/
-        /*}*/
-        /*.box4{*/
-            /*background-position: 0 -300px;*/
-        /*}*/
-        .test{
-            width: 300px;
-            height: 35px;
-            background: url(http://6.url.cn/zc/chs/img/ipt.png?v=10090)  no-repeat ;
+        form:after{
+            clear:both;
+            content:"";
+            display:block;
+        }
+        .text{
+            float:left;
+            border:1px solid #cccccc;
+            padding-left:14px;
+            width:300px;
+            height:34px;
+            line-height:34px;
+            font-size:14px;
+        }
+        .button{
+            width:50px;
+            height:34px;
+            border:1px solid #cccccc;
+            line-height:34px;
+            font-size:14px;
+            color:#ffffff;
+            background:#ff8400;
+        }
+        ul{
+            position:absolute;
+            top:36px;
+            left:0;
+            width:300px;
+            border-right:1px solid #cccccc;
+            border-left:1px solid #cccccc;
+            background:green;
+            display:none;
+        }
+        li{
+            font-size:14px;
+            line-height:34px;
+            height:34px;
+            color:#000000;
+            border-bottom:1px solid #cccccc;
+        }
+        li:hover{
+            background:yellow;
+            color:red;
+            cursor:pointer;
         }
     </style>
+    <script>
+        window.onload=function(){
+            var oText=document.getElementById('text');
+            var oUl=document.getElementById('ul');
+            var aLi=oUl.getElementsByTagName('li');
+            var timer=null;
+            oText.onfocus=function(){
+                this.value='';
+                oUl.style.display='block';
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].onclick=function(){
+                        clearTimeout(timer);
+                        oText.value=this.innerHTML;
+                        oUl.style.display='none';
+                    };
+                }
+            };
+
+            document.onmousedown=function(ev){
+                var oEvent=ev||event;
+                var target=oEvent.target||oEvent.srcElement;
+                if(target.parentNode!==oUl&&target!==oText){
+                    oUl.style.display='none';
+                }
+
+            };
+            oText.onblur=function(){
+                if(!oText.value){
+                    oText.value='请输入关键字';
+                }
+            };
+        };
+    </script>
 </head>
 <body>
-<!--<div class="box1"></div>-->
-<!--<div class="box2"></div>-->
-<!--<div class="box3"></div>-->
-<!--<div class="box4"></div>-->
-<div class="test"></div>
+<form>
+    <input type="text" value="请输入关键字" id="text" class="text"/>
+    <input type="button" value="搜索" class="button"/>
+    <ul id="ul">
+        <li>返回窗口是否已被关闭</li>
+        <li>返回窗口的文档显示区的高度</li>
+        <li>返回窗口的文档显示区的宽度。</li>
+        <li>设置或返回窗口的名称。</li>
+        <li>返回窗口的外部高度。</li>
+    </ul>
+</form>
+
 </body>
 </html>

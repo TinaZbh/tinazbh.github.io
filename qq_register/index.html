@@ -5,12 +5,8 @@
     <title>QQ注册账号</title>
     <link rel="stylesheet" href="./qqcss.css">
     <link rel="stylesheet" href="./iconfont/iconfont.css">
-    <style>
-
-
-    </style>
 </head>
-<body>
+<body onload="autoFocus()">
 <div class="container">
     <div class="container2">
         <div id="header">
@@ -19,49 +15,23 @@
                 <a href="" type="btn">繁体中文</a>|
                 <a href="" type="btn">English</a>
             </div>
-            <div class="feedback"><a href="">意见反馈</a></div>
+            <div class="feedback"><a
+                    href="http://support.qq.com/write.shtml?guest=1&fid=716&SSTAG=10090-4641c0c84a02a3b73d7ed9820f650f617266e929aa173c01-0932d1603f6db7761775d7dadac1136f1d518b8f41bb1e6e"
+                    target="_blank">意见反馈</a></div>
         </div>
         <div id="content">
             <div class="side">
-                <a target="main" class="fis_btn">
-                    <!--<div class="custom_btn">-->
-                    <span class="icon">&#xe602; QQ账号</span>
-                    <!--<span class="ctm_btn_register"></span>-->
-                    <span>由数字组成,经典通行账号</span>
-                    <!--</div>-->
+                <a target="main" class="fis_btn" onclick="reg_qq()">
+                    <span class="icon">&#xe602;</span>
+                    <span >QQ账号</span>
+                    <span >由数字组成,经典通行账号</span>
                 </a>
-                <a type="button" onclick="" class="fis_btn">
-                    <!--<div class="custom_btn">-->
-                        <!--<span class="icon email">&#xe605;</span>-->
-                        <span class="icon ">&#xe605; 注册邮箱</span>
-                        <span>用邮箱地址注册,便于记忆</span>
-                    <!--</div>-->
+                <a class="fis_btn" onclick="reg_email()">
+                    <span class="icon ">&#xe605;</span>
+                    <span>注册邮箱</span>
+                    <span>用邮箱地址注册,便于记忆</span>
                 </a>
-                <!--自制的搜索边框-->
-                <!--<div class="side_search">-->
-                <!--<div class="search_num">-->
-                <!--<div class="search_hint">搜索您喜欢的号码</div>-->
-                <!--<div class="search_wrap">-->
-                <!--<input type="text" placeholder="输入想要的4~10位数字">-->
-                <!--<a class="icon" href="http://www.baidu.com" target="_blank">&#xe608;</a>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="search_other">-->
-                <!--<div>-->
-                <!--<a class="icon" href="http://haoma.qq.com/shop.html#topic=date&from=zc" target="_blank">&#xe603;-->
-                <!--生日</a>-->
-                <!--<a class="icon" href="http://haoma.qq.com/shop.html#topic=love&from=zc" target="_blank">&#xe604;-->
-                <!--爱情</a>-->
-                <!--</div>-->
-                <!--<div>-->
-                <!--<a class="icon" href="http://haoma.qq.com/shop.html#topic=phone&from=zc" target="_blank">-->
-                <!--&#xe601;-->
-                <!--手机</a>-->
-                <!--<a class="icon" href="http://haoma.qq.com/shop.html#topic=date&from=zc" target="_blank">&#xe600;-->
-                <!--年度</a>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
+
                 <div class="left_search">
                     <div class="search_box">
                         <div class="search_number">
@@ -91,82 +61,140 @@
                 </div>
             </div>
             <div class="main_content">
-                <img src="http://ww3.sinaimg.cn/mw690/9e59afb4gw1f8mbvp43f2j20xy092gyn.jpg" alt="参加免费注册靓号活动"
+                <img src="http://3gimg.qq.com/qq_product_operations/temp/enterBannerC.jpg" alt="参加免费注册靓号活动"
                      class="rem_img">
                 <div class="home_title">注册账号</div>
                 <hr class="tran_line">
                 <form action="#" name="login" method="post" id="main">
+
+                    <div class="menu email">
+                        <label for="email_name" class="item">邮箱账号</label>
+                        <div class="item_box">
+                            <input type="text" id="email_name" name="email_name" maxlength="30" onfocus="warnAppear('.emailCode',1)" onblur="warnChangeDelay()"/>
+                        </div>
+                        <div class="warn emailCode">
+                            请输入您常用的电子邮箱<br>
+                            <a onclick="create_email()">创建邮箱</a>&nbsp;或&nbsp;
+                            <a onclick="reg_qq()">注册普通qq号</a>
+                        </div>
+                        <div class="warn emailCode1">请输入邮箱</div>
+                    </div>
+
+                    <div class="menu regEmail">
+                        <label class="item">邮箱账号</label>
+                        <div class="item_box" >
+                            <input type="text" id="register_email" name="register_email" onfocus="warnAppear('.registerEmail',2)" onblur="warnChange('.registerEmail',2)"/>
+                        </div>
+                        <div class="eSuffix"> @qq.com</div>
+                        <div class="warn registerEmail">请创建邮箱名，由3-18个英文、数字、点、减号、下划线组成</div>
+                        <!--<div class="warn registerEmail1">请输入邮箱</div>-->
+                    </div>
                     <div class="menu menu_1">
                         <label for="nickname" class="item">昵称</label>
                         <div class="item_box">
-                            <input type="text" id="nickname" name="nickname" maxlength="10"/>
+                            <input type="text" id="nickname" name="nickname" maxlength="10" onclick="isClick3()" onfocus="warnAppear('.warn.nickname',3)" onblur="warnChange('.warn.nickname',3)"/>
                         </div>
-
+                        <div class="warn nickname">请输入昵称</div>
+                        <!--<div class="warn nickname">昵称不可以为空</div>-->
                     </div>
                     <div class="menu menu_2">
                         <label for="password" class="item">密码</label>
                         <div class="item_box">
-                            <input type="text" id="password" name="password"/>
+                            <input type="password" id="password" name="password" onclick="isClick4()" onfocus="warnAppear('.warn.password',4)" onblur="warnChange('.warn.password',4)"/>
                         </div>
-
+                        <!--测试密码的强弱-->
+                        <div class="warn password"></div>
                     </div>
+                    <!--提示密码的格式-->
+
+                    <div class="hint_psw">
+                        <div class="hPsw">长度为6-16个字符</div>
+                        <div class="hPsw">不能包含空格</div>
+                        <div class="hPsw">不能是9位以下纯数字</div>
+                    </div>
+
                     <div class="menu menu_3">
                         <label for="confirm_psw" class="item">确认密码</label>
                         <div class="item_box">
-                            <input type="text" id="confirm_psw" name="confirm_psw"/>
+                            <input type="password" id="confirm_psw" name="confirm_psw" onclick="isClick5()" onfocus="warnAppear('.warn.confPsw',5)" onblur="warnChange('.warn.confPsw',5)"/>
                         </div>
+                        <div class="warn confPsw">请再次确认密码</div>
+                        <!--<div class="warn confPsw1">请再次输入密码</div>-->
                     </div>
                     <div class="menu menu_4">
                         <div class="item">性别</div>
                         <div class=" sex_box">
-                            <div class="sex_box male_item"><input type="radio" name="sex" value="male"
-                                                                  checked/><span>男</span></div>
-                            <div class="sex_box female_item"><input type="radio" name="sex"
-                                                                    value="female"/><span>女</span>
-                            </div>
+                            <a class="male_item" onclick="chooseMale()"> 男</a>
+                            <a class="female_item" onclick="chooseFemale()"> 女</a>
                         </div>
-
                     </div>
                     <div class="menu menu_5">
                         <div class="item">生日</div>
                         <div class=" birthday_box">
-                            <select name="birthday">
-                                <option value="solar_calendar">公历</option>
-                                <option value="lunar_calendar">农历</option>
-                            </select>
-                            <select name="birthday" id="year">
-                                <option value="2016">2016年</option>
-                            </select>
-                            <select name="birthday" id="month">
-                                <option value="1月">1月</option>
-                            </select>
-                            <select name="birthday" id="day">
-                                <option value="1日">1日</option>
-                            </select>
-
+                            <div class="birthday_box1" onclick="birthday_appear('.birthday_box1 ul');" >
+                                <!--加tabindex可以使a标签具有onblur事件-->
+                                <a id="birth_type_value"  tabindex="12" onblur="leaveBirth('birthday_type_ul')">公历</a>
+                                <ul id="birthday_type_ul">
+                                    <!--这里用onmousedown代替了onclick是为了解决onblur和onclick的冲突问题,即默认先执行onblur而忽略onclick-->
+                                    <li id="birthday_0" value="0" onmousedown="change_birth_type1('birth_type_value','公历')">公历</li>
+                                    <li id="birthday_1" value="1" onmousedown="change_birth_type1('birth_type_value','农历')">农历</li>
+                                </ul>
+                            </div>
+                            <div class="birthday_box2" onclick="birthday_appear('.birthday_box2 ul');">
+                                <input type="text" maxlength="10" name="year_value" id="year_value" value="年" onblur="leaveBirth('year');">
+                                <ul id="year"></ul>
+                            </div>
+                            <div class="birthday_box3" onclick="birthday_appear('.birthday_box3 ul');">
+                                <input type="text" maxlength="10" name="month_value" id="month_value" value="月" onblur="leaveBirth('month');">
+                                <ul id="month"></ul>
+                            </div>
+                            <div class="birthday_box4" onclick="birthday_appear('.birthday_box4 ul');">
+                                <input type="text" maxlength="10" name="day_value" id="day_value" value="日" onblur="leaveBirth('day');">
+                                <ul id="day"></ul>
+                            </div>
                         </div>
+                        <div class="warn birth"></div>
                     </div>
                     <div class="menu menu_6">
                         <label for="birthplace" class="item">所在地</label>
                         <div class="item_box">
                             <input type="text" id="birthplace" name="address"/>
                         </div>
+                        <div class="warn birthP"></div>
+                        <!--<div class="warn birthP1"></div>-->
                     </div>
                     <div class="menu menu_7">
                         <label for="telephone" class="item">手机号码</label>
-                        <div class="item_box">
-                            <input type="text" id="telephone" name="cellphone_number"/>
+                        <div class="item_box" onclick="verify_appear()">
+                            <input type="text" id="telephone" name="cellphone_number" />
                         </div>
                         <p class="reminder">可通过该手机号码快速找到密码</p>
                         <div class="reminder"><p>中国大陆以外手机号码</p><a href="#">点击这里</a></div>
                     </div>
+                    <div class="menu menu_8">
+                        <label for="tel_confirm" class="item"></label>
+                        <div class="item_box">
+                            <input type="text" id="tel_confirm" name="tel_confirm"/>
+                        </div>
+                        <div class="confirm_btn">
+                            获取短信验证码
+                        </div>
+                    </div>
+                    <div class="menu email">
+                        <label class="item">验证码</label>
+                        <div class="confCode_box">
+                            <a href="" class="confirm_code"><span class="icon">&#xe609;</span> &nbsp;&nbsp;点击完成验证</a>
+                        </div>
+                        <div class="warn confC">请先进行安全验证</div>
+                    </div>
                     <div class="submit">
-                        <input type="submit" value="立即注册"/>
+                        <input type="button" name="submit" value="立即注册" />
                     </div>
                     <div class="last_hint">
-                        <input type="checkbox" name="agree" checked><span>我已经阅读并同意相关条款</span>
+                        <input type="checkbox" name="agree" checked><span>我已阅读并同意相关条款和隐私政策</span>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -174,16 +202,19 @@
 <div id="footer">
     Copyright &copy; 1998-2016 Tencent All Rights Reserved 腾讯公司 版权所有
 </div>
+
 <script>
-    for (var i = 2016; i > 1887; i--) {
-        document.getElementById("year").innerHTML += '<option value="' + i + '">' + i + '</option>'
-    }
-    for (var j = 1; j < 13; j++) {
-        document.getElementById("month").innerHTML += '<option value="' + j + '月">' + j + '月</option>'
-    }
-    for (var k = 1; k < 32; k++) {
-        document.getElementById("day").innerHTML += '<option value="' + k + '日">' + k + '日</option>'
-    }
+for (var i = 2016; i > 1887; i--) {
+document.getElementById("year").innerHTML += '<li value="' + i + '" id="year_'+(2016-i)+'" onmousedown="change_birth_type('+"'year_value','"+i+"年'"+')">' + i + '年</li>';
+}
+for (var j = 1; j < 13; j++) {
+document.getElementById("month").innerHTML +='<li value="' + j + '" id="month_'+(j-1)+'" onmousedown="change_birth_type('+"'month_value','"+j+"月'"+')">' + j + '月</li>';
+}
+for (var k = 1; k < 32; k++) {
+document.getElementById("day").innerHTML +='<li value="' + k + '" id="year_'+(k-1)+'" onmousedown="change_birth_type('+"'day_value','"+k+"日'"+')">' + k + '日</li>';
+}
+//document.querySelector(".birthday_box1 ul").style.display='none';
 </script>
+<script type="text/javascript" src="qqjs.js"></script>
 </body>
 </html>
