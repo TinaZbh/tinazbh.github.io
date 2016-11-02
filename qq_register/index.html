@@ -70,7 +70,7 @@
                     <div class="menu email">
                         <label for="email_name" class="item">邮箱账号</label>
                         <div class="item_box">
-                            <input type="text" id="email_name" name="email_name" maxlength="30" onfocus="warnAppear('.emailCode',1)" onblur="warnChangeDelay()"/>
+                            <input type="text" id="email_name" name="email_name" maxlength="30" autocomplete="off" onfocus="warnAppear('.emailCode',1)" onblur="warnChangeDelay()"/>
                         </div>
                         <div class="warn emailCode">
                             请输入您常用的电子邮箱<br>
@@ -83,7 +83,7 @@
                     <div class="menu regEmail">
                         <label class="item">邮箱账号</label>
                         <div class="item_box" >
-                            <input type="text" id="register_email" name="register_email" onfocus="warnAppear('.registerEmail',2)" onblur="warnChange('.registerEmail',2)"/>
+                            <input type="text" id="register_email" name="register_email" autocomplete="off" onfocus="warnAppear('.registerEmail',2)" onblur="warnChange('.registerEmail',2)"/>
                         </div>
                         <div class="eSuffix"> @qq.com</div>
                         <div class="warn registerEmail">请创建邮箱名，由3-18个英文、数字、点、减号、下划线组成</div>
@@ -92,7 +92,7 @@
                     <div class="menu menu_1">
                         <label for="nickname" class="item">昵称</label>
                         <div class="item_box">
-                            <input type="text" id="nickname" name="nickname" maxlength="10" onclick="isClick3()" onfocus="warnAppear('.warn.nickname',3)" onblur="warnChange('.warn.nickname',3)"/>
+                            <input type="text" id="nickname" name="nickname" maxlength="24" autocomplete="off" onclick="isClick3()" onfocus="warnAppear('.warn.nickname',3)" onblur="warnChange('.warn.nickname',3)"/>
                         </div>
                         <div class="warn nickname">请输入昵称</div>
                         <!--<div class="warn nickname">昵称不可以为空</div>-->
@@ -100,7 +100,7 @@
                     <div class="menu menu_2">
                         <label for="password" class="item">密码</label>
                         <div class="item_box">
-                            <input type="password" id="password" name="password" onclick="isClick4()" onfocus="warnAppear('.warn.password',4)" onblur="warnChange('.warn.password',4)"/>
+                            <input type="password" id="password" name="password" autocomplete="off" onclick="isClick4()" onfocus="warnAppear('.warn.password',4)" onblur="warnChange('.warn.password',4)"/>
                         </div>
                         <!--测试密码的强弱-->
                         <div class="warn password"></div>
@@ -116,7 +116,7 @@
                     <div class="menu menu_3">
                         <label for="confirm_psw" class="item">确认密码</label>
                         <div class="item_box">
-                            <input type="password" id="confirm_psw" name="confirm_psw" onclick="isClick5()" onfocus="warnAppear('.warn.confPsw',5)" onblur="warnChange('.warn.confPsw',5)"/>
+                            <input type="password" id="confirm_psw" name="confirm_psw" autocomplete="off" onclick="isClick5()" onfocus="warnAppear('.warn.confPsw',5)" onblur="warnChange('.warn.confPsw',5)"/>
                         </div>
                         <div class="warn confPsw">请再次确认密码</div>
                         <!--<div class="warn confPsw1">请再次输入密码</div>-->
@@ -141,15 +141,15 @@
                                 </ul>
                             </div>
                             <div class="birthday_box2" onclick="birthday_appear('.birthday_box2 ul');">
-                                <input type="text" maxlength="10" name="year_value" id="year_value" value="年" onblur="leaveBirth('year');">
+                                <input type="text" maxlength="10" name="year_value" id="year_value" value="年" autocomplete="off" onblur="leaveBirth('year');">
                                 <ul id="year"></ul>
                             </div>
                             <div class="birthday_box3" onclick="birthday_appear('.birthday_box3 ul');">
-                                <input type="text" maxlength="10" name="month_value" id="month_value" value="月" onblur="leaveBirth('month');">
+                                <input type="text" maxlength="10" name="month_value" id="month_value" value="月" autocomplete="off" onblur="leaveBirth('month');">
                                 <ul id="month"></ul>
                             </div>
                             <div class="birthday_box4" onclick="birthday_appear('.birthday_box4 ul');">
-                                <input type="text" maxlength="10" name="day_value" id="day_value" value="日" onblur="leaveBirth('day');">
+                                <input type="text" maxlength="10" name="day_value" id="day_value" value="日" autocomplete="off" onblur="leaveBirth('day');">
                                 <ul id="day"></ul>
                             </div>
                         </div>
@@ -158,7 +158,7 @@
                     <div class="menu menu_6">
                         <label for="birthplace" class="item">所在地</label>
                         <div class="item_box">
-                            <input type="text" id="birthplace" name="address"/>
+                            <input type="text" id="birthplace" name="address" onfocus="warnAppear('.warn.birthP',6)" onblur="warnChange('.warn.birthP',6)"/>
                         </div>
                         <div class="warn birthP"></div>
                         <!--<div class="warn birthP1"></div>-->
@@ -166,15 +166,16 @@
                     <div class="menu menu_7">
                         <label for="telephone" class="item">手机号码</label>
                         <div class="item_box" onclick="verify_appear()">
-                            <input type="text" id="telephone" name="cellphone_number" />
+                            <input type="text" id="telephone" name="cellphone_number" autocomplete="off" onfocus="warnAppear('.warn.tel',7)" onblur="warnChange('.warn.tel',7)"/>
                         </div>
+                        <div class="warn tel"></div>
                         <p class="reminder">可通过该手机号码快速找到密码</p>
                         <div class="reminder"><p>中国大陆以外手机号码</p><a href="#">点击这里</a></div>
                     </div>
                     <div class="menu menu_8">
                         <label for="tel_confirm" class="item"></label>
                         <div class="item_box">
-                            <input type="text" id="tel_confirm" name="tel_confirm"/>
+                            <input type="text" id="tel_confirm" name="tel_confirm" autocomplete="off"/>
                         </div>
                         <div class="confirm_btn">
                             获取短信验证码
@@ -188,7 +189,7 @@
                         <div class="warn confC">请先进行安全验证</div>
                     </div>
                     <div class="submit">
-                        <input type="submit" name="submit" value="立即注册" />
+                        <input type="button" name="submit" value="立即注册" />
                     </div>
                     <div class="last_hint">
                         <input type="checkbox" name="agree" checked><span>我已阅读并同意相关条款和隐私政策</span>

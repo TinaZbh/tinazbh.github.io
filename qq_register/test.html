@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<form  method="post">-->
+<h1>员工创建</h1>
+<label for="name" >姓名</label>
+<input type="text" name="name" id="name">
+<br>
+<label for="sex">性别</label>
+<select name="sex" id="sex">
+    <option>男</option>
+    <option>女</option>
+</select>
+<button id="save">保存</button>
+<p id="result"></p>
+<!--</form>-->
+<script>
+    document.getElementById("save").onclick=function(){
+        var request=new XMLHttpRequest();
+        request.open("POST","www.baidu.com");
+        var data="name="+document.getElementById('name').value+
+                        "&sex="+document.getElementById('sex').value;
+        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        request.send(data);
+        request.onreadystatechange=function () {
+            if(request.readyState===4){
+                if(request.status===200){
+                    document.getElementById("result").innerHTML=request.responseText;
+                }else{
+                    document.getElementById("result").innerHTML="Error:"+request.status;
+
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

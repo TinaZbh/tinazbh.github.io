@@ -54,7 +54,6 @@ function reg_email() {
     document.querySelector(".hint_psw").style.top = "82px";
     document.querySelector("#email_name").focus();
     isclick3 = 0;
-    // alert(isclick3);
     document.cookie = "2";
 }
 function create_email() {
@@ -82,7 +81,7 @@ function verify_appear() {
 }
 
 function isClick3() {
-    isclick3 = 1;
+    // isclick3 = 1;
 }
 function isClick4() {
     isclick4 = 1;
@@ -125,11 +124,15 @@ function warnAppear(obj, a) {
     }
     if (a == 4) {
         // var newInp = document.getElementById("password");
-        // var hint=document.querySelectorAll(".hint_psw .hPsw");
+        var hint=document.querySelectorAll(".hint_psw .hPsw");
         newWarn.style.color = "grey";
         newWarn.style.background = "none";
         newWarn.style.paddingLeft = "0";
         document.querySelector(".hint_psw").style.display = 'block';
+        newWarn.style.display = 'none';
+        // hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+        // hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+        // hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
         // if((newInp.value.length<6||newInp.value.length>16)&&newInp.value.length>0){
         //     document.querySelector(".hint_psw").style.display='block';
         //     hint[0].style.background="url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
@@ -154,21 +157,22 @@ function warnChange(obj, a) {
     if (a == 1) {
         var newInp = document.getElementById("email_name");
         var newInp1 = document.querySelector(".warn.emailCode1");
-        // if (document.querySelectorAll('.warn.emailCode a')[0].onclick) {
-        //     return;
-        // }
-        // if (document.querySelectorAll('.warn.emailCode a')[1].onclick) {
-        //     return;
-        // }
+
         if (newInp.value == "") {
             newWarn.style.display = 'none';
             newInp1.style.display = 'block';
+            newInp1.innerHTML = "邮箱不能为空";
             itemBox[0].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0 no-repeat";
-        } else if ((newInp.value.search('@') == -1) || (newInp.value.search('.com') == -1) || (newInp.value.search(' ') != -1)) {
+        } else if (!/^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(\.[a-zA-Z0-9_-]+)+$/g.test(newInp.value)) {
             newWarn.style.display = 'none';
             newInp1.innerHTML = "输入格式错误";
             newInp1.style.display = 'block';
             itemBox[0].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        }else if (/^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(\.[a-zA-Z0-9_-]+)+$/g.test(newInp.value)){
+            newWarn.style.display = 'none';
+            newInp1.style.display = 'block';
+            newInp1.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
+            newInp1.innerHTML = '';
         }
         if (!document.querySelectorAll('.warn.emailCode a')[0].onclick) {
             create_email();
@@ -189,6 +193,18 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[1].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 -114px  no-repeat";
+        }else if(!/^[a-zA-Z0-9-_]{3,18}$/g.test(newInp.value)){
+            newWarn.innerHTML = '输入格式错误';
+            newWarn.style.color = "red";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
+            newWarn.style.paddingLeft = "18px";
+            newWarn.style.height = "22px";
+            newWarn.style.lineHeight = "22px";
+            itemBox[1].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 -114px  no-repeat";
+
+        }else{
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
+            newWarn.innerHTML = '';
         }
     }
 
@@ -203,38 +219,80 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[2].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        }else{
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
+            newWarn.innerHTML = '';
         }
+        // else if(/^[a-zA-Z0-9-_]{24,}$/.test(newInp.value)||/^[\u4e00-\u9fa5]{12,}$/.test(newInp.value)) {
+        //     newWarn.innerHTML = '不能超过24个字母或12个汉字';
+        //     newWarn.style.color = "red";
+        //     newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
+        //     newWarn.style.paddingLeft = "18px";
+        //     newWarn.style.height = "22px";
+        //     newWarn.style.lineHeight = "22px";
+        //     itemBox[2].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        // }
     }
     if (a == 4 && isclick4 == 1) {
         var newInp = document.getElementById("password");
+        var sign=1;
+        var hint = document.querySelectorAll(".hint_psw .hPsw");
         if (newInp.value == "") {
             document.querySelector(".hint_psw").style.display = 'block';
             itemBox[3].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+            hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+            hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+            hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+            hint[0].style.color = "black";
+            hint[1].style.color = "black";
+            hint[2].style.color = "black";
+            sign=0;
         }
-        var hint = document.querySelectorAll(".hint_psw .hPsw");
-        if ((newInp.value.length < 6 || newInp.value.length > 16) && newInp.value.length > 0) {
+
+        if ((newInp.value.length<6&&newInp.value.length>0)||newInp.value.length>16){
             document.querySelector(".hint_psw").style.display = 'block';
             hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
             hint[0].style.color = "red";
-        } else {
-            hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+            sign=0;
+        } else if(newInp.value !== ""){
+            hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             hint[0].style.color = "black";
         }
-        if (newInp.value.search(" ") != -1) {
+        if (/\s/g.test(newInp.value)){
             document.querySelector(".hint_psw").style.display = 'block';
             hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
             hint[1].style.color = "red";
-        } else {
-            hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+            sign=0;
+        } else if(newInp.value !== ""){
+            hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             hint[1].style.color = "black";
         }
-        if ((parseInt(newInp.value.substr(0, 9)) + "").length == 9 && !isNaN(parseInt(newInp.value.substr(0, 9))) && ((newInp.value.substr(0, 9)) + "").search("-") == -1) {
+        // if ((parseInt(newInp.value.substr(0, 9)) + "").length == 9 && !isNaN(parseInt(newInp.value.substr(0, 9))) && ((newInp.value.substr(0, 9)) + "").search("-") == -1) {
+        if(/^[0-9]{1,9}$/.test(newInp.value)){
             document.querySelector(".hint_psw").style.display = 'block';
             hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
             hint[2].style.color = "red";
-        } else {
-            hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+            sign=0;
+        } else if(newInp.value !== ""){
+            hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             hint[2].style.color = "black";
+        }
+        if(sign==1){
+            document.querySelector(".hint_psw").style.display = 'none';
+            newWarn.style.display = 'block';
+            if(/^[a-zA-Z0-9]{6,7}$/g.test(newInp.value)||/^[A-Z]{6,16}$/g.test(newInp.value)||/^[0-9]{6,7}$/g.test(newInp.value)||/^[a-z]{6,16}$/g.test(newInp.value)){
+                newWarn.innerHTML="试试字母、数字、标点的组合吧";
+                newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -102px no-repeat";
+                newWarn.style.paddingTop = "18px";
+            }else if(/^[a-z0-9A-Z]{8,16}$/g.test(newInp.value)){
+                newWarn.innerHTML="复杂度还行，再加强一下等级？";
+                newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -145px no-repeat";
+                newWarn.style.paddingTop = "18px";
+            }else{
+                newWarn.innerHTML="密码强度好，哥们请记牢！";
+                newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -192px no-repeat";
+                newWarn.style.paddingTop = "18px";
+            }
         }
     }
     if (a == 5 && isclick5 == 1) {
@@ -248,11 +306,109 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[4].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        }else if(newInp.value!==document.getElementById("password").value){
+            newWarn.innerHTML = '密码不一致';
+            newWarn.style.color = "red";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
+            newWarn.style.paddingLeft = "18px";
+            newWarn.style.marginTop = "5px";
+            newWarn.style.height = "22px";
+            newWarn.style.lineHeight = "22px";
+            itemBox[4].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        }else{
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
+            newWarn.innerHTML = '';
+        }
+
+    }
+
+    if(a==6){
+        var newInp = document.getElementById("birthplace");
+        if (newInp.value == "") {
+            newWarn.style.display="none";
+            itemBox[5].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        }else{
+            newWarn.style.display="block";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
+        }
+    }
+    if(a==7){
+        var newInp = document.getElementById("telephone");
+        if (newInp.value == "") {
+            newWarn.style.display="none";
+            itemBox[6].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        }
+        else if(newInp.value.length!==11){
+            newWarn.style.display="block";
+            newWarn.innerHTML = '请输入有效的手机号';
+            newWarn.style.color = "red";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
+            newWarn.style.paddingLeft = "18px";
+            newWarn.style.marginTop = "5px";
+            newWarn.style.height = "22px";
+            newWarn.style.lineHeight = "22px";
+            itemBox[6].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
+        }
+        /*
+         * 原文链接：http://www.jianshu.com/p/e8477fdccbe9
+         * 手机号码:/^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\\d{8}$/
+         * 13[0-9], 14[5,7], 15[0, 1, 2, 3, 5, 6, 7, 8, 9], 17[0, 1, 6, 7, 8], 18[0-9]
+         * 移动号段: 134,135,136,137,138,139,147,150,151,152,157,158,159,170,178,182,183,184,187,188
+         * 联通号段: 130,131,132,145,155,156,170,171,175,176,185,186
+         * 电信号段: 133,149,153,170,173,177,180,181,189
+         */
+        else if(/^1(3[4-9]|4[7]|5[0-27-9]|7[08]|8[2-478])\d{8}$/g.test(newInp.value)){
+            newWarn.style.display="block";
+            newWarn.innerHTML = '中国移动';
+            newWarn.style.color = "grey";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -247px no-repeat";
+            newWarn.style.paddingLeft = "18px";
+            newWarn.style.marginTop = "5px";
+            newWarn.style.height = "22px";
+            newWarn.style.lineHeight = "22px";
+        }
+        else if(/^1(3[0-2]|4[5]|5[56]|7[0156]|8[56])\d{8}$/g.test(newInp.value)){
+            newWarn.style.display="block";
+            newWarn.innerHTML = '中国联通';
+            newWarn.style.color = "grey";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -247px no-repeat";
+            newWarn.style.paddingLeft = "18px";
+            newWarn.style.marginTop = "5px";
+            newWarn.style.height = "22px";
+            newWarn.style.lineHeight = "22px";
+        }
+        else if(/^1(3[3]|4[9]|53|7[037]|8[019])\d{8}$/g.test(newInp.value)){
+            newWarn.style.display="block";
+            newWarn.innerHTML = "中国电信";
+            newWarn.style.color = "grey";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -247px no-repeat";
+            newWarn.style.paddingLeft = "18px";
+            newWarn.style.marginTop = "5px";
+            newWarn.style.height = "22px";
+            newWarn.style.lineHeight = "22px";
         }
     }
 }
 
 function leaveBirth(str) {
     var obj = document.getElementById(str);
+    var fObj=document.getElementById(str+"_value");
+    var fYear=document.getElementById("year_value");
+    var fMonth=document.getElementById("month_value");
+    var fDay=document.getElementById("day_value");
+    var newWarn = document.querySelector(".warn.birth");
     obj.style.display = "none";
+    if(str=="year"&&fObj.value =="") {
+        fObj.value ="年";
+    }else if(str=="month"&&fObj.value =="") {
+        fObj.value ="月";
+    }else if(str=="day"&&fObj.value =="") {
+        fObj.value ="日";
+    }
+    if(/[0-9]/.test(fYear.value)&&/[0-9]/.test(fMonth.value)&&/[0-9]/.test(fDay.value)){
+        newWarn.style.display="block";
+        newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -240px no-repeat";
+    }else{
+        newWarn.style.display="none";
+    }
 }
