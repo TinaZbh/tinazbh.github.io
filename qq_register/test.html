@@ -3,40 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--<script src="../jquery/jquery-3.1.1.js"></script>-->
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-<!--<form  method="post">-->
-<h1>员工创建</h1>
-<label for="name" >姓名</label>
-<input type="text" name="name" id="name">
-<br>
-<label for="sex">性别</label>
-<select name="sex" id="sex">
-    <option>男</option>
-    <option>女</option>
-</select>
-<button id="save">保存</button>
-<p id="result"></p>
-<!--</form>-->
-<script>
-    document.getElementById("save").onclick=function(){
-        var request=new XMLHttpRequest();
-        request.open("POST","www.baidu.com");
-        var data="name="+document.getElementById('name').value+
-                        "&sex="+document.getElementById('sex').value;
-        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        request.send(data);
-        request.onreadystatechange=function () {
-            if(request.readyState===4){
-                if(request.status===200){
-                    document.getElementById("result").innerHTML=request.responseText;
-                }else{
-                    document.getElementById("result").innerHTML="Error:"+request.status;
+<form method="post" onsubmit="return saveReport();" id="showDataForm">
+    <h1>员工创建</h1>
+    <label for="name">姓名</label>
+    <input type="text" name="name" id="name">
+    <br>
+    <label for="sex">性别</label>
+    <select name="sex" id="sex">
+        <option>男</option>
+        <option>女</option>
+    </select>
 
-                }
-            }
-        }
+    <button id="save">保存</button>
+    <p id="result"></p>
+</form>
+<script>
+    $(document).ready(function () {
+        $("#save").click(function () {
+            var showData = {
+                name: $("#name").val(),
+                sex: $("#sex").val(),
+            };
+            console.log(showData);
+            $.ajax({
+                type: "GET",
+                url: "http://test.bihan.me/zbhtest.php",
+                dataType: "json",
+                data: showData,
+
+            })
+        })
+    })
+    //    console.log(data);
+    //    document.getElementById("save").onclick=function(){
+    //        var request=new XMLHttpRequest();
+    //        request.open("GET","www.baidu.com");
+    //        var data="name="+document.getElementById('name').value+
+    //                        "&sex="+document.getElementById('sex').value;
+    ////        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    //        request.send(data);
+    //        request.onreadystatechange=function () {
+    //            if(request.readyState===4){
+    //                if(request.status===200){
+    //                    document.getElementById("result").innerHTML=request.responseText;
+    //                }else{
+    //                    document.getElementById("result").innerHTML="Error:"+request.status;
+    //
+    //                }
+    //            }
+    //        }
+    //    }
+    function saveReport() {
+////        jquery 表单提交
+//        $("#showDataForm").ajaxSubmit(function(message) {
+////            对于表单提交成功后处理，message为提交页面saveReport.htm的返回内容
+//        });
+
+        return false; // 必须返回false，否则表单会自己再做一次提交操作，并且页面跳转
     }
+
 </script>
 </body>
 </html>
