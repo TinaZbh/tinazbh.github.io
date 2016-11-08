@@ -95,10 +95,10 @@ body {
     color: white;
 }
 .fis_btn:first-child{
-    background: url("http://6.url.cn/zc/chs/img/left_2.png?v=10090") left bottom no-repeat;
+    /*background: url("http://6.url.cn/zc/chs/img/left_2.png?v=10090") left bottom no-repeat;*/
 }
 .fis_btn:nth-child(2){
-    background: url("http://6.url.cn/zc/chs/img/left_2.png?v=10090") left top no-repeat;
+    /*background: url("http://6.url.cn/zc/chs/img/left_2.png?v=10090") left top no-repeat;*/
 }
 .fis_btn:nth-child(2) span{
     color:#616c72;

@@ -103,6 +103,20 @@
         <li>返回窗口的外部高度。</li>
     </ul>
 </form>
+<canvas id="myCanvas" width="200" height="200" style="border:solid 1px #CCC; margin:30px;">
+    您的浏览器不支持canvas，建议使用最新版的Chrome
+</canvas>
 
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+    ctx.moveTo(0,0);   //咱把“画笔”移到坐标(0,0)
+    ctx.lineTo(150,50);  //从上个点(0,0)画一条直线，结束点坐标是(150,50)
+    ctx.lineTo(20,100);  //从上个点(150,50)继续画一条直线，结束点坐标是(20,100)
+//    ctx.moveTo(90,90);   //咱把“画笔”移到坐标(90,90)
+    ctx.lineTo(80,150);  //从上个点(60,60)继续画一条直线，结束点坐标是(80,150)
+    ctx.strokeStyle = "red";    //设定描边颜色为红色，只要写在.stroke()方法前面即可
+    ctx.stroke();  //描边
+</script>
 </body>
 </html>

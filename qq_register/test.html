@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onbeforeunload="clear()">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <!--<script src="../jquery/jquery-3.1.1.js"></script>-->
     <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 </head>
-<body>
+<body >
 <form method="post" onsubmit="return saveReport();" id="showDataForm">
     <h1>员工创建</h1>
     <label for="name">姓名</label>
@@ -22,6 +22,9 @@
     <p id="result"></p>
 </form>
 <script>
+    function clear() {
+        alert("hello");
+    }
     $(document).ready(function () {
         $("#save").click(function () {
             var showData = {

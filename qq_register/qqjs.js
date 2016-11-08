@@ -2,19 +2,19 @@
  * Created by zbh on 16/10/15.
  */
 var isclick3 = 0;
-// var isclick4 = 0;
-// var isclick5 = 0;
 
 function autoFocus() {
-    document.querySelector("#nickname").focus();
-    // isclick3=1;
-    if (document.cookie == "1") {
+    if (sessionStorage.getItem("key") === "1") {
         reg_qq();
-    } else if (document.cookie == "2") {
+        document.querySelector("#nickname").focus();
+    } else if (sessionStorage.getItem("key") === "2") {
         reg_email();
+        document.querySelector("#email_name").focus();
+    }else{
+        reg_qq();
+        document.querySelector("#nickname").focus();
     }
 }
-
 function reg_qq() {
     document.querySelector("#nickname").focus();
     document.querySelector(".fis_btn:first-child").style.background = "url('http://6.url.cn/zc/chs/img/left_2.png?v=10090') left bottom no-repeat";
@@ -33,10 +33,10 @@ function reg_qq() {
     document.querySelector(".menu_7").style.display = "block";
     document.querySelector(".hint_psw").style.top = "32px";
     isclick3 = 1;
-    document.cookie = "1";
-
+    sessionStorage.setItem("key","1");
 }
 function reg_email() {
+    document.querySelector("#email_name").focus();
     document.querySelector(".fis_btn:first-child").style.background = "url('http://6.url.cn/zc/chs/img/left_2.png?v=10090') left top no-repeat";
     document.querySelector(".fis_btn:nth-child(2)").style.background = "url('http://6.url.cn/zc/chs/img/left_2.png?v=10090') left bottom no-repeat";
     document.querySelectorAll(".fis_btn:first-child span")[1].style.color = "#616c72";
@@ -52,11 +52,10 @@ function reg_email() {
     document.querySelector(".menu_8").style.display = "none";
     document.querySelector(".menu_7").style.display = "none";
     document.querySelector(".hint_psw").style.top = "82px";
-    document.querySelector("#email_name").focus();
     // document.querySelectorAll(".item_box")[2].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") 0 0 no-repeat';
     // document.querySelector(".warn.nickname").style.display="none";
     isclick3 = 0;
-    document.cookie = "2";
+    sessionStorage.setItem("key","2");
 }
 function create_email() {
     document.querySelectorAll(".email")[0].style.display = "none";
@@ -113,24 +112,19 @@ function verify_appear() {
 function isClick3() {
     isclick3 = 1;
 }
-function isClick4() {
-    // isclick4 = 1;
-}
-function isClick5() {
-    // isclick5 = 1;
-}
-var chooseSex=1;
+
+var chooseSex = 1;
 function chooseMale() {
     var newOne = document.querySelectorAll(".sex_box a");
     newOne[0].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat';
     newOne[1].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat';
-    chooseSex=1;
+    chooseSex = 1;
 }
 function chooseFemale() {
     var newOne = document.querySelectorAll(".sex_box a");
     newOne[1].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat';
     newOne[0].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat';
-    chooseSex=0;
+    chooseSex = 0;
 }
 
 function warnAppear(obj, a) {
@@ -190,25 +184,25 @@ function warnChange(obj, a) {
     if (a == 1) {
         var newInp = document.getElementById("email_name");
         var newInp1 = document.querySelector(".warn.emailCode1");
-        var mark=0;
+        var mark = 0;
         if (newInp.value == "") {
             newWarn.style.display = 'none';
             newInp1.style.display = 'block';
             newInp1.innerHTML = "邮箱不能为空";
             itemBox[0].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0 no-repeat";
-            mark=1;
+            mark = 1;
         } else if (!/^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(\.[a-zA-Z0-9_-]+)+$/g.test(newInp.value)) {
             newWarn.style.display = 'none';
             newInp1.innerHTML = "输入格式错误";
             newInp1.style.display = 'block';
             itemBox[0].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
-            mark=1;
+            mark = 1;
         } else if (/^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(\.[a-zA-Z0-9_-]+)+$/g.test(newInp.value)) {
             newWarn.style.display = 'none';
             newInp1.style.display = 'block';
             newInp1.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             newInp1.innerHTML = '';
-            mark=0;
+            mark = 0;
         }
         if (!document.querySelectorAll('.warn.emailCode a')[0].onclick) {
             create_email();
@@ -216,13 +210,13 @@ function warnChange(obj, a) {
         if (!document.querySelectorAll('.warn.emailCode a')[1].onclick) {
             reg_qq();
         }
-        if(mark===1) return false;
+        if (mark === 1) return false;
     }
     if (a == 2) {
         var newInp = document.getElementById("register_email");
         itemBox[1].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") 0 -176px no-repeat';
         // document.querySelector(".regEmail .item_box").style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") 0 -176px no-repeat';
-        var mark=0;
+        var mark = 0;
         if (newInp.value == "") {
             newWarn.innerHTML = '请输入邮箱';
             newWarn.style.color = "red";
@@ -231,7 +225,7 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[1].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 -114px  no-repeat";
-            mark=1;
+            mark = 1;
         } else if (!/^[a-zA-Z0-9-_]{3,18}$/g.test(newInp.value)) {
             newWarn.innerHTML = '输入格式错误';
             newWarn.style.color = "red";
@@ -240,19 +234,21 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[1].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 -114px  no-repeat";
-            mark=1;
+            mark = 1;
         } else {
             newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             newWarn.innerHTML = '';
-            mark=0;
+            mark = 0;
         }
-        if(mark===1){return false;}
+        if (mark === 1) {
+            return false;
+        }
     }
 
-    if (a == 3&& isclick3 == 1) {
+    if (a == 3 && isclick3 == 1) {
 
         var newInp = document.getElementById("nickname");
-        var mark=0;
+        var mark = 0;
         if (newInp.value == "") {
             newWarn.innerHTML = '昵称不可为空';
             newWarn.style.color = "red";
@@ -261,13 +257,15 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[2].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
-            mark=1;
+            mark = 1;
         } else {
             newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             newWarn.innerHTML = '';
-            mark=0
+            mark = 0
         }
-        if(mark===1){return false;}
+        if (mark === 1) {
+            return false;
+        }
 
         // else if(/^[a-zA-Z0-9-_]{24,}$/.test(newInp.value)||/^[\u4e00-\u9fa5]{12,}$/.test(newInp.value)) {
         //     newWarn.innerHTML = '不能超过24个字母或12个汉字';
@@ -279,12 +277,12 @@ function warnChange(obj, a) {
         //     itemBox[2].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
         // }
     }
-    if (a == 4 ) {
-    // && isclick4 == 1
+    if (a == 4) {
+        // && isclick4 == 1
         var newInp = document.getElementById("password");
         var sign = 1;
         var hint = document.querySelectorAll(".hint_psw .hPsw");
-        var mark=0;
+        var mark = 0;
         if (newInp.value == "") {
             document.querySelector(".hint_psw").style.display = 'block';
             itemBox[3].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
@@ -295,7 +293,7 @@ function warnChange(obj, a) {
             hint[1].style.color = "black";
             hint[2].style.color = "black";
             sign = 0;
-            mark=1;
+            mark = 1;
         }
 
         if ((newInp.value.length < 6 && newInp.value.length > 0) || newInp.value.length > 16) {
@@ -303,22 +301,22 @@ function warnChange(obj, a) {
             hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
             hint[0].style.color = "red";
             sign = 0;
-            mark=1;
+            mark = 1;
         } else if (newInp.value !== "") {
             hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             hint[0].style.color = "black";
-            mark=1
+            mark = 1
         }
         if (/\s/g.test(newInp.value)) {
             document.querySelector(".hint_psw").style.display = 'block';
             hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
             hint[1].style.color = "red";
             sign = 0;
-            mark=1
+            mark = 1
         } else if (newInp.value !== "") {
             hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             hint[1].style.color = "black";
-            mark=0
+            mark = 0
         }
         // if ((parseInt(newInp.value.substr(0, 9)) + "").length == 9 && !isNaN(parseInt(newInp.value.substr(0, 9))) && ((newInp.value.substr(0, 9)) + "").search("-") == -1) {
         if (/^[0-9]{1,9}$/.test(newInp.value)) {
@@ -326,11 +324,11 @@ function warnChange(obj, a) {
             hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
             hint[2].style.color = "red";
             sign = 0;
-            mark=1;
+            mark = 1;
         } else if (newInp.value !== "") {
             hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             hint[2].style.color = "black";
-            mark=0
+            mark = 0
         }
         if (sign == 1) {
             document.querySelector(".hint_psw").style.display = 'none';
@@ -349,13 +347,15 @@ function warnChange(obj, a) {
                 newWarn.style.paddingTop = "18px";
             }
         }
-        if(mark===1){return false;}
+        if (mark === 1) {
+            return false;
+        }
 
     }
-    if (a == 5 ) {
-    // && isclick5 == 1
+    if (a == 5) {
+        // && isclick5 == 1
         var newInp = document.getElementById("confirm_psw");
-        var mark=0;
+        var mark = 0;
         if (newInp.value == "") {
             newWarn.innerHTML = '请再次输入密码';
             newWarn.style.color = "red";
@@ -365,7 +365,7 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[4].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
-            mark=1;
+            mark = 1;
         } else if (newInp.value !== document.getElementById("password").value) {
             newWarn.innerHTML = '密码不一致';
             newWarn.style.color = "red";
@@ -375,37 +375,41 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[4].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
-            mark=1
+            mark = 1
         } else {
             newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
             newWarn.innerHTML = '';
-            mark=0;
+            mark = 0;
         }
-        if(mark===1){return false;}
+        if (mark === 1) {
+            return false;
+        }
     }
 
     if (a == 6) {
         var newInp = document.getElementById("birthplace");
-        var mark=0;
+        var mark = 0;
         if (newInp.value == "") {
             newWarn.style.display = "none";
             itemBox[5].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
-            mark=1;
+            mark = 1;
         } else {
             newWarn.style.display = "block";
             newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
-            mark=0;
+            mark = 0;
         }
-        if(mark===1){return false;}
+        if (mark === 1) {
+            return false;
+        }
 
     }
     if (a == 7) {
         var newInp = document.getElementById("telephone");
-        var mark=0;
+        var mark = 0;
         if (newInp.value == "") {
             newWarn.style.display = "none";
             itemBox[6].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
-            mark=1;
+            mark = 1;
         }
         else if (newInp.value.length !== 11) {
             newWarn.style.display = "block";
@@ -417,7 +421,7 @@ function warnChange(obj, a) {
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
             itemBox[6].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
-            mark=1;
+            mark = 1;
         }
         /*
          * 原文链接：http://www.jianshu.com/p/e8477fdccbe9
@@ -436,7 +440,7 @@ function warnChange(obj, a) {
             newWarn.style.marginTop = "5px";
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
-            mark=0;
+            mark = 0;
         }
         else if (/^1(3[0-2]|4[5]|5[56]|7[0156]|8[56])\d{8}$/g.test(newInp.value)) {
             newWarn.style.display = "block";
@@ -447,7 +451,7 @@ function warnChange(obj, a) {
             newWarn.style.marginTop = "5px";
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
-            mark=0;
+            mark = 0;
         }
         else if (/^1(3[3]|4[9]|53|7[037]|8[019])\d{8}$/g.test(newInp.value)) {
             newWarn.style.display = "block";
@@ -458,10 +462,10 @@ function warnChange(obj, a) {
             newWarn.style.marginTop = "5px";
             newWarn.style.height = "22px";
             newWarn.style.lineHeight = "22px";
-            mark=0;
+            mark = 0;
         }
-        else{
-            mark=1;
+        else {
+            mark = 1;
             newWarn.style.display = "block";
             newWarn.innerHTML = '请输入有效的手机号';
             newWarn.style.color = "red";
@@ -472,7 +476,9 @@ function warnChange(obj, a) {
             newWarn.style.lineHeight = "22px";
             itemBox[6].style.background = "url('http://6.url.cn/zc/chs/img/input_error.png?v=10090') 0 0  no-repeat";
         }
-        if(mark===1){return false;}
+        if (mark === 1) {
+            return false;
+        }
     }
 
 }
@@ -485,7 +491,7 @@ function leaveBirth(str) {
     var fDay = document.getElementById("day_value");
     var newWarn = document.querySelector(".warn.birth");
     obj.style.display = "none";
-    var mark=0;
+    var mark = 0;
     if (str == "year" && fObj.value == "") {
         fObj.value = "年";
     } else if (str == "month" && fObj.value == "") {
@@ -496,126 +502,223 @@ function leaveBirth(str) {
     if (/[0-9]/.test(fYear.value) && /[0-9]/.test(fMonth.value) && /[0-9]/.test(fDay.value)) {
         newWarn.style.display = "block";
         newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -240px no-repeat";
-        mark=0;
+        mark = 0;
     } else {
         newWarn.style.display = "block";
         newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -340px no-repeat";
-        mark=1;
+        mark = 1;
     }
-    if(mark==1){return false;}
+    if (mark == 1) {
+        return false;
+    }
 
 }
+//  //用jquery实现ajax
+// $(document).ready(function () {
+//     $("#submit").click(function () {
+//         var a=warnChange('.warn.nickname',3);
+//         var b=warnChange('.warn.password',4);
+//         var c=warnChange('.warn.confPsw',5);
+//         var d=leaveBirth('year');
+//         var e=leaveBirth('month');
+//         var f=leaveBirth('day');
+//         var g=warnChange('.warn.birthP',6);
+//         if(a==false||b==false||c==false||d==false||e==false||f==false||g==false){return false;}
+//
+//         if (isclick3 == 1) {
+//
+//             var h=warnChange('.warn.tel',7);
+//             if(h==false){return false;}
+//             var QQData = {
+//                 nickname: $("#nickname").val(),
+//                 password: $("#password").val(),
+//                 confirmPSW: $("#confirm_psw").val(),
+//                 // sex: document.querySelector(".male_item").style.background == 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat' ? $(".male_item").text() : $(".female_item").text(),
+//                 sex: chooseSex===1 ? $(".male_item").text() : $(".female_item").text(),
+//                 birthday: {
+//                     type: $("#birth_type_value").text(),
+//                     year: $("#year_value").val(),
+//                     month: $("#month_value").val(),
+//                     day: $("#day_value").val()
+//                 },
+//                 birthplace: $("#birthplace").val(),
+//                 telephone: $("#telephone").val()
+//
+//             };
+//             console.log(QQData);
+//             $.ajax({
+//                 type: "GET",
+//                 url: "http://test.bihan.me/zbhtest.php",
+//                 dataType: "json",
+//                 data: QQData,
+//                 // success: function (data) {
+//                 //     if (data.success) {
+//                 //         console.log("dataMsg" + data.msg);
+//                 //     }
+//                 //     else {
+//                 //         console.log("Error" + data.msg);
+//                 //     }
+//                 // },
+//                 // error: function (jqXHR) {
+//                 //     console.log("发生错误jqXHR" + jqXHR.status);
+//                 // }
+//             });
+//         }
+//         if (isclick3 == 0) {
+//
+//             if ($("#register_email").val() == "") {
+//                 var i=warnChange('.emailCode',1);
+//                 if(i==false){return false;}
+//                 var EmailData = {
+//                     email: $("#email_name").val(),
+//                     nickname: $("#nickname").val(),
+//                     password: $("#password").val(),
+//                     confirmPSW: $("#confirm_psw").val(),
+//                     sex: chooseSex===1 ? $(".male_item").text() : $(".female_item").text(),
+//                     birthday: {
+//                         type: $("#birth_type_value").text(),
+//                         year: $("#year_value").val(),
+//                         month: $("#month_value").val(),
+//                         day: $("#day_value").val()
+//                     },
+//                     birthplace: $("#birthplace").val(),
+//                     // telephone: $("#telephone").val()
+//
+//                 };
+//             }
+//             else if ($("#email_name").val() == "") {
+//                 var j=warnChange('.registerEmail',2);
+//                 var h=warnChange('.warn.tel',7);
+//                 if(h==false||j==false){return false;}
+//                 var EmailData = {
+//                     email: $("#register_email").val(),
+//                     nickname: $("#nickname").val(),
+//                     password: $("#password").val(),
+//                     confirmPSW: $("#confirm_psw").val(),
+//                     sex: chooseSex===1 ? $(".male_item").text() : $(".female_item").text(),
+//                     birthday: {
+//                         type: $("#birth_type_value").text(),
+//                         year: $("#year_value").val(),
+//                         month: $("#month_value").val(),
+//                         day: $("#day_value").val()
+//                     },
+//                     birthplace: $("#birthplace").val(),
+//                     telephone: $("#telephone").val()
+//                 };
+//             }
+//         }
+//         console.log(EmailData);
+//         $.ajax({
+//             type: "GET",
+//             url: "http://test.bihan.me/zbhtest.php",
+//             dataType: "json",
+//             data: EmailData,
+//             // success: function (data) {
+//             //     if (data.success) {
+//             //         console.log("dataMsg" + data.msg);
+//             //     }
+//             //     else {
+//             //         console.log("Error" + data.msg);
+//             //     }
+//             // },
+//             // error: function (jqXHR) {
+//             //     console.log("发生错误jqXHR" + jqXHR.status);
+//             // }
+//         });
+//     })
+// })
 
-$(document).ready(function () {
-    $("#submit").click(function () {
-        var a=warnChange('.warn.nickname',3);
-        var b=warnChange('.warn.password',4);
-        var c=warnChange('.warn.confPsw',5);
-        var d=leaveBirth('year');
-        var e=leaveBirth('month');
-        var f=leaveBirth('day');
-        var g=warnChange('.warn.birthP',6);
-        if(a==false||b==false||c==false||d==false||e==false||f==false||g==false){return false;}
 
-        if (isclick3 == 1) {
+//用原生js实现ajax
+document.getElementById("submit").onclick = function () {
+    var request = new XMLHttpRequest();
+    var a = warnChange('.warn.nickname', 3);
+    var b = warnChange('.warn.password', 4);
+    var c = warnChange('.warn.confPsw', 5);
+    var d = leaveBirth('year');
+    var e = leaveBirth('month');
+    var f = leaveBirth('day');
+    var g = warnChange('.warn.birthP', 6);
+    if (a == false || b == false || c == false || d == false || e == false || f == false || g == false) {
+        return false;
+    }
 
-            var h=warnChange('.warn.tel',7);
-            if(h==false){return false;}
-            var QQData = {
-                nickname: $("#nickname").val(),
-                password: $("#password").val(),
-                confirmPSW: $("#confirm_psw").val(),
-                // sex: document.querySelector(".male_item").style.background == 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat' ? $(".male_item").text() : $(".female_item").text(),
-                sex: chooseSex===1 ? $(".male_item").text() : $(".female_item").text(),
-                birthday: {
-                    type: $("#birth_type_value").text(),
-                    year: $("#year_value").val(),
-                    month: $("#month_value").val(),
-                    day: $("#day_value").val()
+    if (isclick3 == 1) {
+
+        var h = warnChange('.warn.tel', 7);
+        if (h == false) {
+            return false;
+        }
+        var QQData = {
+            "nickname": document.getElementById("nickname").value,
+            "password": document.getElementById("password").value,
+            "confirmPSW": document.getElementById("confirm_psw").value,
+            // sex: document.querySelector(".male_item").style.background == 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat' ? $(".male_item").text() : $(".female_item").text(),
+            "sex": chooseSex === 1 ? "男" : "女",
+            "birthday": {
+                "type": document.querySelector("#birth_type_value").innerHTML,
+                "year": document.querySelector("#year_value").value,
+                "month": document.querySelector("#month_value").value,
+                "day": document.querySelector("#day_value").value
+            },
+            "birthplace": document.querySelector("#birthplace").value,
+            "telephone": document.querySelector("#telephone").value
+
+        };
+        console.log(QQData);
+        request.open("GET", "http://test.bihan.me/zbhtest.php");
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send(QQData);
+    }
+    if (isclick3 == 0) {
+
+        if ($("#register_email").val() == "") {
+            var i = warnChange('.emailCode', 1);
+            if (i == false) {
+                return false;
+            }
+            var EmailData = {
+                "email": document.querySelector("#email_name").value,
+                "nickname": document.getElementById("nickname").value,
+                "password": document.getElementById("password").value,
+                "confirmPSW": document.getElementById("confirm_psw").value,
+                "sex": chooseSex === 1 ? "男" : "女",
+                "birthday": {
+                    "type": document.querySelector("#birth_type_value").innerHTML,
+                    "year": document.querySelector("#year_value").value,
+                    "month": document.querySelector("#month_value").value,
+                    "day": document.querySelector("#day_value").value
                 },
-                birthplace: $("#birthplace").val(),
-                telephone: $("#telephone").val()
+                "birthplace": document.querySelector("#birthplace").value,
+                // telephone: $("#telephone").val()
 
             };
-            console.log(QQData);
-            $.ajax({
-                type: "GET",
-                url: "http://test.bihan.me/zbhtest.php",
-                dataType: "json",
-                data: QQData,
-                // success: function (data) {
-                //     if (data.success) {
-                //         console.log("dataMsg" + data.msg);
-                //     }
-                //     else {
-                //         console.log("Error" + data.msg);
-                //     }
-                // },
-                // error: function (jqXHR) {
-                //     console.log("发生错误jqXHR" + jqXHR.status);
-                // }
-            });
         }
-        if (isclick3 == 0) {
-
-            if ($("#register_email").val() == "") {
-                var i=warnChange('.emailCode',1);
-                if(i==false){return false;}
-                var EmailData = {
-                    email: $("#email_name").val(),
-                    nickname: $("#nickname").val(),
-                    password: $("#password").val(),
-                    confirmPSW: $("#confirm_psw").val(),
-                    sex: chooseSex===1 ? $(".male_item").text() : $(".female_item").text(),
-                    birthday: {
-                        type: $("#birth_type_value").text(),
-                        year: $("#year_value").val(),
-                        month: $("#month_value").val(),
-                        day: $("#day_value").val()
-                    },
-                    birthplace: $("#birthplace").val(),
-                    // telephone: $("#telephone").val()
-
-                };
+        else if ($("#email_name").val() == "") {
+            var j = warnChange('.registerEmail', 2);
+            var h = warnChange('.warn.tel', 7);
+            if (h == false || j == false) {
+                return false;
             }
-            else if ($("#email_name").val() == "") {
-                var j=warnChange('.registerEmail',2);
-                var h=warnChange('.warn.tel',7);
-                if(h==false||j==false){return false;}
-                var EmailData = {
-                    email: $("#register_email").val(),
-                    nickname: $("#nickname").val(),
-                    password: $("#password").val(),
-                    confirmPSW: $("#confirm_psw").val(),
-                    sex: chooseSex===1 ? $(".male_item").text() : $(".female_item").text(),
-                    birthday: {
-                        type: $("#birth_type_value").text(),
-                        year: $("#year_value").val(),
-                        month: $("#month_value").val(),
-                        day: $("#day_value").val()
-                    },
-                    birthplace: $("#birthplace").val(),
-                    telephone: $("#telephone").val()
-                };
-            }
+            var EmailData = {
+                "email": document.querySelector("#register_email").value,
+                "nickname": document.getElementById("nickname").value,
+                "password": document.getElementById("password").value,
+                "confirmPSW": document.getElementById("confirm_psw").value,
+                "sex": chooseSex === 1 ? "男" : "女",
+                "birthday": {
+                    "type": document.querySelector("#birth_type_value").innerHTML,
+                    "year": document.querySelector("#year_value").value,
+                    "month": document.querySelector("#month_value").value,
+                    "day": document.querySelector("#day_value").value
+                },
+                "birthplace": document.querySelector("#birthplace").value,
+                "telephone": document.querySelector("#telephone").value
+            };
         }
-        console.log(EmailData);
-        $.ajax({
-            type: "GET",
-            url: "http://test.bihan.me/zbhtest.php",
-            dataType: "json",
-            data: EmailData,
-            // success: function (data) {
-            //     if (data.success) {
-            //         console.log("dataMsg" + data.msg);
-            //     }
-            //     else {
-            //         console.log("Error" + data.msg);
-            //     }
-            // },
-            // error: function (jqXHR) {
-            //     console.log("发生错误jqXHR" + jqXHR.status);
-            // }
-        });
-    })
-})
+    }
+    console.log(EmailData);
+    request.open("GET", "http://test.bihan.me/zbhtest.php");
+    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    request.send(EmailData);
+}
