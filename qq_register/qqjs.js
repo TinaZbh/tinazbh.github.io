@@ -112,7 +112,12 @@ function verify_appear() {
 function isClick3() {
     isclick3 = 1;
 }
-
+function isClick4() {
+    // isclick4 = 1;
+}
+function isClick5() {
+    // isclick5 = 1;
+}
 var chooseSex = 1;
 function chooseMale() {
     var newOne = document.querySelectorAll(".sex_box a");
