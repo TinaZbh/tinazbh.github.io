@@ -96,6 +96,7 @@ body {
     border-radius: 4px;
     margin-top: 20px;
     position: relative;
+    outline: none;
 }
 .winTxt{
     color: rgba(0,0,0,0.5);
@@ -147,6 +148,7 @@ body {
     font-size: 18px;
     margin-top: 25px;
     cursor: pointer;
+    outline: none;
 }
 #winLogin:hover{
     background-color: rgba(89,175,228,0.9);

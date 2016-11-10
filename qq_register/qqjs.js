@@ -680,13 +680,13 @@ document.getElementById("submit").onclick = function () {
 
         };
         console.log(QQData);
-        request.open("GET", "http://test.bihan.me/zbhtest.php");
+        request.open("POST", "http://test.bihan.me/zbhtest.php");
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send(QQData);
     }
     if (isclick3 == 0) {
 
-        if ($("#register_email").val() == "") {
+        if (document.querySelector("#register_email").value== "") {
             var i = warnChange('.emailCode', 1);
             if (i == false) {
                 return false;
@@ -708,7 +708,7 @@ document.getElementById("submit").onclick = function () {
 
             };
         }
-        else if ($("#email_name").val() == "") {
+        else if (document.querySelector("#email_name").value == "") {
             var j = warnChange('.registerEmail', 2);
             var h = warnChange('.warn.tel', 7);
             if (h == false || j == false) {
@@ -732,10 +732,18 @@ document.getElementById("submit").onclick = function () {
         }
     }
     console.log(EmailData);
-    request.open("GET", "http://test.bihan.me/zbhtest.php");
+    request.open("POST", "http://test.bihan.me/zbhtest.php");
     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     request.send(EmailData);
 }
+
+
+
+
+
+
+
+
 
 
 //登录窗口的js代码
@@ -752,6 +760,8 @@ function slide(obj,i) {
     text.style.color="#5188a6";
     $(obj).animate({top:"-16px"},260);
     document.querySelectorAll(".winItem")[i].style.borderColor="#5188a6";
+    if(i===0){document.querySelector("#username").focus();}
+    if(i===1){document.querySelector("#winPsw").focus();}
 }
 
 //用jquery中的animate函数实现向上移动的动画效果
@@ -762,16 +772,19 @@ function slide(obj,i) {
 // })
 
 //失去焦点,提示字又下滑回来了
-function slideBack(obj,i) {
-    var text=document.querySelector(obj);
-    text.style.color="rgba(0,0,0,0.5)";
-    $(obj).animate({top:"0px"},260);
-    document.querySelectorAll(".winItem")[i].style.borderColor="rgba(0,0,0,0.2)";
-}
+// function slideBack(obj,i) {
+//     if()
+//     var text=document.querySelector(obj);
+//     text.style.color="rgba(0,0,0,0.5)";
+//     $(obj).animate({top:"0px"},260);
+//     document.querySelectorAll(".winItem")[i].style.borderColor="rgba(0,0,0,0.2)";
+// }
 
 
 //点击右上角的登录按钮,显示登录窗
 function loginApr() {
+    var user=document.getElementById("username");
+    var password=document.getElementById("winPsw");
     var logWin=document.getElementById("logWindow")
     logWin.style.display="block";
     //加灰色的底层
@@ -791,13 +804,94 @@ function loginApr() {
     underLayer.onclick=function () {
         logWin.style.display="none";
         underLayer.style.display="none";
+        cancel();
     }
     document.querySelector(".reg").onclick=function () {
         logWin.style.display="none";
         underLayer.style.display="none";
+        cancel();
     }
     document.querySelector(".close").onclick=function () {
         logWin.style.display="none";
         underLayer.style.display="none";
+        cancel();
     }
+// //用css3中的transition属性来实现向上移动的文字效果
+//     user.onfocus=function () {
+//         var text = document.querySelector(".winTxt.one");
+//         //     text.style.top="-16px";
+//         text.style.color="#5188a6";
+//         $(".winTxt.one").animate({top:"-16px"},260);
+//         document.querySelectorAll(".winItem")[0].style.borderColor="#5188a6";
+//     }
+//     password.onfocus=function () {
+//         var text = document.querySelector(".winTxt.two");
+//         //     text.style.top="-16px";
+//         text.style.color="#5188a6";
+//         $(".winTxt.two").animate({top:"-16px"},260);
+//         document.querySelectorAll(".winItem")[1].style.borderColor="#5188a6";
+//     }
+    //若value值为空,失去焦点,提示字又下滑回来了
+    user.onblur=function () {
+        if(user.value==="") {
+            var text = document.querySelector(".winTxt.one");
+            text.style.color = "rgba(0,0,0,0.5)";
+            $(".winTxt.one").animate({top: "0px"}, 260);
+            document.querySelectorAll(".winItem")[0].style.borderColor = "rgba(0,0,0,0.2)";
+        }
+    }
+    password.onblur=function () {
+        if(password.value==="") {
+            var text = document.querySelector(".winTxt.two");
+            text.style.color = "rgba(0,0,0,0.5)";
+            $(".winTxt.two").animate({top: "0px"}, 260);
+            document.querySelectorAll(".winItem")[1].style.borderColor = "rgba(0,0,0,0.2)";
+        }
+    }
+    document.getElementById("winLogin").onclick=function () {
+        var request=new XMLHttpRequest()
+        if(/^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\\d{8}$/g.test(user.value)) {
+            request.open("GET", "http://test.bihan.me/zbhtest.php?telephone="+user.value+"password="+password.value)
+        }else if(/^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(\.[a-zA-Z0-9_-]+)+$/g.test(user.value)){
+            request.open("GET", "http://test.bihan.me/zbhtest.php?email_name="+user.value+"password="+password.value)
+
+        }else{
+            request.open("GET", "http://test.bihan.me/zbhtest.php?nickname="+user.value+"password="+password.value)
+        }
+        request.send();
+        request.onreadystatechange=function () {
+            if(request.readyState===4){
+                if(request.status===200){
+                    logWin.style.display="none";
+                    underLayer.style.display="none";
+                    cancel();
+                }else{
+                    var winHint=document.querySelector(".loginHint");
+                    winHint.style.color="red";
+                    winHint.style.marginTop="8px";
+                    $(".loginHint").fadeIn(400,winHint.innerHTML="您输入的用户名/密码错误,请重新输入");
+                    // setTimeout("winHint.innerHTML=''",1000);
+                    setTimeout("t1()",2000);
+                    function t1() {
+                        $(".loginHint").fadeOut(400);
+                    }
+                    logWin.style.display="block";
+                    underLayer.style.display="block";
+                    return false;
+                }
+            }
+        }
+    }
+    //当关闭登录窗口时要清除value其中的字
+    function cancel() {
+        if (user.value!=="") {
+            user.value = '';
+            user.onblur();
+        }
+        if (password.value!==""){
+            password.value='';
+            password.onblur();
+        }
+    }
+
 }

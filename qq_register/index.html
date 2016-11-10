@@ -22,13 +22,13 @@
     <hr class="win_line">
     <div class="winContent">
         <div class="winTitle">普通登录</div>
-        <div class="winItem"  tabindex="0" >
+        <div class="winItem">
             <div class="winTxt one" onclick="slide('.winTxt.one',0)">昵称/邮箱/手机号</div>
-            <input type="text" id="username" class="winWrite" name="username" autocomplete="off" onfocus="slide('.winTxt.one',0)" onblur="slideBack('.winTxt.one',0)">
+            <input type="text" id="username" class="winWrite" name="username" autocomplete="off" onfocus="slide('.winTxt.one',0)">
         </div>
-        <div class="winItem" tabindex="0" >
+        <div class="winItem">
             <div class="winTxt two" onclick="slide('.winTxt.two',1)">密码</div>
-            <input type="text" id="winPsw" class="winWrite" name="password" autocomplete="off" onfocus="slide('.winTxt.two',1)" onblur="slideBack('.winTxt.two',1)">
+            <input type="password" id="winPsw" class="winWrite" name="password" autocomplete="off" onfocus="slide('.winTxt.two',1)">
         </div>
         <div class="remPsw"><input type="checkbox" name="remPsw"> 记住密码</div>
         <input type="button" name="login" id="winLogin" value="登 录">

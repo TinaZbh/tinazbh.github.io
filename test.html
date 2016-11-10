@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
     <style>
         *{  margin: 0; padding: 0;  list-style: none;  }
         form{
@@ -56,6 +58,10 @@
             color:red;
             cursor:pointer;
         }
+        .loginHint{
+            color: #55a532;
+            font-size: 30px;
+        }
     </style>
     <script>
         window.onload=function(){
@@ -107,6 +113,7 @@
     您的浏览器不支持canvas，建议使用最新版的Chrome
 </canvas>
      <input type="text" value="username" id="user" placeholder="username">
+<div class="loginHint"></div>
 <script>
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
@@ -117,6 +124,14 @@
     ctx.lineTo(80,150);  //从上个点(60,60)继续画一条直线，结束点坐标是(80,150)
     ctx.strokeStyle = "red";    //设定描边颜色为红色，只要写在.stroke()方法前面即可
     ctx.stroke();  //描边
+    var winHint=document.querySelector(".loginHint");
+    $(".loginHint").fadeIn(1000,winHint.innerHTML="您输入的用户名/密码错误,请重新输入bmb");
+//    winHint.innerHTML="您输入的用户名/密码错误,请重新输入";
+    // setTimeout("winHint.innerHTML=''",1000);
+    setTimeout("t1()",2000);
+    function t1() {
+        $(".loginHint").fadeOut(400);
+    }
 </script>
 </body>
 </html>
