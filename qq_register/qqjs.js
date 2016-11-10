@@ -788,10 +788,10 @@ function loginApr() {
     document.body.appendChild(underLayer);
 
     //点击灰色底层,登录窗和灰色底层消失
-    // underLayer.onclick=function () {
-    //     logWin.style.display="none";
-    //     underLayer.style.display="none";
-    // }
+    underLayer.onclick=function () {
+        logWin.style.display="none";
+        underLayer.style.display="none";
+    }
     document.querySelector(".reg").onclick=function () {
         logWin.style.display="none";
         underLayer.style.display="none";

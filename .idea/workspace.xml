@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fc89916-cab0-4cec-81aa-1ae69ecaf575" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/qq_register/iconfont/demo.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/iconfont/iconfont.eot" afterPath="$PROJECT_DIR$/qq_register/iconfont/iconfont.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/iconfont/iconfont.ttf" afterPath="$PROJECT_DIR$/qq_register/iconfont/iconfont.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/iconfont/iconfont.woff" afterPath="$PROJECT_DIR$/qq_register/iconfont/iconfont.woff" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/iconfont/demo.css" afterPath="$PROJECT_DIR$/qq_register/iconfont/demo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/iconfont/iconfont.css" afterPath="$PROJECT_DIR$/qq_register/iconfont/iconfont.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/iconfont/iconfont.svg" afterPath="$PROJECT_DIR$/qq_register/iconfont/iconfont.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/index.html" afterPath="$PROJECT_DIR$/qq_register/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/qqcss.css" afterPath="$PROJECT_DIR$/qq_register/qqcss.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/qqjs.js" afterPath="$PROJECT_DIR$/qq_register/qqjs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/test.html" afterPath="$PROJECT_DIR$/qq_register/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
     </list>
     <ignored path="tinazbh.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +30,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qq_register/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+            <state relative-caret-position="18">
+              <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -50,21 +40,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="qqcss.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="qqcss.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qq_register/qqcss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+            <state relative-caret-position="-1770">
+              <caret line="94" column="37" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="qqjs.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="qqjs.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qq_register/qqjs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="785" column="33" selection-start-line="785" selection-start-column="33" selection-end-line="785" selection-end-column="33" />
+            <state relative-caret-position="477">
+              <caret line="793" column="5" selection-start-line="793" selection-start-column="5" selection-end-line="793" selection-end-column="5" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -75,7 +65,7 @@
       <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qq_register/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57">
+            <state relative-caret-position="-237">
               <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -124,8 +114,8 @@
         <option value="$PROJECT_DIR$/qq_register/test.html" />
         <option value="$PROJECT_DIR$/qq_register/iconfont/iconfont.css" />
         <option value="$PROJECT_DIR$/qq_register/qqcss.css" />
-        <option value="$PROJECT_DIR$/qq_register/index.html" />
         <option value="$PROJECT_DIR$/qq_register/qqjs.js" />
+        <option value="$PROJECT_DIR$/qq_register/index.html" />
       </list>
     </option>
   </component>
@@ -318,7 +308,7 @@
       <workItem from="1478608922921" duration="5130000" />
       <workItem from="1478656047259" duration="8954000" />
       <workItem from="1478688327756" duration="6079000" />
-      <workItem from="1478739902811" duration="5618000" />
+      <workItem from="1478739902811" duration="6470000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1475805331660</created>
@@ -331,7 +321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164841000" />
+    <option name="totallyTimeSpent" value="165693000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -816,28 +806,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qq_register/qqcss.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qq_register/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qq_register/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
+        <state relative-caret-position="-237">
           <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -851,11 +822,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/qq_register/qqjs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="785" column="33" selection-start-line="785" selection-start-column="33" selection-end-line="785" selection-end-column="33" />
+        <state relative-caret-position="477">
+          <caret line="793" column="5" selection-start-line="793" selection-start-column="5" selection-end-line="793" selection-end-column="5" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qq_register/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qq_register/qqcss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1770">
+          <caret line="94" column="37" selection-start-line="94" selection-start-column="37" selection-end-line="94" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

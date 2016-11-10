@@ -7,16 +7,6 @@
     <link rel="stylesheet" href="./iconfont/iconfont.css">
     <!--<script src="../jquery/jquery-3.1.1.js"></script>-->
     <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <!--<script>-->
-        <!--function autoFocus(){-->
-            <!--if (sessionStorage.getItem("key") === "1") {-->
-                <!--reg_qq();-->
-            <!--} else if (sessionStorage.getItem("key") === "2") {-->
-                <!--reg_email();-->
-            <!--}-->
-
-        <!--}-->
-    <!--</script>-->
 </head>
 <body   onload="autoFocus()" >
  <!--登录窗口-->
@@ -32,11 +22,11 @@
     <hr class="win_line">
     <div class="winContent">
         <div class="winTitle">普通登录</div>
-        <div class="winItem">
+        <div class="winItem"  tabindex="0" >
             <div class="winTxt one" onclick="slide('.winTxt.one',0)">昵称/邮箱/手机号</div>
             <input type="text" id="username" class="winWrite" name="username" autocomplete="off" onfocus="slide('.winTxt.one',0)" onblur="slideBack('.winTxt.one',0)">
         </div>
-        <div class="winItem">
+        <div class="winItem" tabindex="0" >
             <div class="winTxt two" onclick="slide('.winTxt.two',1)">密码</div>
             <input type="text" id="winPsw" class="winWrite" name="password" autocomplete="off" onfocus="slide('.winTxt.two',1)" onblur="slideBack('.winTxt.two',1)">
         </div>
