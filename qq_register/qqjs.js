@@ -2,7 +2,7 @@
  * Created by zbh on 16/10/15.
  */
 var isclick3 = 0;
-
+//定义本地存储,刷新时按钮与刷新前一样
 function autoFocus() {
     if (sessionStorage.getItem("key") === "1") {
         reg_qq();
@@ -15,6 +15,7 @@ function autoFocus() {
         document.querySelector("#nickname").focus();
     }
 }
+//qq注册
 function reg_qq() {
     document.querySelector("#nickname").focus();
     document.querySelector(".fis_btn:first-child").style.background = "url('http://6.url.cn/zc/chs/img/left_2.png?v=10090') left bottom no-repeat";
@@ -35,6 +36,7 @@ function reg_qq() {
     isclick3 = 1;
     sessionStorage.setItem("key","1");
 }
+//邮箱注册
 function reg_email() {
     document.querySelector("#email_name").focus();
     document.querySelector(".fis_btn:first-child").style.background = "url('http://6.url.cn/zc/chs/img/left_2.png?v=10090') left top no-repeat";
@@ -57,6 +59,7 @@ function reg_email() {
     isclick3 = 0;
     sessionStorage.setItem("key","2");
 }
+//创建邮箱
 function create_email() {
     document.querySelectorAll(".email")[0].style.display = "none";
     document.querySelector(".regEmail").style.display = "block";
@@ -64,6 +67,7 @@ function create_email() {
     document.querySelector("#register_email").focus();
     document.querySelector(".menu_7").style.display = "block";
 }
+//根据现实情况计算了每年每月不同的天数,并且显示出来
 function birthday_appear(obj_str) {
     if (obj_str == ".birthday_box4 ul") {
         if (monthValue.value.match(/\d+/g) == 1 || monthValue.value.match(/\d+/g) == 3 || monthValue.value.match(/\d+/g) == 5 || monthValue.value.match(/\d+/g) == 7 || monthValue.value.match(/\d+/g) == 8 || monthValue.value.match(/\d+/g) == 10 || monthValue.value.match(/\d+/g) == 12) {
@@ -99,16 +103,18 @@ function birthday_appear(obj_str) {
         obj.style.display = "none";
     }
 }
+//选择公历农历的时候input的相应值显示为哪个
 function change_birth_type1(obj, str) {
     document.getElementById(obj).innerHTML = str;
 }
 function change_birth_type(obj, str) {
     document.getElementById(obj).value = str;
 }
+//点击手机号码那个input出现要求发送验证码来验证手机
 function verify_appear() {
     document.querySelector(".menu_8").style.display = "block";
 }
-
+//是否点击了昵称这一input
 function isClick3() {
     isclick3 = 1;
 }
@@ -118,6 +124,7 @@ function isClick4() {
 function isClick5() {
     // isclick5 = 1;
 }
+//选择性别时改变其相应的背景图片。因为这里不是用的input中的radio,而是自定义的a标签及背景图片
 var chooseSex = 1;
 function chooseMale() {
     var newOne = document.querySelectorAll(".sex_box a");
@@ -131,7 +138,7 @@ function chooseFemale() {
     newOne[0].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat';
     chooseSex = 0;
 }
-
+//当input获得焦点是会相应的显示提示
 function warnAppear(obj, a) {
     var newWarn = document.querySelector(obj);
     var hel = document.querySelectorAll(".item_box");
@@ -178,9 +185,11 @@ function warnAppear(obj, a) {
         newWarn.style.paddingLeft = "0";
     }
 }
+//为了解决邮箱那边的onblur和onclick事件的冲突问题,用定时器来延迟onblur事件的触发
 function warnChangeDelay() {
     setTimeout("warnChange('.emailCode',1)", 150);
 }
+//对填写的input的正则验证,以及判断是否符合填写要求
 function warnChange(obj, a) {
     var newWarn = document.querySelector(obj);
     var itemBox = document.querySelectorAll(".item_box");
@@ -487,7 +496,7 @@ function warnChange(obj, a) {
     }
 
 }
-
+//生日填写失去焦点时发生的事情
 function leaveBirth(str) {
     var obj = document.getElementById(str);
     var fObj = document.getElementById(str + "_value");
@@ -634,7 +643,7 @@ function leaveBirth(str) {
 // })
 
 
-//用原生js实现ajax
+//用原生js实现ajax,提交填写的信息
 document.getElementById("submit").onclick = function () {
     var request = new XMLHttpRequest();
     var a = warnChange('.warn.nickname', 3);
@@ -726,4 +735,69 @@ document.getElementById("submit").onclick = function () {
     request.open("GET", "http://test.bihan.me/zbhtest.php");
     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     request.send(EmailData);
+}
+
+
+//登录窗口的js代码
+//点击注册按钮,登录窗口消失//关闭登录窗口
+//function closeLog() {
+//     document.getElementById("logWindow").style.display="none";
+// }
+
+
+//用css3中的transition属性来实现向上移动的文字效果
+function slide(obj,i) {
+    var text=document.querySelector(obj);
+//     text.style.top="-16px";
+    text.style.color="#5188a6";
+    $(obj).animate({top:"-16px"},260);
+    document.querySelectorAll(".winItem")[i].style.borderColor="#5188a6";
+}
+
+//用jquery中的animate函数实现向上移动的动画效果
+// $(document).ready(function () {
+//     $(".winTxt").click(function () {
+//         $(".winTxt").animate({top:"-16px",color:"#5188a6"},260);
+//     })
+// })
+
+//失去焦点,提示字又下滑回来了
+function slideBack(obj,i) {
+    var text=document.querySelector(obj);
+    text.style.color="rgba(0,0,0,0.5)";
+    $(obj).animate({top:"0px"},260);
+    document.querySelectorAll(".winItem")[i].style.borderColor="rgba(0,0,0,0.2)";
+}
+
+
+//点击右上角的登录按钮,显示登录窗
+function loginApr() {
+    var logWin=document.getElementById("logWindow")
+    logWin.style.display="block";
+    //加灰色的底层
+    var underLayer=document.createElement("div");
+    underLayer.id="underLayer";
+    underLayer.style.width="100%";
+    underLayer.style.height="100%";
+    underLayer.style.top=0;
+    underLayer.style.left=0;
+    underLayer.style.position="fixed";
+    underLayer.style.backgroundColor="#000";
+    underLayer.style.opacity="0.4";
+    underLayer.style.zIndex="9998";
+    document.body.appendChild(underLayer);
+
+    //点击灰色底层,登录窗和灰色底层消失
+    // underLayer.onclick=function () {
+    //     logWin.style.display="none";
+    //     underLayer.style.display="none";
+    // }
+    document.querySelector(".reg").onclick=function () {
+        logWin.style.display="none";
+        underLayer.style.display="none";
+    }
+    document.querySelector(".close").onclick=function () {
+        logWin.style.display="none";
+        underLayer.style.display="none";
+    }
 }

@@ -8,6 +8,7 @@
 body, html {
     height: 100%;
     font:400 12px/14px Geneva,Tahoma,sans-serif;
+
 }
 
 
@@ -15,6 +16,147 @@ body {
     background: url("https://6.url.cn/zc/chs/img/body.png?v=10090") repeat-x #fff;
 
 }
+.icon {
+    font-family: iconfont;
+}
+/*登录窗口*/
+
+#logWindow{
+    display: none;
+    width: 450px;
+    height: 400px;
+    background-color: white;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -225px;
+    z-index: 9999;
+}
+.winHeader{
+    height: 60px;
+    line-height: 60px;
+}
+.winHeader:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+.title{
+    float: left;
+    margin-left: 25px;
+    font-size: 20px;
+    opacity: 0.8;
+}
+.reg{
+    float: right;
+    margin-right: 25px;
+    color: #5188a6;
+}
+.reg:hover{
+    text-decoration: underline;
+}
+.close{
+    background-color: white;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    top:-10px;
+    right: -10px;
+    cursor: pointer;
+}
+.close .icon{
+    color: grey;
+    font-size: 16px;
+}
+.close .icon:hover{
+    color: #59AfE4;
+}
+.win_line{
+    color: gray;
+    opacity: 0.2;
+}
+.winContent{
+    width: 318px;
+    margin: 0 auto;
+}
+.winTitle{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 30px;
+}
+.winItem{
+    width: 315px;
+    height: 35px;
+    line-height: 35px;
+    border:1px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    margin-top: 20px;
+    position: relative;
+}
+.winTxt{
+    color: rgba(0,0,0,0.5);
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    /*background-color: #ff0;*/
+    background-color: #fff;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 15px;
+    /*transition-property: top ,color;*/
+    /*transition-duration: 5000ms;*/
+    /*-webkit-transition-property:top,color;*/
+    /*-webkit-transition-duration: 5000ms;*/
+}
+
+.winTxt.two{
+    width: 30px;
+
+}
+/*.winTxt:hover{*/
+    /*top:-16px;*/
+    /*color: #5188a6;*/
+/*}*/
+.winWrite{
+    width: 294px;
+    height: 15px;
+    border: 0;
+    padding: 9px 10px;
+    z-index: 999;
+    outline: none;
+}
+.remPsw{
+    color: rgba(0,0,0,0.8);
+    /*margin-left: 10px;*/
+    margin-top: 15px;
+}
+#winLogin{
+    width: 315px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 0;
+    /*background-color: #55a532;*/
+    background-color: #59AfE4;
+    color: white;
+    font-size: 18px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+#winLogin:hover{
+    background-color: rgba(89,175,228,0.9);
+}
+.loginHint{
+    color: red;
+    margin-top: 5px;
+}
+
+
 .container {
     background: url("http://6.url.cn/zc/chs/img/bg_chs.jpg?v=10090") center top no-repeat;
 }
@@ -48,6 +190,9 @@ body {
     right: 2px;
     font-family: Tahoma,Verdana,Arial,'å®‹ä½“';
     color: white;
+}
+#logIn{
+    cursor: pointer;
 }
 
 .feedback {
@@ -120,9 +265,7 @@ body {
     height: 16px;
     line-height: 26px;
 }
-.icon {
-    font-family: iconfont;
-}
+
 
 .left_search {
     width: 179px;

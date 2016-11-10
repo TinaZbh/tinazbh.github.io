@@ -1,74 +1,88 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1- -->
+<!--transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
 <!DOCTYPE html>
-<html lang="en" onbeforeunload="clear()">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!--<script src="../jquery/jquery-3.1.1.js"></script>-->
-    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>JSµÇÂ¼×¢²á¿ò£¬¹Ì¶¨DIV£¬µ×²ãÒõÓ°</title>
+
+    <!--Ò»¸ö°´Å¥-->
+    <!--µã»÷Ö®ºó ÏÔÊ¾Ò»¸ödiv-->
+    <!--divÒªË®Æ½ ´¹Ö±¾ÓÖĞ-->
+    <!--µ±ÎÒä¯ÀÀÆ÷¸ß¶È ¿í¶È±ä»¯µÄÊ±ºò-->
+    <!--divÒÀÈ»Ë®Æ½ ´¹Ö±¾ÓÖĞ-->
+    <!--µã»÷ÕÚÕÖ²ã£¬¸¡¶¯²ãÒş²Ø-->
+    <!--ÖªÊ¶µã£º-->
+    <!--1.ÈçºÎÓÃcss¿ØÖÆdivË®Æ½´¹Ö±¾ÓÖĞ-->
+    <!--2.ÈçºÎÓÃjsÈ¡µÃä¯ÀÀÆ÷¸ß¶È¿í¶È-->
+    <!--3.ÈçºÎ¿ØÖÆresizeÊÂ¼ş-->
+    <style type="text/css">
+        /*.hidden{ display:none}*/
+        /*ÆÀÂÛ¸¡¶¯²ã*/
+        #smallLay{width:498px; height:100px;padding:4px 10px 10px;background-color:#FFFFFF;border:1px solid #05549d;color:#333333;line-height:24px;text-align:left;-webkit-box-shadow:5px 2px 6px #000;-moz-box-shadow:3px 3px 6px #555;}
+    </style>
 </head>
-<body >
-<form method="post" onsubmit="return saveReport();" id="showDataForm">
-    <h1>å‘˜å·¥åˆ›å»º</h1>
-    <label for="name">å§“å</label>
-    <input type="text" name="name" id="name">
-    <br>
-    <label for="sex">æ€§åˆ«</label>
-    <select name="sex" id="sex">
-        <option>ç”·</option>
-        <option>å¥³</option>
-    </select>
-
-    <button id="save">ä¿å­˜</button>
-    <p id="result"></p>
-</form>
-<script>
-    function clear() {
-        alert("hello");
+<script type="text/javascript">
+//    ÅĞ¶Ïä¯ÀÀÆ÷ie6´´½¨µÄdivµÄÑùÊ½ºÍ·Çie6´´½¨µÄdivµÄÑùÊ½
+//    ´´½¨div
+    function showid(idname) {
+        var isIE = (document.all) ? true : false;
+        var isIE6 = isIE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 6);
+        var newbox = document.getElementById(idname);
+        newbox.style.zIndex = "9999";
+        newbox.style.display = "block"
+        newbox.style.position = !isIE6 ? "fixed" : "absolute";
+        newbox.style.top = newbox.style.left = "50%";
+        newbox.style.marginTop = -newbox.offsetHeight / 2 + "px";
+        newbox.style.marginLeft = -newbox.offsetWidth / 2 + "px";
+        var jihualayer = document.createElement("div");
+        jihualayer.id = "jihualayer";
+        jihualayer.style.width = jihualayer.style.height = "100%";
+        jihualayer.style.position = !isIE6 ? "fixed" : "absolute";
+        jihualayer.style.top = jihualayer.style.left = 0;
+        jihualayer.style.backgroundColor = "#000";
+        jihualayer.style.zIndex = "9998";
+        jihualayer.style.opacity = "0.6";
+        document.body.appendChild(jihualayer);
+//        var sel = document.getElementsByTagName("select");
+//        for (var i = 0; i < sel.length; i++) {
+//            sel[i].style.visibility = "hidden";
+//        }
+//        function jihualayer_iestyle() {
+//            jihualayer.style.width = Math.max(document.documentElement.scrollWidth, document.documentElement.clientWidth)
+//                    + "px";
+//            jihualayer.style.height = Math.max(document.documentElement.scrollHeight, document.documentElement.clientHeight) +
+//                    "px";
+//        }
+//        function newbox_iestyle() {
+//            newbox.style.marginTop = document.documentElement.scrollTop - newbox.offsetHeight / 2 + "px";
+//            newbox.style.marginLeft = document.documentElement.scrollLeft - newbox.offsetWidth / 2 + "px";
+//        }
+//        if (isIE) { jihualayer.style.filter = "alpha(opacity=60)"; }
+//        if (isIE6) {
+//            jihualayer_iestyle()
+//            newbox_iestyle();
+//            window.attachEvent("onscroll", function () {
+//                newbox_iestyle();
+//            })
+//            window.attachEvent("onresize", jihualayer_iestyle)
+//        }
+        jihualayer.onclick = function () {
+            newbox.style.display = "none"; jihualayer.style.display = "none"; for (var i = 0; i < sel.length; i++) {
+                sel[i].style.visibility = "visible";
+            }
+        }
     }
-    $(document).ready(function () {
-        $("#save").click(function () {
-            var showData = {
-                name: $("#name").val(),
-                sex: $("#sex").val(),
-            };
-            console.log(showData);
-            $.ajax({
-                type: "GET",
-                url: "http://test.bihan.me/zbhtest.php",
-                dataType: "json",
-                data: showData,
-
-            })
-        })
-    })
-    //    console.log(data);
-    //    document.getElementById("save").onclick=function(){
-    //        var request=new XMLHttpRequest();
-    //        request.open("GET","www.baidu.com");
-    //        var data="name="+document.getElementById('name').value+
-    //                        "&sex="+document.getElementById('sex').value;
-    ////        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    //        request.send(data);
-    //        request.onreadystatechange=function () {
-    //            if(request.readyState===4){
-    //                if(request.status===200){
-    //                    document.getElementById("result").innerHTML=request.responseText;
-    //                }else{
-    //                    document.getElementById("result").innerHTML="Error:"+request.status;
-    //
-    //                }
-    //            }
-    //        }
-    //    }
-    function saveReport() {
-////        jquery è¡¨å•æäº¤
-//        $("#showDataForm").ajaxSubmit(function(message) {
-////            å¯¹äºè¡¨å•æäº¤æˆåŠŸåå¤„ç†ï¼Œmessageä¸ºæäº¤é¡µé¢saveReport.htmçš„è¿”å›å†…å®¹
-//        });
-
-        return false; // å¿…é¡»è¿”å›falseï¼Œå¦åˆ™è¡¨å•ä¼šè‡ªå·±å†åšä¸€æ¬¡æäº¤æ“ä½œï¼Œå¹¶ä¸”é¡µé¢è·³è½¬
-    }
-
 </script>
+<body>
+<div style="width:200px; height:100px;"></div>
+<input name="" type="button" id="showbtn" value="µã»÷ÏÔÊ¾" onclick="showid('smallLay')" />
+<!--ÊÕ²Ø¸¡²ã¿ªÊ¼-->
+<div id="smallLay" style="display:none" >
+    Õâ<a href="http://jihua.cnblogs.com" style="text-decoration:none; color:Gray;">ÊÇ</a>Ğü¸¡²ã
+</div>
+<!--ÊÕ²Ø¸¡²ã½áÊø-->
+<div id="a" style="height:1000px;">Õâ<a href="http://jihua.cnblogs.com" style="text-decoration:none; color:Black;">ÊÇ</a>ÆÕÍ¨²ã</div>
 </body>
 </html>
