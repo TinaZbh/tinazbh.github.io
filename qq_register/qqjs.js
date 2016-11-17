@@ -867,8 +867,8 @@ function loginApr() {
                     cancel();
                 }else{
                     var winHint=document.querySelector(".loginHint");
-                    winHint.style.color="red";
-                    winHint.style.marginTop="8px";
+                    // winHint.style.color="red";
+                    // winHint.style.marginTop="8px";
                     $(".loginHint").fadeIn(400,winHint.innerHTML="您输入的用户名/密码错误,请重新输入");
                     // setTimeout("winHint.innerHTML=''",1000);
                     setTimeout("t1()",2000);
