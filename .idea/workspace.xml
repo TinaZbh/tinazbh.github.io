@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fc89916-cab0-4cec-81aa-1ae69ecaf575" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/qqcss.css" afterPath="$PROJECT_DIR$/qq_register/qqcss.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/qq_register/qqjs.js" afterPath="$PROJECT_DIR$/qq_register/qqjs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/index.html" afterPath="$PROJECT_DIR$/target/index.html" />
     </list>
     <ignored path="tinazbh.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/target/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+            <state relative-caret-position="408">
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -189,7 +186,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ModalWindowEffects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../greatWebpage" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -288,7 +285,7 @@
       <workItem from="1478828847524" duration="724000" />
       <workItem from="1479128647458" duration="1414000" />
       <workItem from="1479172124412" duration="184000" />
-      <workItem from="1479345117177" duration="13868000" />
+      <workItem from="1479345117177" duration="15301000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1475805331660</created>
@@ -301,7 +298,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190365000" />
+    <option name="totallyTimeSpent" value="191798000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -776,8 +773,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/target/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+        <state relative-caret-position="408">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -81,9 +81,8 @@
             }(i));
         }
         else if (inputs[i].attachEvent) {
-            inputs[i].attachEvent("click", function (i) {
+            inputs[i].attachEvent("onclick", function (i) {
                 return function () {
-                    document.write(inputs[i].checked);
                     if (inputs[i].checked == true) {
                         inputs[i].parentNode.style.color = "red";
                     }
