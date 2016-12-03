@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form双向数据绑定</title>
+    <link rel="stylesheet" href="../framework/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="../framework/bootstrap-3.3.7/css/bootstrap-theme.css">
+    <!--<link rel="stylesheet" href="../css/index.css">-->
+    <!--<script src="../framework/angular-v1.6.0/angular.js"></script>-->
+    <!--<script src="../framework/angular-v1.6.0/angular-route.js"></script>-->
+    <!--<script src="../framework/angular-v1.6.0/angular-animate.js"></script>-->
+    <!--<script src="../js/app.js"></script>-->
+    <!--<script src="../js/controller.js"></script>-->
+</head>
+<body>
+<!--默认的 .panel 组件所做的只是设置基本的边框（border）和内补（padding）来包含内容。-->
+<div class="panel panel-primary">
+    <!--通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了 .panel-title 类的 <h1>-<h6> 标签，添加一个预定义样式的标题。-->
+    <div class="panel-heading">
+        <div class="panel-title">
+            双向数据绑定
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="userInfo.email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password" ng-model="userInfo.password">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-0 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="userInfo.autoLogin">Remember me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-0 col-sm-10">
+                            <button class="btn btn-default" ng-click="getEmail()">get</button>
+                            <button class="btn btn-default" ng-click="setEmail()">set</button>
+                            <button class="btn btn-default" ng-click="resetEmail()">reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
