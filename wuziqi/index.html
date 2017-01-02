@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>五子棋</title>
     <link rel="stylesheet" href="fiveStyle.css">
-    <!--<script type="text/javascript" src="images/fiveJs.js"></script>-->
+    <!--<script type="text/javascript" src="fiveJs.js"></script>-->
     <script type="text/javascript" src="fivejsTest.js"></script>
 </head>
 <body>
@@ -12,7 +12,7 @@
 <div id="checkerboard">
     <div class="header">
         <span>五子棋</span>
-            <input type="button" class="playAgain" value="再来一局" onclick="play_again()">
+        <input type="button" class="playAgain" value="再来一局" onclick="play_again()">
     </div>
     <div class="container">
         <table>
@@ -275,6 +275,7 @@
     </div>
     <div id="popup">
         <div class="pop_head"></div>
+        <hr class="pop_line">
         <div class="pop_content"></div>
         <a class="pop_close" onclick="pop_hide()">知道了</a>
     </div>

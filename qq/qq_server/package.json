@@ -1,0 +1,14 @@
+{
+  "name": "qq_server",
+  "version": "1.0.0",
+  "description": "A login and register system.(imitate qq)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zbh",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.12.0"
+  }
+}

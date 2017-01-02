@@ -1,7 +1,8 @@
 #checkerboard{
     width: 600px;
     height: 620px;
-    border: 5px solid #5f7695;
+    border: 5px solid #59AfE4;
+    /*border: 5px solid #5f7695;*/
     margin: 0 auto;
     position: relative;
 }
@@ -17,11 +18,11 @@
     padding: 0;
     outline: none;
     width: 80px;
-    height: 20px;
-    line-height: 20px;
+    height: 30px;
+    line-height: 30px;
     background-color:#c93;
     color: antiquewhite;
-    border-radius: 3px;
+    border-radius: 2px;
     cursor: pointer;
 }
 .playAgain:hover{
@@ -51,44 +52,59 @@ td{
     position: absolute;
     visibility: hidden;
     width: 300px;
-    height: 130px;
+    height: 150px;
     /*border: 1px solid black;*/
-    border-radius: 4px;
-    background-color: #5f7695;
+    /*border-radius: 1px;*/
+    background-color:white ;
+    /*background-color: #5f7695;*/
     top:200px;
     left: 150px;
+    z-index: 9999;
 }
 .pop_head{
     width: 300px;
-    height: 35px;
-    line-height: 35px;
-    background-color: #b4c7d1;
+    height: 40px;
+    line-height: 40px;
+    background-color: white;
+    /*background-color: #b4c7d1;*/
     font-size: 20px;
     -moz-border-radius-topleft: 4px;
     -moz-border-radius-topright: 4px;
     text-align: center;
-    color: #477098;
+    /*color: black;*/
+    color: #59AfE4;
+    /*color: #5188a6;*/
+    /*color: #477098;*/
+}
+.pop_line{
+    color: gray;
+    opacity: 0.2;
+    margin: 0;
 }
 .pop_content{
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 14px;
     text-align: center;
-    color: #b4c7d1;
+    color:black;
+    /*color: #b4c7d1;*/
 }
 .pop_close{
     text-decoration: none;
-    background-color: #b4c7d1;
+    background-color: #59AfE4;
+    /*background-color: #b4c7d1;*/
     width: 80px;
     height: 25px;
     line-height: 25px;
     text-align: center;
-    border-radius: 1px;
+    /*border-radius: 1px;*/
     display: block;
     cursor: pointer;
     margin: 0 auto;
-    color: #477098;
+    color: white;
+    /*color: #477098;*/
 }
-.pop_head:hover,.pop_close:hover{
-    background-color: #9eacb4;
+.pop_close:hover{
+    opacity: 0.8;
+    /*background-color: #9eacb4;*/
 }

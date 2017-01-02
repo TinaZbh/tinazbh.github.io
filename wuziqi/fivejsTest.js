@@ -4,7 +4,7 @@
 
 var a=2;     //默认第一次下的棋子为黑
 var chessData=new Array(15);
-for(var i=0;i<15;i++){
+for(var i=0;i<15;i++){     //创建二维数组chessData
     chessData[i]=new Array(15);
     for (var j=0;j<15;j++){
         chessData[i][j]=0;
@@ -117,11 +117,26 @@ function pop_appear(str1,str2) {
     head.innerHTML=str1;
     content.innerHTML=str2;
     popup.style.visibility="visible";
-
+    var underLayer=document.createElement('div');
+    underLayer.id='underLayer';
+    underLayer.style.width='100%';
+    underLayer.style.height='100%';
+    underLayer.style.left=0;
+    underLayer.style.top=0;
+    underLayer.style.position='fixed';
+    underLayer.style.backgroundColor='#000';
+    underLayer.style.opacity='0.4';
+    underLayer.style.zIndex='9998';
+    document.body.appendChild(underLayer);
+    underLayer.onclick=function () {
+        popup.style.visibility='hidden';
+        underLayer.style.visibility='hidden';
+    }
 }
 function pop_hide() {
     var popup=document.getElementById("popup");
     popup.style.visibility="hidden";
+    underLayer.style.visibility='hidden';
 }
 function play_again() {
     a=2;
