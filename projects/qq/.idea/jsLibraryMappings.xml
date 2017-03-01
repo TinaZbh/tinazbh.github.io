@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/qq_server" libraries="{qq/qq_server/node_modules}" />
+    <file url="PROJECT" libraries="{jQuery-2.0.0, jquery-DefinitelyTyped, node-DefinitelyTyped, noisejs-DefinitelyTyped}" />
+    <includedPredefinedLibrary name="ECMAScript 6" />
+  </component>
+</project>

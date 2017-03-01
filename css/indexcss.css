@@ -1,0 +1,393 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    margin: 0;
+    /*background-color: #1A3742;*/
+    color: #E6E0CB;
+    font-family:  Helvetica, Arial, sans-serif;
+}
+.clearfloat:after{  display: block; content: '';  clear: both; }
+
+/*采用flex布局居中，使在移动端不会显示偏上*/
+#first_page,#second_page,#third_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: space-between;*/
+    justify-content: center;
+}
+#first_page{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+    /*text-align: center;*/
+    background-image: -moz-linear-gradient(top,#1A3742,#9EA183);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#1A3742),to(#9EA183));
+    background-image: -webkit-linear-gradient(top,#1A3742,#9EA183);
+    background-image: -o-linear-gradient(top,#1A3742,#9EA183);
+    /*background-attachment: fixed;*/
+}
+#mycanvas{
+    display: inline;
+    /*position: fixed;*/
+    position: relative;
+    /*background-attachment: fixed;*/
+    /*z-index: 1;*/
+}
+#content{
+    width: 500px;
+    height: 500px;
+    /*position: fixed;*/
+    position: absolute;
+    top:45%;
+    left:50%;
+    margin-left:-250px;
+    margin-top: -250px;
+    text-align: center;
+}
+#first_page .animated{
+    font-size: 7em;
+    color: #E6E0CB;
+}
+.paragraph{
+    font-size: 0.9em;
+    color: rgba(230,224,203,0.8);
+}
+.pic_contain{
+    width: 20%;
+    margin: 0 auto;
+    padding-top: 6%;
+}
+.wrap_pic{
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /*padding-bottom是继承父元素的宽度的百分比*/
+    overflow: hidden;
+    margin: 0;
+    position: relative;/*不脱离文档流*/
+}
+img.my_picture{
+    width: 100%;
+    height: 100%;
+    position: absolute;/*脱离文档流*/
+    left: 0;
+    border-radius: 50%;
+}
+
+#second_page{
+    position: relative;
+    background-color: #364D50;
+    /*background-color: rgba(211,211,211,0.2);*/
+    height:100%;
+    /*background: url("../svg/1.svg");*/
+}
+
+.education{
+    padding-top: 6%;
+    text-align: center;
+    font-size: 2.6em;
+}
+.graduate{
+    padding-top: 4%;
+    margin-left: -12%;
+    text-align: center;
+    font-size: 1.4em;
+    transform: rotateY(40deg);
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+}
+
+.under_gra{
+    padding-top: 1%;
+    margin-left:15% ;
+    text-align: center;
+    font-size: 1.4em;
+    transform: rotateY(-40deg);
+    -webkit-transform-style: preserve-3d;
+}
+
+ul>li{
+    list-style: none;
+}
+#wrapper{
+    width: 100%;
+    height: 50%;
+    padding-top: 5%;
+}
+
+
+#third_page{
+    position: relative;
+    top:1px;
+    background-color:#4A5E5A;
+    /*background-color:indianred;*/
+    /*background-color: rgba(211,211,211,0.3);*/
+    height: 100%;
+    width: 100%;
+}
+.project{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    text-align: center;
+    font-size: 2.6em;
+}
+.pic_wrap{
+    /*position: absolute;*/
+    width: 100%;
+    height: 50%;
+    display: flex;
+    /*flex-direction: column;*/
+    align-items: center;
+    justify-content: center;
+}
+.project_pic,.flow_chart{
+    display: inline-block;
+    /*float: left;*/
+    margin-left: 1%;
+    width: 100%;
+    height: 100%;
+    /*width:100vmin;*/
+    /*height: 50vmin;*/
+
+    /*height: 400px;*/
+    /*background-color: #c5a00a;*/
+    overflow: hidden;
+}
+.project_pic img{
+    transform: scale(0.9);
+    /*float: left;*/
+    /*margin-left: 8%;*/
+    width: 100%;
+    height: 100%;
+    -webkit-transition: 0.6s;
+    /*-ms-transition: 1s;*/
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+}
+.project_pic img:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.flow_chart img{
+    transform: scale(0.9);
+
+    /*float: left;*/
+    /*margin-left: 10%;*/
+    width: 100%;
+    height: 100%;
+    -webkit-transition: 0.6s;
+    /*-ms-transition: 1s;*/
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+}
+.flow_chart img:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.explain{
+    clear: both;
+    padding-top: 4%;
+    text-align: center;
+}
+.explain a{
+    color: #1b7f69;
+    text-decoration: none;
+}
+.explain a:hover{
+    color: #1a443b;
+
+}
+
+
+#fourth_page{
+
+    position: relative;
+    top:2px;
+    /*background-color: #4A5E5A;*/
+    /*background-color: rgba(211,211,211,0.3);*/
+    height: 100%;
+}
+
+.sky{
+    width: 100%;
+    height: 75%;
+    position: relative;
+    overflow: hidden;
+    /*background-color: rgb(171,205,224);*/
+    /*background-color: rgb(139,195,226);*/
+    background-image: -moz-linear-gradient(top,#4A5E5A,rgb(139,195,226));
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#4A5E5A),to(rgb(139,195,226)));
+    background-image: -webkit-linear-gradient(top,#4A5E5A,rgb(139,195,226));
+    background-image: -o-linear-gradient(top,#4A5E5A,rgb(139,195,226));
+}
+.sea{
+    width: 100%;
+    height: 25%;
+    position: relative;
+    overflow: hidden;
+    /*background-color: rgb(26,126,244);*/
+    background-color: rgb(70,159,170);
+}
+.icon{
+    font-family: "iconfont";
+    position: absolute;
+    /*animation: cloud_move 10s linear infinite;*/
+}
+/*@keyframes cloud_move {*/
+    /**/
+/*}*/
+.sky .icon{
+    color: rgba(255,255,255,0.7);
+}
+.sky .icon:first-child{
+    top:55%;
+    left: 10%;
+    font-size: 3em;
+}
+.sky .icon:nth-child(2){
+    top:10%;
+    left: 30%;
+    font-size: 7em;
+}
+.sky .icon:nth-child(3){
+    top:30%;
+    left: 60%;
+    font-size: 5em;
+}
+.sky .icon:nth-child(4){
+    top:45%;
+    left: 90%;
+    font-size: 4em;
+
+}
+.sky .icon:nth-child(5){
+    top:6%;
+    left: 75%;
+    font-size: 8em;
+    color: #c5a00a;
+    animation: myfirst 3s linear infinite;
+    -webkit-animation: myfirst 3s linear infinite;
+    -moz-animation: myfirst 3s linear infinite;
+    -o-animation: myfirst 3s linear infinite;
+}
+@keyframes myfirst {
+    0%   {transform: rotate(0deg);}
+    25%   {transform: rotate(5deg);}
+    50%   {transform: rotate(0deg);}
+    75%   {transform: rotate(-20deg);}
+    100% {transform: rotate(0deg);}
+}
+@-webkit-keyframes myfirst {
+    0%   {transform: rotate(0deg);}
+    25%   {transform: rotate(5deg);}
+    50%   {transform: rotate(0deg);}
+    75%   {transform: rotate(-20deg);}
+    100% {transform: rotate(0deg);}
+}
+@-moz-keyframes myfirst {
+    0%   {transform: rotate(0deg);}
+    25%   {transform: rotate(5deg);}
+    50%   {transform: rotate(0deg);}
+    75%   {transform: rotate(-20deg);}
+    100% {transform: rotate(0deg);}
+}
+@-o-keyframes myfirst {
+    0%   {transform: rotate(0deg);}
+    25%   {transform: rotate(5deg);}
+    50%   {transform: rotate(0deg);}
+    75%   {transform: rotate(-20deg);}
+    100% {transform: rotate(0deg);}
+}
+
+.sky .boat {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    width: 50vmin;
+    /*1vh=(1／100)*视窗高度；1vw也同理；vmin是取决于视窗的宽度和高度哪个更小*/
+    height: 25vmin;
+}
+.boat img{
+    width: 100%;
+    height: 100%;
+}
+.sea .icon{
+    font-size: 3em;
+    color: whitesmoke;
+}
+.sea .icon:first-child{
+    top:5%;
+    left: 10%;
+}
+.sea .icon:nth-child(2){
+    top:40%;
+    left: 30%;
+}
+.sea .icon:nth-child(3){
+    top:20%;
+    left: 50%;
+}
+.sea .icon:nth-child(4){
+    top:50%;
+    left: 75%;
+}
+
+.self_evaluation{
+    position: absolute;
+    top:20%;
+    /*top:60%;*/
+    left:20%;
+    /*height:14%;*/
+    width: 60%;
+    transform: scale(1);
+    overflow: hidden;
+    font-size: 2em;
+    text-align: center;
+    background-color: rgba(211,211,211,0.3);
+
+}
+.self_evaluation p{
+    margin: 0px;
+}
+
+
+.footer{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    margin: 0 auto;
+
+    overflow: hidden;
+}
+.contact{
+    /*color: indianred;*/
+    font-size: 1.5em;
+    height: 10%;
+    text-align: center;
+}
+.con_way{
+    display: none;
+    font-size: 1.5em;
+    text-align: center;
+}
+.con_way>div{
+    display: inline-block;
+    /*margin-left: 1%;*/
+}
+.con_way>div span:first-child{
+    font-family: 'iconfont';
+    /*text-decoration: none;*/
+    color: indianred;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+

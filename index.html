@@ -1,12 +1,183 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Tina's Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-	<span>Hello World!</span><br />
-	<span>Tina's Blog!</span>
-  </body>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--指定IE和Chrome使用最新版本渲染当前页面-->
+    <title>Tina的主页</title>
+    <meta name="description" content="Tina's homepage"/>
+    <meta name="keywords" content="canvas,html5,css3,响应式，交互，个人主页"/>
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1"/>-->
+    <!--网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%-->
+    <meta name="viewport" content="width=540"/>
+    <link rel="stylesheet" href="animate_css.css/animate.min.css"/>
+    <link rel="stylesheet" href="css/indexcss.css"/>
+    <link rel="stylesheet" href="iconFont/iconfont.css">
+</head>
+<body>
+<div id="first_page">
+    <canvas id="mycanvas">您的浏览器不支持canvas(html5)这个标签</canvas>
+    <div id="content">
+        <div class="animated fadeInUp">Welcome</div>
+        <p class="paragraph">
+            Hello！欢迎来到我的个人主页(简历)
+            <br/>
+            <br/>
+            我叫张碧晗，现南京邮电大学在读研究生（2018年毕业）
+            <br/>
+            <br/>
+            我从16年下半年开始接触前端。虽然学习时间尚短，但是在学习的过程中我觉得很快乐。
+            每每实现一个小小的功能，并且能立马看到成果的展示，让我觉得既兴奋又满足。
+            当然，我也会有累了不想学的时候，我会做在电脑前面，调调font大小，调调icon的位置，即使只有1px的差距，那感觉是真真儿的不同.
+            <br/>
+            想进一步了解我吗？请动起您的鼠标，往下翻！
+        </p>
+        <div class="pic_contain">
+            <div class="wrap_pic">
+                <img src="image/picture1.png" alt="本人证件照" class="my_picture"/>
+                <!--<img src="http://wx2.sinaimg.cn/mw690/9e59afb4gy1fd6hhuivu1j20mi0o0tzv.jpg" alt="本人证件照" class="my_picture"/>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="second_page">
+    <div class="education">教育经历</div>
+    <div class="graduate">硕士 南京邮电大学 信号与信息处理 2015.9-2018.5</div>
+    <div class="under_gra">本科 金陵科技学院 通信工程 2011.9-2015.6</div>
+    <div id="wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1024 380">
+            <path id="wire3" opacity=".6" fill="none" stroke="#EFEFEF" stroke-width="2" stroke-miterlimit="10"
+                  enable-background="new"
+                  d="M90.111-.832s-7.058 76.718 76.717 76.718h646.2460000000001s60.106.001 60.106 60.107-27.106 69.107-69.104 69.107h-292.076s-129.948-17.59-129.948 129.948v26.028s-7.999"/>
+            <g fill="#E6E0CB" id="skill">
+                <text transform="translate(120 36)" font-weight="400" font-size="38.006">Skills</text>
+            </g>
+            <g fill="#E6E0CB" id="skill01">
+                <circle cx="392.728" cy="75.225" r="15.104"/>
+                <text transform="translate(375.628 54)" font-weight="400" font-size="18.006">HTML</text>
+            </g>
+            <g fill="#E6E0CB" id="skill02">
+                <text transform="translate(508.152 54)" font-weight="400" font-size="18.006">CSS</text>
+                <circle cx="540.15" cy="75.986" r="15"/>
+            </g>
+            <g fill="#E6E0CB" id="skill03">
+                <text transform="translate(646.582 54)" font-weight="400" font-size="18.006">JavaScript</text>
+                <circle cx="750.15" cy="75.986" r="17.385"/>
+            </g>
+            <g fill="#E6E0CB" id="skill04">
+                <circle cx="873.183" cy="129.971" r="12"/>
+                <text transform="translate(890.183 135.652)" font-weight="400" font-size="18.006">HTML5/XML</text>
+            </g>
+            <g fill="#E6E0CB" id="skill05">
+                <text transform="translate(869.423 199.5)" font-weight="400" font-size="18.006">CSS3/SASS</text>
+                <circle cx="847.27" cy="194.807" r="16.589"/>
+            </g>
+            <g fill="#E6E0CB" id="skill06">
+                <text transform="translate(684.09 186.578)" font-weight="400" font-size="18.006">NodeJs</text>
+                <circle cx="738.15" cy="204.911" r="11"/>
+            </g>
+            <g fill="#E6E0CB" id="skill07">
+                <text transform="translate(566.094 238.09)" font-weight="400" font-size="18.006">C++</text>
+                <circle cx="580.346" cy="204.911" r="11.589"/>
+            </g>
+            <g fill="#E6E0CB" id="skill08">
+                <text transform="translate(385.423 190.578)" font-weight="400" font-size="18.006">JQuery/AJAX</text>
+                <circle cx="448.089" cy="216.5" r="11"/>
+            </g>
+            <g fill="#E6E0CB" id="skill09">
+                <text transform="translate(222.09 275.911)" font-weight="400" font-size="18.006">MVC frameworks</text>
+                <circle cx="392.728" cy="269.167" r="11"/>
+            </g>
+            <g fill="#E6E0CB" id="skill10">
+                <text transform="translate(408.423 333.731)" font-weight="400" font-size="18.006">Linux</text>
+                <circle cx="382.422" cy="326.731" r="14.449"/>
+            </g>
+            <g fill="#E6E0CB" id="skill11">
+                <text transform="translate(289.31 375.731)" font-weight="400" font-size="18.006">NO END</text>
+                <circle cx="382.009" cy="369.73" r="10.213"/>
+            </g>
+
+        </svg>
+        <!--<div class="skill">技能</div>-->
+        <!--<ul class="skill_list">-->
+        <!--<li class="HTML">HTML</li>-->
+        <!--<li class="CSS">CSS</li>-->
+        <!--<li class="JavaScript">JavaScript</li>-->
+        <!--<li class="HTML5">HTML5</li>-->
+        <!--<li class="CSS3">CSS3</li>-->
+        <!--<li class="nodeJs">nodeJs</li>-->
+        <!--<li class="C_plus">C++</li>-->
+        <!--<li class="cet4">cet4</li>-->
+        <!--<li class="cet6">cet6</li>-->
+        <!--<li class="com_certificate">计算机二级(C++)</li>-->
+        <!--</ul>-->
+    </div>
+</div>
+
+<div id="third_page" class="clearfloat">
+    <div class="project">项目展示</div>
+    <div class="pic_wrap clearfloat">
+        <div class="project_pic"><img src="image/register.png" alt="前端页面展示图"></div>
+        <div class="flow_chart"><img src="image/flow.png" alt="项目流程图"></div>
+    </div>
+
+    <div class="explain">
+        <a href="http://bihan.me/qq/qq_register/" target="_blank">[ 用户注册登录系统 ]</a>
+        <p>● 以腾讯主页中QQ注册登录页为需求模版，独立开发完成全部注册登录功能点。</p>
+        <p>● 前端全部实现相关功能点，数据均通过ajax与后台交互。</p>
+        <p>● 后端使用nodejs开发业务，自行设计了路由转发等业务架构。</p>
+        <p>● 独立设计了相关业务数据存储结构，业务数据均存储于mysql中。</p>
+    </div>
+</div>
+<div id="fourth_page">
+    <div class="sky">
+        <span class="icon">&#xe693;</span>
+        <span class="icon">&#xe693;</span>
+        <span class="icon">&#xe693;</span>
+        <span class="icon">&#xe693;</span>
+        <span class="icon">&#xe641;</span>
+        <div class="boat">
+            <img src="image/boat.png" alt="boat">
+        </div>
+    </div>
+    <div class="sea">
+        <span class="icon">&#xe605;</span>
+        <span class="icon">&#xe605;</span>
+        <span class="icon">&#xe605;</span>
+        <span class="icon">&#xe605;</span>
+    </div>
+    <div class="self_evaluation">
+        <!--<span></span>-->
+        <p>对前端开发工作的热爱 将是我源源不断的燃料</p>
+        <p>我将扬帆起航</p>
+    </div>
+    <!--<div class="footer">-->
+        <!--<div class="contact">联系我</div>-->
+        <!--<div class="con_way">-->
+            <!--<div><span>&#xe625;</span><span>185-2159-3825 </span></div>-->
+            <!--<div><span> &#xe6fb; </span><span>bihan.zhang@foxmail.com </span></div>-->
+            <!--<div><span> &#xe69f; </span><span>TinaZbh</span></div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<script type="application/javascript" src="js/jquery.min.js"></script>
+<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<script src="jquery-drawsvg-master/public/jquery.drawsvg.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<!--<script type="text/javascript" src="js/main.js"></script>-->
+<script>
+//        window.onscroll=function (event) {
+//            var wrapper = $('#wrapper');
+//            console.log("w=" + wrapper.offset().top);
+//            console.log("doc=" + $(document).scrollTop());
+//    //        console.log("height="+wrapper.pageX())
+//            console.log("win=" + $(window).scrollTop());
+//        }
+
+
+</script>
+
+
+</body>
+
 </html>
