@@ -300,13 +300,10 @@ function wheel() {
         // console.log(ratio/clientHeight);
         var $scrollTop=$(window).scrollTop();
         var $offsetTop=$(".sky").offset().top;
-        // console.log("s="+$(window).scrollTop());
-        // console.log("a="+$(".sky").offset().top);
 
         if (delta > 0) {
             if ($offsetTop*3/4 <$scrollTop&&boatLeft>lMin) {
                 boat.style.left =boatLeft-delta*25+"px" ;
-                // boat.style.left =boatLeft-($offsetTop-$scrollTop)+"px" ;
                 // console.log("up="+delta);
                 // if(evaTop<clientHeight*3/5){
                 //     evaluation.style.top=evaTop+10*ratio/clientHeight+"px";
@@ -317,7 +314,6 @@ function wheel() {
         } else {
             if ($offsetTop*3/4 < $scrollTop&&boatLeft<lMax) {
                 boat.style.left = boatLeft-delta*25+"px";
-                // boat.style.left = boatLeft+($offsetTop-$scrollTop+1)+"px";
                 // console.log("down="+delta);
                 // if(evaTop>clientHeight/12){
                 //     evaluation.style.top=evaTop-10*ratio/clientHeight+"px";
