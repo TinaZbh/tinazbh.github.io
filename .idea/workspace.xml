@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fc89916-cab0-4cec-81aa-1ae69ecaf575" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/index.js" afterPath="$PROJECT_DIR$/js/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/indexcss.css" afterPath="$PROJECT_DIR$/css/indexcss.css" />
     </list>
     <ignored path="tinazbh.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,8 +53,8 @@
       <file leaf-file-name="indexcss.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/indexcss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="401" column="22" selection-start-line="401" selection-start-column="22" selection-end-line="401" selection-end-column="22" />
+            <state relative-caret-position="423">
+              <caret line="392" column="0" selection-start-line="392" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -93,8 +93,8 @@
         <option value="$PROJECT_DIR$/projects/qq/qq_register/index.html" />
         <option value="$PROJECT_DIR$/projects/qq/qq_register/qqjs.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/indexcss.css" />
         <option value="$PROJECT_DIR$/js/index.js" />
+        <option value="$PROJECT_DIR$/css/indexcss.css" />
       </list>
     </option>
   </component>
@@ -293,7 +293,7 @@
       <workItem from="1479345117177" duration="16703000" />
       <workItem from="1488378063230" duration="650000" />
       <workItem from="1488429472077" duration="8251000" />
-      <workItem from="1488502543235" duration="6460000" />
+      <workItem from="1488502543235" duration="6552000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1475805331660</created>
@@ -306,7 +306,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208561000" />
+    <option name="totallyTimeSpent" value="208653000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,18 +479,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/indexcss.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="401" column="22" selection-start-line="401" selection-start-column="22" selection-end-line="401" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3765">
           <caret line="5" column="16" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/indexcss.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="392" column="0" selection-start-line="392" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
           <folding />
         </state>
       </provider>
