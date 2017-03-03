@@ -95,9 +95,13 @@ img.my_picture{
     margin-left: -12%;
     text-align: center;
     font-size: 1.4em;
-    transform: rotateY(40deg);
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
+    /*transform: rotateY(40deg);*/
+    /*-ms-transform: rotateY(40deg);*/
+    /*-webkit-transform: rotateY(40deg);*/
+    /*-moz-transform: rotateY(40deg);*/
+    /*-o-transform: rotateY(40deg);*/
+    /*transform-style: preserve-3d;*/
+    /*-webkit-transform-style: preserve-3d;*/
 }
 
 .under_gra{
@@ -105,8 +109,12 @@ img.my_picture{
     margin-left:15% ;
     text-align: center;
     font-size: 1.4em;
-    transform: rotateY(-40deg);
-    -webkit-transform-style: preserve-3d;
+    /*transform: rotateY(-40deg);*/
+    /*-ms-transform: rotateY(-40deg);*/
+    /*-webkit-transform: rotateY(-40deg);*/
+    /*-moz-transform: rotateY(-40deg);*/
+    /*-o-transform: rotateY(-40deg);*/
+    /*-webkit-transform-style: preserve-3d;*/
 }
 
 ul>li{
@@ -363,31 +371,34 @@ ul>li{
     position: absolute;
     bottom:0;
     width: 100%;
-    margin: 0 auto;
+    height: 6%;
 
-    overflow: hidden;
 }
-.contact{
-    /*color: indianred;*/
-    font-size: 1.5em;
-    height: 10%;
-    text-align: center;
-}
+
 .con_way{
-    display: none;
-    font-size: 1.5em;
-    text-align: center;
-}
-.con_way>div{
+    position: absolute;
+    left: 5%;
+    font-size: 1.3em;
+    width: 40%;
     display: inline-block;
-    /*margin-left: 1%;*/
 }
-.con_way>div span:first-child{
+
+.con_way a{
     font-family: 'iconfont';
-    /*text-decoration: none;*/
-    color: indianred;
     font-size: 1.5em;
     cursor: pointer;
+    text-decoration: none;
+    color: antiquewhite;
+    margin-left: 4%;
 }
-
+.con_way a:hover{
+    color: white;
+}
+.copyright{
+    position: absolute;
+    right: 5%;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
 

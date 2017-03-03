@@ -1,20 +1,35 @@
 /**
  * Created by zbh on 2017/2/25.
  */
+window.requestAnimFrame = (function () {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+})();
+
+//事件监听器的兼容性
+function addEvent(eventTarget, eventType, eventHandler) {
+    if (eventTarget.addEventListener) {
+        eventTarget.addEventListener(eventType, eventHandler, false);
+    } else {
+        if (eventTarget.attachEvent) {
+            eventType = "on" + eventType;
+            eventTarget.attachEvent(eventType, eventHandler);
+        } else {
+            eventTarget["on" + eventType] = eventHandler;
+        }
+    }
+}
 //第一页画canvas的js
 (function () {
 
     // 动画重绘与浏览器保持一致
-    window.requestAnimFrame = (function () {
-        return window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.oRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            function (callback) {
-                window.setTimeout(callback, 1000 / 60);
-            };
-    })();
+
 
     var canvas = document.getElementById('mycanvas');
     var ctx = canvas.getContext('2d');
@@ -151,7 +166,6 @@
         for (var i = 0; i < particlesCount; i++) {
             particles.push(new particlesDraw());
         }
-        ;
         animloop();
     }
 
@@ -187,19 +201,7 @@
         }
     }
 
-    //事件监听器的兼容性
-    function addEvent(eventTarget, eventType, eventHandler) {
-        if (eventTarget.addEventListener) {
-            eventTarget.addEventListener(eventType, eventHandler, false);
-        } else {
-            if (eventTarget.attachEvent) {
-                eventType = "on" + eventType;
-                eventTarget.attachEvent(eventType, eventHandler);
-            } else {
-                eventTarget["on" + eventType] = eventHandler;
-            }
-        }
-    }
+
 
     addEvent(canvas, 'mousemove', function () {
         changeRadius(event);
@@ -210,23 +212,24 @@
         var cloud = document.querySelectorAll(".sky .icon");
         var water = document.querySelectorAll(".sea .icon");
         for (var i = 0; i < cloud.length - 1; i++) {
-            // var cLeft = getComputedStyle(cloud[i]).left;
             var cLeft = getStyle(cloud[i],'left');
-            // var newLeft = cLeft.replace('px', '');
-            var intLeft = parseFloat(cLeft);
+            //有些浏览器在获取left：90%的时候获取的是90%乘屏幕大小单位为px，有的则直接获取的为90%
+            var newLeft =/%/.test(cLeft)?cLeft=parseFloat(cLeft)*document.documentElement.clientWidth/100:cLeft.replace('px', '');
+            var intLeft = parseFloat(newLeft);
             // var cloudWidth = parseFloat(getComputedStyle(cloud[i]).width);
             var cloudWidth = parseFloat(getStyle(cloud[i],'width'));
-            var speed = document.documentElement.clientWidth / (3000 + i * 20)
+            var speed = document.documentElement.clientWidth / (3000 + i * 20);
             if (intLeft >= document.documentElement.clientWidth) {
                 cloud[i].style.left = -1 * cloudWidth + "px";
             } else {
                 cloud[i].style.left = (intLeft + speed) + 'px';
             }
         }
+
         for (var i = 0; i < water.length; i++) {
             var cLeft = getStyle(water[i],'left');
-            // var newLeft = cLeft.replace('px', '');
-            var intLeft = parseFloat(cLeft);
+            var newLeft =/%/.test(cLeft)?cLeft=parseFloat(cLeft)*document.documentElement.clientWidth/100:cLeft.replace('px', '');
+            var intLeft = parseFloat(newLeft);
             // var cloudWidth = parseFloat(getComputedStyle(water[i]).width)
             var cloudWidth = parseFloat(getStyle(water[i],'width'));
             var speed = document.documentElement.clientWidth / (2000 + i * 300)
@@ -256,17 +259,26 @@ function getStyle (obj,attr) {
 // 滚轮响应事件
 // 参数：type有两个属性值，分别为"up"（滚轮向上）和"down"（滚轮向下）
 function wheel() {
+    var throttleScroll=function (event) {
+        var timer=null;
+        return function () {
+            clearInterval(timer);
+            setInterval(getWheelDalta(event),100000);
+        }
+    };
     // IE6
-    window.onmousewheel = getWheelDalta;
+    window.onmousewheel = throttleScroll(event);
     // Firefox
     if (window.addEventListener) {
-        window.addEventListener("DOMMouseScroll", getWheelDalta, false);
+        window.addEventListener("DOMMouseScroll", throttleScroll(event), false);
     }
+
     // 获得鼠标滚轮事件
     function getWheelDalta(event) {
         var boat = document.querySelector(".sky .boat");
-        // var boatLeft = parseFloat(getComputedStyle(boat).left) ;
-        var boatLeft = parseFloat(getStyle(boat,'left'));
+        var cLeft = getStyle(boat,'left');
+        var newLeft =/%/.test(cLeft)?cLeft=parseFloat(cLeft)*document.documentElement.clientWidth/100:cLeft.replace('px', '');
+        var boatLeft = parseFloat(newLeft);
         var evaluation=document.querySelector(".self_evaluation");
         var evaTop=parseFloat(getStyle(evaluation,'top'));
         var event = event || window.event;
@@ -286,9 +298,15 @@ function wheel() {
         // var ratio=$('.sky').offset().top-$(window).scrollTop();
         // var clientHeight=document.documentElement.clientHeight;
         // console.log(ratio/clientHeight);
+        var $scrollTop=$(window).scrollTop();
+        var $offsetTop=$(".sky").offset().top;
+        // console.log("s="+$(window).scrollTop());
+        // console.log("a="+$(".sky").offset().top);
+
         if (delta > 0) {
-            if (($(".sky").offset().top)*3/4 <$(window).scrollTop()&&boatLeft>lMin) {
+            if ($offsetTop*3/4 <$scrollTop&&boatLeft>lMin) {
                 boat.style.left =boatLeft-delta*25+"px" ;
+                // boat.style.left =boatLeft-($offsetTop-$scrollTop)+"px" ;
                 // console.log("up="+delta);
                 // if(evaTop<clientHeight*3/5){
                 //     evaluation.style.top=evaTop+10*ratio/clientHeight+"px";
@@ -297,8 +315,9 @@ function wheel() {
                 // }
             }
         } else {
-            if ($(".sky").offset().top*3/4 < $(window).scrollTop()&&boatLeft<lMax) {
+            if ($offsetTop*3/4 < $scrollTop&&boatLeft<lMax) {
                 boat.style.left = boatLeft-delta*25+"px";
+                // boat.style.left = boatLeft+($offsetTop-$scrollTop+1)+"px";
                 // console.log("down="+delta);
                 // if(evaTop>clientHeight/12){
                 //     evaluation.style.top=evaTop-10*ratio/clientHeight+"px";
@@ -307,7 +326,7 @@ function wheel() {
                 // }
             }
         }
-        // 阻止默认行为，防止当页面本身就存在滚动条时出现的异常//我这里不需要阻止默认行为
+        // 阻止默认行为，防止当页面本身就存在滚动条时出现的异常//这里不需要阻止默认行为
         // prevent(event);
         // function prevent(evt) {
         //     if (evt.preventDefault) {
@@ -319,6 +338,7 @@ function wheel() {
     }
 }
 wheel();
+
 
 
 
