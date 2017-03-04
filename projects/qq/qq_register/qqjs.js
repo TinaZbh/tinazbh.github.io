@@ -583,7 +583,6 @@ $(document).ready(function () {
         var f = leaveBirth('day');
         var g = warnChange('.warn.birthP', 6);
         var agreeSth = document.querySelector('.agreeSth');
-
         if (markA3 == 0 || b == false || c == false || d == false || e == false || f == false || g == false || agreeSth.checked === false) {
 
             return;
@@ -614,6 +613,13 @@ $(document).ready(function () {
                 data: QQData,
                 success: function (data) {
                     console.log(data);
+                    if(data.code==200){
+                        $(".state_fail").css("display","none");
+                        $(".state_success").css("display","block");
+                    }else{
+                        $(".state_fail").css("display","block");
+                        $(".state_success").css("display","none");
+                    }
                 },
                 error: function (jqXHR) {
                     console.log("发生错误jqXHR" + jqXHR.status);
@@ -662,6 +668,13 @@ $(document).ready(function () {
                 data: EmailData,
                 success: function (data) {
                     console.log(data);
+                    if(data.code==200){
+                        $(".state_fail").css("display","none");
+                        $(".state_success").css("display","block");
+                    }else{
+                        $(".state_fail").css("display","block");
+                        $(".state_success").css("display","none");
+                    }
                 },
                 error: function (jqXHR) {
                     console.log("发生错误jqXHR" + jqXHR.status);
@@ -673,99 +686,6 @@ $(document).ready(function () {
 });
 
 
-// //用原生js实现ajax,提交填写的信息
-// document.getElementById("submit").onclick = function () {
-//     var request = new XMLHttpRequest();
-//     var a = warnChange('.warn.nickname', 3);
-//     var b = warnChange('.warn.password', 4);
-//     var c = warnChange('.warn.confPsw', 5);
-//     var d = leaveBirth('year');
-//     var e = leaveBirth('month');
-//     var f = leaveBirth('day');
-//     var g = warnChange('.warn.birthP', 6);
-//     if (a == false || b == false || c == false || d == false || e == false || f == false || g == false) {
-//         return false;
-//     }
-//
-//     if (isclick3 == 1) {
-//
-//         var h = warnChange('.warn.tel', 7);
-//         if (h == false) {
-//             return false;
-//         }
-//         var QQData = {
-//             "nickname": document.getElementById("nickname").value,
-//             "password": document.getElementById("password").value,
-//             "confirmPSW": document.getElementById("confirm_psw").value,
-//             // sex: document.querySelector(".male_item").style.background == 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat' ? $(".male_item").text() : $(".female_item").text(),
-//             "sex": chooseSex === 1 ? "男" : "女",
-//             "birthday": {
-//                 "type": document.querySelector("#birth_type_value").innerHTML,
-//                 "year": document.querySelector("#year_value").value,
-//                 "month": document.querySelector("#month_value").value,
-//                 "day": document.querySelector("#day_value").value
-//             },
-//             "birthplace": document.querySelector("#birthplace").value,
-//             "telephone": document.querySelector("#telephone").value
-//
-//         };
-//         // console.log(QQData);
-//         request.open("POST", "http://test.bihan.me/zbhtest.php");
-//         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-//         request.send(QQData);
-//     }
-//     if (isclick3 == 0) {
-//
-//         if (document.querySelector("#register_email").value == "") {
-//             var i = warnChange('.emailCode', 1);
-//             if (i == false) {
-//                 return false;
-//             }
-//             var EmailData = {
-//                 "email": document.querySelector("#email_name").value,
-//                 "nickname": document.getElementById("nickname").value,
-//                 "password": document.getElementById("password").value,
-//                 "confirmPSW": document.getElementById("confirm_psw").value,
-//                 "sex": chooseSex === 1 ? "男" : "女",
-//                 "birthday": {
-//                     "type": document.querySelector("#birth_type_value").innerHTML,
-//                     "year": document.querySelector("#year_value").value,
-//                     "month": document.querySelector("#month_value").value,
-//                     "day": document.querySelector("#day_value").value
-//                 },
-//                 "birthplace": document.querySelector("#birthplace").value,
-//                 // telephone: $("#telephone").val()
-//
-//             };
-//         }
-//         else if (document.querySelector("#email_name").value == "") {
-//             var j = warnChange('.registerEmail', 2);
-//             var h = warnChange('.warn.tel', 7);
-//             if (h == false || j == false) {
-//                 return false;
-//             }
-//             var EmailData = {
-//                 "email": document.querySelector("#register_email").value,
-//                 "nickname": document.getElementById("nickname").value,
-//                 "password": document.getElementById("password").value,
-//                 "confirmPSW": document.getElementById("confirm_psw").value,
-//                 "sex": chooseSex === 1 ? "男" : "女",
-//                 "birthday": {
-//                     "type": document.querySelector("#birth_type_value").innerHTML,
-//                     "year": document.querySelector("#year_value").value,
-//                     "month": document.querySelector("#month_value").value,
-//                     "day": document.querySelector("#day_value").value
-//                 },
-//                 "birthplace": document.querySelector("#birthplace").value,
-//                 "telephone": document.querySelector("#telephone").value
-//             };
-//         }
-//     }
-//     // console.log(EmailData);
-//     request.open("POST", "http://test.bihan.me/zbhtest.php");
-//     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-//     request.send(EmailData);
-// }
 
 
 //登录窗口

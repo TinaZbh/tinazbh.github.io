@@ -900,6 +900,19 @@ ul, li {
     display: none;
 }
 
+.state_fail{
+    display: none;
+    color:red;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+.state_success{
+    display: none;
+    color:#69b110;
+    margin-left: 40px;
+    margin-top: 10px;
+
+}
 #footer {
     width: 956px;
     color: #616c72;
