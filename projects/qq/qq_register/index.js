@@ -10,17 +10,13 @@ var indexAction = function () {
 
     //内部配置项
     var params = {
-        isclick3 : 0
+        // isclick3: 0
     };
 
     //私有方法
-    //选择年月日在框中相应显示，用于js中birthday_appear函数
-    var change_birth_type=function (obj, str) {
-        document.getElementById(obj).value = str;
-    };
 
 
-    var privateWarnChange  = function (obj, a) {
+    var privateWarnChange = function (obj, a) {
         var newWarn = document.querySelector(obj);
         var itemBox = document.querySelectorAll(".item_box");
         itemBox[a - 1].style.background = "url('http://6.url.cn/zc/chs/img/ipt.png?v=10090') 0 0 no-repeat";
@@ -339,13 +335,41 @@ var indexAction = function () {
         }
     };
 
+    var leaveB=function (str) {
+        var obj = document.getElementById(str);
+        var fObj = document.getElementById(str + "_value");
+        var fYear = document.getElementById("year_value");
+        var fMonth = document.getElementById("month_value");
+        var fDay = document.getElementById("day_value");
+        var newWarn = document.querySelector(".warn.birth");
+        obj.style.display = "none";
+        var mark = 0;
+        if (str == "year" && fObj.value == "") {
+            fObj.value = "年";
+        } else if (str == "month" && fObj.value == "") {
+            fObj.value = "月";
+        } else if (str == "day" && fObj.value == "") {
+            fObj.value = "日";
+        }
+        if (/[0-9]/.test(fYear.value) && /[0-9]/.test(fMonth.value) && /[0-9]/.test(fDay.value)) {
+            newWarn.style.display = "block";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -240px no-repeat";
+            mark = 0;
+        } else {
+            newWarn.style.display = "block";
+            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -340px no-repeat";
+            mark = 1;
+        }
+        if (mark === 1) {
+            return false;
+        }
+    };
+
     return {
 
         //公有方法
         //定义本地存储,刷新时按钮与刷新前一样
         autoFocus: function () {
-
-            params.isclick3;
 
             if (sessionStorage.getItem("key") === "1") {
                 indexAction().reg_qq();
@@ -412,193 +436,282 @@ var indexAction = function () {
         },
 
         //创建邮箱
-        create_email : function () {
-        document.querySelectorAll(".email")[0].style.display = "none";
-        document.querySelector(".regEmail").style.display = "block";
-        document.querySelector(".registerEmail").style.display = 'block';
-        document.querySelector("#register_email").focus();
-        document.querySelector(".menu_7").style.display = "block";
-    },
+        create_email: function () {
+            document.querySelectorAll(".email")[0].style.display = "none";
+            document.querySelector(".regEmail").style.display = "block";
+            document.querySelector(".registerEmail").style.display = 'block';
+            document.querySelector("#register_email").focus();
+            document.querySelector(".menu_7").style.display = "block";
+        },
 
         //选择性别时改变其相应的背景图片。因为这里不是用的input中的radio,而是自定义的a标签及背景图片
-        chooseMale : function () {
-        var newOne = document.querySelectorAll(".sex_box a");
-        newOne[0].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat';
-        newOne[1].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat';
-        chooseSex = 1;
-    },
+        chooseMale: function () {
+            var newOne = document.querySelectorAll(".sex_box a");
+            newOne[0].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat';
+            newOne[1].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat';
+            chooseSex = 1;
+        },
 
-        chooseFemale : function () {
-        var newOne = document.querySelectorAll(".sex_box a");
-        newOne[1].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat';
-        newOne[0].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat';
-        chooseSex = 0;
-    },
+        chooseFemale: function () {
+            var newOne = document.querySelectorAll(".sex_box a");
+            newOne[1].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat';
+            newOne[0].style.background = 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -300px -322px no-repeat';
+            chooseSex = 0;
+        },
 
         //根据现实情况计算了每年每月不同的天数,并且显示出来
-        birthday_appear : function (obj_str) {
-        var yearValue = document.getElementById('year_value');
-        var monthValue = document.getElementById('month_value');
-        var objs = document.querySelector(obj_str);
+        birthday_appear: function (obj_str) {
+            var yearValue = document.getElementById('year_value');
+            var monthValue = document.getElementById('month_value');
+            var objs = document.querySelector(obj_str);
 
-        if (obj_str == ".birthday_box2 ul") {
-            for (var i = 2016; i > 1887; i--) {
-                document.getElementById("year").innerHTML += '<li value="' + i + '" id="year_' + (2016 - i) + '" onmousedown="indexAction().change_birth_type(' + "'year_value','" + i + "年'" + ')">' + i + '年</li>';
-            }
-        }
-        if (obj_str == ".birthday_box3 ul") {
-            var theMonth = document.getElementById("month");
-            if (yearValue.value.match(/\d+/g) == null || yearValue.value.match(/\d+/g) == "") {
-                theMonth.innerHTML = "";
-            } else {
-                for (var j = 1; j < 13; j++) {
-                    theMonth.innerHTML += '<li value="' + j + '" id="month_' + (j - 1) + '" onmousedown="indexAction().change_birth_type(' + "'month_value','" + j + "月'" + ')">' + j + '月</li>';
+            if (obj_str == ".birthday_box2 ul") {
+                for (var i = 2016; i > 1887; i--) {
+                    document.getElementById("year").innerHTML += '<li value="' + i + '" id="year_' + (2016 - i) + '" onmousedown="indexC.change_birth_type(' + "'year_value','" + i + "年'" + ')">' + i + '年</li>';
                 }
             }
-        }
-
-        if (obj_str == ".birthday_box4 ul") {
-            var theDay = document.getElementById("day");
-            if (monthValue.value.match(/\d+/g) == 1 || monthValue.value.match(/\d+/g) == 3 || monthValue.value.match(/\d+/g) == 5 || monthValue.value.match(/\d+/g) == 7 || monthValue.value.match(/\d+/g) == 8 || monthValue.value.match(/\d+/g) == 10 || monthValue.value.match(/\d+/g) == 12) {
-                theDay.innerHTML = "";　//清空一下theDay，否则天数会一直叠加进ul中
-                for (var k = 1; k < 32; k++) {
-                    theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexAction().change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
-                }
-            } else if (monthValue.value.match(/\d+/g) == 4 || monthValue.value.match(/\d+/g) == 6 || monthValue.value.match(/\d+/g) == 9 || monthValue.value.match(/\d+/g) == 11) {
-                theDay.innerHTML = "";
-                for (var k = 1; k < 31; k++) {
-                    theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexAction().change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
-                }
-            } else if (monthValue.value.match(/\d+/g) == 2) {
-                if (yearValue.value.match(/\d+/g) % 4 == 0 && yearValue.value.match(/\d+/g) % 100 != 0 || yearValue.value.match(/\d+/g) % 400 == 0) {
-                    theDay.innerHTML = "";
-                    for (var k = 1; k < 30; k++) {
-                        theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexAction().change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
-                    }
+            if (obj_str == ".birthday_box3 ul") {
+                var theMonth = document.getElementById("month");
+                if (yearValue.value.match(/\d+/g) == null || yearValue.value.match(/\d+/g) == "") {
+                    theMonth.innerHTML = "";
                 } else {
-                    theDay.innerHTML = "";
-                    for (var k = 1; k < 29; k++) {
-                        theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexAction().change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
+                    for (var j = 1; j < 13; j++) {
+                        theMonth.innerHTML += '<li value="' + j + '" id="month_' + (j - 1) + '" onmousedown="indexC.change_birth_type(' + "'month_value','" + j + "月'" + ')">' + j + '月</li>';
                     }
                 }
-
-            } else if (monthValue.value.match(/\d+/g) == null || monthValue.value.match(/\d+/g) == "") {   //undefined==null（不严格等于；===时是不等的）
-                theDay.innerHTML == "";
             }
-        }
-        //getComputedStyle方法能获取dom元素的所有css样式，但是是只读的；element.style只能获取行内样式不能获取css文件中的样式，但是是可读可写的
-        if (window.getComputedStyle(objs).display == "none") {  //打开或者关闭生日栏的下拉显示框
-            objs.style.display = "block";
-        } else {
-            objs.style.display = "none";
-        }
 
-    },
+            if (obj_str == ".birthday_box4 ul") {
+                var theDay = document.getElementById("day");
+                if (monthValue.value.match(/\d+/g) == 1 || monthValue.value.match(/\d+/g) == 3 || monthValue.value.match(/\d+/g) == 5 || monthValue.value.match(/\d+/g) == 7 || monthValue.value.match(/\d+/g) == 8 || monthValue.value.match(/\d+/g) == 10 || monthValue.value.match(/\d+/g) == 12) {
+                    theDay.innerHTML = "";　//清空一下theDay，否则天数会一直叠加进ul中
+                    for (var k = 1; k < 32; k++) {
+                        theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexC.change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
+                    }
+                } else if (monthValue.value.match(/\d+/g) == 4 || monthValue.value.match(/\d+/g) == 6 || monthValue.value.match(/\d+/g) == 9 || monthValue.value.match(/\d+/g) == 11) {
+                    theDay.innerHTML = "";
+                    for (var k = 1; k < 31; k++) {
+                        theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexC.change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
+                    }
+                } else if (monthValue.value.match(/\d+/g) == 2) {
+                    if (yearValue.value.match(/\d+/g) % 4 == 0 && yearValue.value.match(/\d+/g) % 100 != 0 || yearValue.value.match(/\d+/g) % 400 == 0) {
+                        theDay.innerHTML = "";
+                        for (var k = 1; k < 30; k++) {
+                            theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexC.change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
+                        }
+                    } else {
+                        theDay.innerHTML = "";
+                        for (var k = 1; k < 29; k++) {
+                            theDay.innerHTML += '<li value="' + k + '" id="year_' + (k - 1) + '" onmousedown="indexC.change_birth_type(' + "'day_value','" + k + "日'" + ')">' + k + '日</li>';
+                        }
+                    }
 
-        //选择公历农历的时候input的相应值显示为哪个
-        change_birth_type1 : function (obj, str) {
-        document.getElementById(obj).innerHTML = str;
-    },
+                } else if (monthValue.value.match(/\d+/g) == null || monthValue.value.match(/\d+/g) == "") {   //undefined==null（不严格等于；===时是不等的）
+                    theDay.innerHTML == "";
+                }
+            }
+            //getComputedStyle方法能获取dom元素的所有css样式，但是是只读的；element.style只能获取行内样式不能获取css文件中的样式，但是是可读可写的
+            if (window.getComputedStyle(objs).display == "none") {  //打开或者关闭生日栏的下拉显示框
+                objs.style.display = "block";
+            } else {
+                objs.style.display = "none";
+            }
+
+        },
+
+        //选择年月日在框中相应显示，用于js中birthday_appear函数
+        change_birth_type : function (obj, str) {
+            document.getElementById(obj).value = str;
+        },
+
+
+    //选择公历农历的时候input的相应值显示为哪个
+        change_birth_type1: function (obj, str) {
+            document.getElementById(obj).innerHTML = str;
+        },
 
         //点击手机号码那个input出现要求发送验证码来验证手机
-        verify_appear : function () {
-        document.querySelector(".menu_8").style.display = "block";
-    },
+        verify_appear: function () {
+            document.querySelector(".menu_8").style.display = "block";
+        },
 
         //当input获得焦点是会相应的显示提示
-        warnAppear : function (obj, a) {
-        var newWarn = document.querySelector(obj);
-        var hel = document.querySelectorAll(".item_box");
-        hel[a - 1].style.background = "url('http://6.url.cn/zc/chs/img/ipt.png?v=10090') 0 -35px no-repeat";
-        if (a == 1) {
-            newWarn.style.display = 'block';
-            document.querySelector(".warn.emailCode1").style.display = 'none';
-        }
-        if (a == 2) {
-            newWarn.innerHTML = '请创建邮箱名，由3-18个英文、数字、点、减号、下划线组成';
-            newWarn.style.color = "grey";
-            newWarn.style.background = "none";
-            newWarn.style.paddingLeft = "0";
-            hel[a - 1].style.background = "url('http://6.url.cn/zc/chs/img/ipt.png?v=10090') 0 -210px no-repeat";
-        }
-        if (a == 3) {
-            newWarn.style.display = 'block';
-            newWarn.innerHTML = '请输入昵称';
-            newWarn.style.color = "grey";
-            newWarn.style.background = "none";
-            newWarn.style.paddingLeft = "0";
-        }
-        if (a == 4) {
-            // var newInp = document.getElementById("password");
-            var hint = document.querySelectorAll(".hint_psw .hPsw");
-            newWarn.style.color = "grey";
-            newWarn.style.background = "none";
-            newWarn.style.paddingLeft = "0";
-            document.querySelector(".hint_psw").style.display = 'block';
-            newWarn.style.display = 'none';
-            // hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
-            // hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
-            // hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
-            // if((newInp.value.length<6||newInp.value.length>16)&&newInp.value.length>0){
-            //     document.querySelector(".hint_psw").style.display='block';
-            //     hint[0].style.background="url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
-            // }
-        }
-        if (a == 5) {
-            newWarn.style.display = 'block';
-            newWarn.innerHTML = '请再次输入密码';
-            newWarn.style.color = "grey";
-            newWarn.style.background = "none";
-            newWarn.style.paddingLeft = "0";
-        }
-    },
+        warnAppear: function (obj, a) {
+            var newWarn = document.querySelector(obj);
+            var hel = document.querySelectorAll(".item_box");
+            hel[a - 1].style.background = "url('http://6.url.cn/zc/chs/img/ipt.png?v=10090') 0 -35px no-repeat";
+            if (a == 1) {
+                newWarn.style.display = 'block';
+                document.querySelector(".warn.emailCode1").style.display = 'none';
+            }
+            if (a == 2) {
+                newWarn.innerHTML = '请创建邮箱名，由3-18个英文、数字、点、减号、下划线组成';
+                newWarn.style.color = "grey";
+                newWarn.style.background = "none";
+                newWarn.style.paddingLeft = "0";
+                hel[a - 1].style.background = "url('http://6.url.cn/zc/chs/img/ipt.png?v=10090') 0 -210px no-repeat";
+            }
+            if (a == 3) {
+                newWarn.style.display = 'block';
+                newWarn.innerHTML = '请输入昵称';
+                newWarn.style.color = "grey";
+                newWarn.style.background = "none";
+                newWarn.style.paddingLeft = "0";
+            }
+            if (a == 4) {
+                // var newInp = document.getElementById("password");
+                var hint = document.querySelectorAll(".hint_psw .hPsw");
+                newWarn.style.color = "grey";
+                newWarn.style.background = "none";
+                newWarn.style.paddingLeft = "0";
+                document.querySelector(".hint_psw").style.display = 'block';
+                newWarn.style.display = 'none';
+                // hint[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+                // hint[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+                // hint[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -216px no-repeat";
+                // if((newInp.value.length<6||newInp.value.length>16)&&newInp.value.length>0){
+                //     document.querySelector(".hint_psw").style.display='block';
+                //     hint[0].style.background="url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
+                // }
+            }
+            if (a == 5) {
+                newWarn.style.display = 'block';
+                newWarn.innerHTML = '请再次输入密码';
+                newWarn.style.color = "grey";
+                newWarn.style.background = "none";
+                newWarn.style.paddingLeft = "0";
+            }
+        },
 
         //为了解决邮箱那边的onblur和onclick事件的冲突问题,用定时器来延迟onblur事件的触发
-        warnChangeDelay : function () {
-        setTimeout("privateWarnChange('.emailCode',1)", 150);
-    },
+        warnChangeDelay: function () {
+            setTimeout(privateWarnChange('.emailCode',1), 150);
+        },
 
         //对填写的input的正则验证,以及判断是否符合填写要求
-        warnChange : function (obj, a) {
+        warnChange: function (obj, a) {
             privateWarnChange(obj, a);
-    },
+        },
 
 
         //生日填写失去焦点时发生的事情
-        leaveBirth : function (str) {
-        var obj = document.getElementById(str);
-        var fObj = document.getElementById(str + "_value");
-        var fYear = document.getElementById("year_value");
-        var fMonth = document.getElementById("month_value");
-        var fDay = document.getElementById("day_value");
-        var newWarn = document.querySelector(".warn.birth");
-        obj.style.display = "none";
-        var mark = 0;
-        if (str == "year" && fObj.value == "") {
-            fObj.value = "年";
-        } else if (str == "month" && fObj.value == "") {
-            fObj.value = "月";
-        } else if (str == "day" && fObj.value == "") {
-            fObj.value = "日";
+        leaveBirth: function (str) {
+            leaveB(str);
+        },
+
+        subEvent: function () {
+
+
+            // var a = warnChange('.warn.nickname', 3);
+            var b = privateWarnChange('.warn.password', 4);
+            var c = privateWarnChange('.warn.confPsw', 5);
+            var d = leaveB('year');
+            var e = leaveB('month');
+            var f = leaveB('day');
+            var g = privateWarnChange('.warn.birthP', 6);
+            var agreeSth = document.querySelector('.agreeSth');
+            if (markA3 == 0 || b == false || c == false || d == false || e == false || f == false || g == false || agreeSth.checked === false) {
+
+                return;
+            }
+
+            if (isclick3 == 1) {  //qq注册
+
+                var h = privateWarnChange('.warn.tel', 7);
+                if (h == false) {
+
+                    return;
+                }
+                var QQData = {
+                    nickname: $("#nickname").val(),
+                    email: '',
+                    password: $("#password").val(),
+                    // sex: document.querySelector(".male_item").style.background == 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat' ? $(".male_item").text() : $(".female_item").text(),
+                    sex: chooseSex === 1 ? $(".male_item").text() : $(".female_item").text(),
+                    birthday: $("#birth_type_value").text() + ':' + $("#year_value").val() + '／' + $("#month_value").val() + '／' + $("#day_value").val(),
+                    birthplace: $("#birthplace").val(),
+                    telephone: $("#telephone").val()
+
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "http://104.131.102.43?m=register",
+                    dataType: "json",
+                    data: QQData,
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            $(".state_fail").css("display", "none");
+                            $(".state_success").css("display", "block");
+                        } else {
+                            $(".state_fail").css("display", "block");
+                            $(".state_success").css("display", "none");
+                        }
+                    },
+                    error: function (jqXHR) {
+                        console.log("发生错误jqXHR" + jqXHR.status);
+                    }
+                });
+            }
+            if (isclick3 == 0) {//邮箱注册
+
+                if ($("#register_email").val() == "") {
+                    var i = privateWarnChange('.emailCode', 1);
+                    if (i == false) {
+                        return;
+                    }
+                    var EmailData = {
+                        email: $("#email_name").val(),
+                        nickname: $("#nickname").val(),
+                        password: $("#password").val(),
+                        sex: chooseSex === 1 ? $(".male_item").text() : $(".female_item").text(),
+                        birthday: $("#birth_type_value").text() + ':' + $("#year_value").val() + '／' + $("#month_value").val() + '／' + $("#day_value").val(),
+                        birthplace: $("#birthplace").val(),
+                        telephone: ''
+                        // telephone: $("#telephone").val()
+
+                    };
+                }
+                else if ($("#email_name").val() == "") {
+                    var j = privateWarnChange('.registerEmail', 2);
+                    var h = privateWarnChange('.warn.tel', 7);
+                    if (h == false || j == false) {
+                        return;
+                    }
+                    var EmailData = {
+                        email: $("#register_email").val(),
+                        nickname: $("#nickname").val(),
+                        password: $("#password").val(),
+                        sex: chooseSex === 1 ? $(".male_item").text() : $(".female_item").text(),
+                        birthday: $("#birth_type_value").text() + ':' + $("#year_value").val() + '／' + $("#month_value").val() + '／' + $("#day_value").val(),
+                        birthplace: $("#birthplace").val(),
+                        telephone: ''
+                    };
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "http://104.131.102.43?m=register",
+                    dataType: "json",
+                    data: EmailData,
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 200) {
+                            $(".state_fail").css("display", "none");
+                            $(".state_success").css("display", "block");
+                        } else {
+                            $(".state_fail").css("display", "block");
+                            $(".state_success").css("display", "none");
+                        }
+                    },
+                    error: function (jqXHR) {
+                        console.log("发生错误jqXHR" + jqXHR.status);
+                    }
+                });
+            }
         }
-        if (/[0-9]/.test(fYear.value) && /[0-9]/.test(fMonth.value) && /[0-9]/.test(fDay.value)) {
-            newWarn.style.display = "block";
-            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -240px no-repeat";
-            mark = 0;
-        } else {
-            newWarn.style.display = "block";
-            newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -340px no-repeat";
-            mark = 1;
-        }
-        if (mark === 1) {
-            return false;
-        }
-
-    }
 
 
-
-};
+    };
 };
 //登录窗口
 var loginWin = {
@@ -747,120 +860,7 @@ var loginWin = {
             }
         }
 
-    },
-    subEvent : function () {
-
-
-        // var a = warnChange('.warn.nickname', 3);
-        var b = indexC.warnChange('.warn.password', 4);
-        var c = indexC.warnChange('.warn.confPsw', 5);
-        var d = indexC.leaveBirth('year');
-        var e = indexC.leaveBirth('month');
-        var f = indexC.leaveBirth('day');
-        var g = indexC.warnChange('.warn.birthP', 6);
-        var agreeSth = document.querySelector('.agreeSth');
-        if (markA3 == 0 || b == false || c == false || d == false || e == false || f == false || g == false || agreeSth.checked === false) {
-
-            return;
-        }
-
-        if (isclick3 == 1) {  //qq注册
-
-            var h = indexC.warnChange('.warn.tel', 7);
-            if (h == false) {
-
-                return;
-            }
-            var QQData = {
-                nickname: $("#nickname").val(),
-                email: '',
-                password: $("#password").val(),
-                // sex: document.querySelector(".male_item").style.background == 'url("http://6.url.cn/zc/chs/img/ipt.png?v=10090") -267px -417px no-repeat' ? $(".male_item").text() : $(".female_item").text(),
-                sex: chooseSex === 1 ? $(".male_item").text() : $(".female_item").text(),
-                birthday: $("#birth_type_value").text() + ':' + $("#year_value").val() + '／' + $("#month_value").val() + '／' + $("#day_value").val(),
-                birthplace: $("#birthplace").val(),
-                telephone: $("#telephone").val()
-
-            };
-            $.ajax({
-                type: "POST",
-                url: "http://104.131.102.43?m=register",
-                dataType: "json",
-                data: QQData,
-                success: function (data) {
-                    console.log(data);
-                    if (data.code == 200) {
-                        $(".state_fail").css("display", "none");
-                        $(".state_success").css("display", "block");
-                    } else {
-                        $(".state_fail").css("display", "block");
-                        $(".state_success").css("display", "none");
-                    }
-                },
-                error: function (jqXHR) {
-                    console.log("发生错误jqXHR" + jqXHR.status);
-                }
-            });
-        }
-        if (isclick3 == 0) {//邮箱注册
-
-            if ($("#register_email").val() == "") {
-                var i = indexC.warnChange('.emailCode', 1);
-                if (i == false) {
-                    return;
-                }
-                var EmailData = {
-                    email: $("#email_name").val(),
-                    nickname: $("#nickname").val(),
-                    password: $("#password").val(),
-                    sex: chooseSex === 1 ? $(".male_item").text() : $(".female_item").text(),
-                    birthday: $("#birth_type_value").text() + ':' + $("#year_value").val() + '／' + $("#month_value").val() + '／' + $("#day_value").val(),
-                    birthplace: $("#birthplace").val(),
-                    telephone: ''
-                    // telephone: $("#telephone").val()
-
-                };
-            }
-            else if ($("#email_name").val() == "") {
-                var j = indexC.warnChange('.registerEmail', 2);
-                var h = indexC.warnChange('.warn.tel', 7);
-                if (h == false || j == false) {
-                    return;
-                }
-                var EmailData = {
-                    email: $("#register_email").val(),
-                    nickname: $("#nickname").val(),
-                    password: $("#password").val(),
-                    sex: chooseSex === 1 ? $(".male_item").text() : $(".female_item").text(),
-                    birthday: $("#birth_type_value").text() + ':' + $("#year_value").val() + '／' + $("#month_value").val() + '／' + $("#day_value").val(),
-                    birthplace: $("#birthplace").val(),
-                    telephone: ''
-                };
-            }
-            $.ajax({
-                type: "POST",
-                url: "http://104.131.102.43?m=register",
-                dataType: "json",
-                data: EmailData,
-                success: function (data) {
-                    console.log(data);
-                    if (data.code == 200) {
-                        $(".state_fail").css("display", "none");
-                        $(".state_success").css("display", "block");
-                    } else {
-                        $(".state_fail").css("display", "block");
-                        $(".state_success").css("display", "none");
-                    }
-                },
-                error: function (jqXHR) {
-                    console.log("发生错误jqXHR" + jqXHR.status);
-                }
-            });
-        }
     }
-
-
-
 };
 
 var commonAction = function () {

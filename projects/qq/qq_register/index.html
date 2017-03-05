@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./qqcss.css">
     <link rel="stylesheet" href="./iconfont/iconfont.css">
 </head>
-<body onload="autoFocus()">
+<body onload="indexC.autoFocus()">
 <!--登录窗口-->
 <div id="logWindow">
     <div class="winHeader">
@@ -51,12 +51,12 @@
         </div>
         <div id="content">
             <div class="side">
-                <a class="fis_btn" onclick="reg_qq()">
+                <a class="fis_btn" onclick="indexC.reg_qq()">
                     <span class="icon">&#xe602;</span>
                     <span>QQ账号</span>
                     <span>由数字组成,经典通行账号</span>
                 </a>
-                <a class="fis_btn" onclick="reg_email()">
+                <a class="fis_btn" onclick="indexC.reg_email()">
                     <span class="icon ">&#xe605;</span>
                     <span>注册邮箱</span>
                     <span>用邮箱地址注册,便于记忆</span>
@@ -93,20 +93,20 @@
             <div class="main_content">
                 <img src="http://3gimg.qq.com/qq_product_operations/temp/enterBannerC.jpg" alt="参加免费注册靓号活动" class="rem_img">
                 <!--<div class="rem_img">-->
-                    <!--<ul class="topImg">-->
-                        <!--<li class="one"></li>-->
-                        <!--<li class="two"></li>-->
-                        <!--<li class="three"></li>-->
-                        <!--<li class="four"></li>-->
-                    <!--</ul>-->
+                <!--<ul class="topImg">-->
+                <!--<li class="one"></li>-->
+                <!--<li class="two"></li>-->
+                <!--<li class="three"></li>-->
+                <!--<li class="four"></li>-->
+                <!--</ul>-->
                 <!--</div>-->
                 <!--<div class="rem_index">-->
-                    <!--<ul class="dotList">-->
-                        <!--<li class="index1"><a href="" class="dot_focus1" onmouseover="overEvent().dotFocus1()"></a></li>-->
-                        <!--<li class="index2"><a href="" class="dot_focus2" onmouseover="overEvent().dotFocus2()"></a></li>-->
-                        <!--<li class="index3"><a href="" class="dot_focus3" onmouseover="overEvent().dotFocus3()"></a></li>-->
-                        <!--<li class="index4"><a href="" class="dot_focus4" onmouseover="overEvent().dotFocus4()"></a></li>-->
-                    <!--</ul>-->
+                <!--<ul class="dotList">-->
+                <!--<li class="index1"><a href="" class="dot_focus1" onmouseover="overEvent().dotFocus1()"></a></li>-->
+                <!--<li class="index2"><a href="" class="dot_focus2" onmouseover="overEvent().dotFocus2()"></a></li>-->
+                <!--<li class="index3"><a href="" class="dot_focus3" onmouseover="overEvent().dotFocus3()"></a></li>-->
+                <!--<li class="index4"><a href="" class="dot_focus4" onmouseover="overEvent().dotFocus4()"></a></li>-->
+                <!--</ul>-->
                 <!--</div>-->
                 <div class="home_title">注册账号</div>
                 <hr class="tran_line">
@@ -116,12 +116,12 @@
                         <label for="email_name" class="item">邮箱账号</label>
                         <div class="item_box">
                             <input type="text" id="email_name" name="email_name" maxlength="30" autocomplete="off"
-                                   onfocus="warnAppear('.emailCode',1)" onblur="warnChangeDelay()"/>
+                                   onfocus="indexC.warnAppear('.emailCode',1)" onblur="indexC.warnChangeDelay()"/>
                         </div>
                         <div class="warn emailCode">
                             请输入您常用的电子邮箱<br>
-                            <a onclick="create_email()">创建邮箱</a>&nbsp;或&nbsp;
-                            <a onclick="reg_qq()">注册普通qq号</a>
+                            <a onclick="indexC.create_email()">创建邮箱</a>&nbsp;或&nbsp;
+                            <a onclick="indexC.reg_qq()">注册普通qq号</a>
                         </div>
                         <div class="warn emailCode1">请输入邮箱</div>
                     </div>
@@ -130,7 +130,7 @@
                         <label class="item">邮箱账号</label>
                         <div class="item_box">
                             <input type="text" id="register_email" name="register_email" autocomplete="off"
-                                   onfocus="warnAppear('.registerEmail',2)" onblur="warnChange('.registerEmail',2)"/>
+                                   onfocus="indexC.warnAppear('.registerEmail',2)" onblur="indexC.warnChange('.registerEmail',2)"/>
                         </div>
                         <div class="eSuffix"> @qq.com</div>
                         <div class="warn registerEmail">请创建邮箱名，由3-18个英文、数字、点、减号、下划线组成</div>
@@ -140,8 +140,8 @@
                         <label for="nickname" class="item">昵称</label>
                         <div class="item_box">
                             <input type="text" id="nickname" name="nickname" maxlength="24" autocomplete="off"
-                                   onfocus="warnAppear('.warn.nickname',3)"
-                                   onblur="warnChange('.warn.nickname',3)"/>
+                                   onfocus="indexC.warnAppear('.warn.nickname',3)"
+                                   onblur="indexC.warnChange('.warn.nickname',3)"/>
                         </div>
                         <div class="warn nickname">请输入昵称</div>
                         <!--<div class="warn nickname">昵称不可以为空</div>-->
@@ -150,7 +150,7 @@
                         <label for="password" class="item">密码</label>
                         <div class="item_box">
                             <input type="password" id="password" name="password" autocomplete="off"
-                                   onfocus="warnAppear('.warn.password',4)" onblur="warnChange('.warn.password',4)"/>
+                                   onfocus="indexC.warnAppear('.warn.password',4)" onblur="indexC.warnChange('.warn.password',4)"/>
                         </div>
                         <!--测试密码的强弱-->
                         <div class="warn password"></div>
@@ -167,8 +167,8 @@
                         <label for="confirm_psw" class="item">确认密码</label>
                         <div class="item_box">
                             <input type="password" id="confirm_psw" name="confirm_psw" autocomplete="off"
-                                   onfocus="warnAppear('.warn.confPsw',5)"
-                                   onblur="warnChange('.warn.confPsw',5)"/>
+                                   onfocus="indexC.warnAppear('.warn.confPsw',5)"
+                                   onblur="indexC.warnChange('.warn.confPsw',5)"/>
                         </div>
                         <div class="warn confPsw">请再次确认密码</div>
                         <!--<div class="warn confPsw1">请再次输入密码</div>-->
@@ -176,39 +176,39 @@
                     <div class="menu menu_4">
                         <div class="item">性别</div>
                         <div class=" sex_box">
-                            <a class="male_item" onclick="chooseMale()"> 男</a>
-                            <a class="female_item" onclick="chooseFemale()"> 女</a>
+                            <a class="male_item" onclick="indexC.chooseMale()"> 男</a>
+                            <a class="female_item" onclick="indexC.chooseFemale()"> 女</a>
                         </div>
                     </div>
                     <div class="menu menu_5">
                         <div class="item">生日</div>
                         <div class=" birthday_box">
-                            <div class="birthday_box1" onclick="birthday_appear('.birthday_box1 ul');">
+                            <div class="birthday_box1" onclick="indexC.birthday_appear('.birthday_box1 ul');">
                                 <!--加tabindex可以使a标签具有onblur事件-->
-                                <a id="birth_type_value" tabindex="12" onblur="leaveBirth('birthday_type_ul')">公历</a>
+                                <a id="birth_type_value" tabindex="12" onblur="indexC.leaveBirth('birthday_type_ul')">公历</a>
                                 <ul id="birthday_type_ul">
                                     <!--这里用onmousedown代替了onclick是为了解决onblur和onclick的冲突问题,即默认先执行onblur而忽略onclick-->
                                     <li id="birthday_0" value="0"
-                                        onmousedown="change_birth_type1('birth_type_value','公历')">公历
+                                        onmousedown="indexC.change_birth_type1('birth_type_value','公历')">公历
                                     </li>
                                     <li id="birthday_1" value="1"
-                                        onmousedown="change_birth_type1('birth_type_value','农历')">农历
+                                        onmousedown="indexC.change_birth_type1('birth_type_value','农历')">农历
                                     </li>
                                 </ul>
                             </div>
-                            <div class="birthday_box2" onclick="birthday_appear('.birthday_box2 ul');">
+                            <div class="birthday_box2" onclick="indexC.birthday_appear('.birthday_box2 ul');">
                                 <input type="text" maxlength="10" name="year_value" id="year_value" value="年"
-                                       autocomplete="off" onblur="leaveBirth('year');">
+                                       autocomplete="off" onblur="indexC.leaveBirth('year');">
                                 <ul id="year"></ul>
                             </div>
-                            <div class="birthday_box3" onclick="birthday_appear('.birthday_box3 ul');">
+                            <div class="birthday_box3" onclick="indexC.birthday_appear('.birthday_box3 ul');">
                                 <input type="text" maxlength="10" name="month_value" id="month_value" value="月"
-                                       autocomplete="off" onblur="leaveBirth('month');">
+                                       autocomplete="off" onblur="indexC.leaveBirth('month');">
                                 <ul id="month"></ul>
                             </div>
-                            <div class="birthday_box4" onclick="birthday_appear('.birthday_box4 ul');">
+                            <div class="birthday_box4" onclick="indexC.birthday_appear('.birthday_box4 ul');">
                                 <input type="text" maxlength="10" name="day_value" id="day_value" value="日"
-                                       autocomplete="off" onblur="leaveBirth('day');">
+                                       autocomplete="off" onblur="indexC.leaveBirth('day');">
                                 <ul id="day"></ul>
                             </div>
                         </div>
@@ -218,8 +218,8 @@
                         <label for="birthplace" class="item">所在地</label>
                         <div class="item_box">
                             <input type="text" id="birthplace" name="address"
-                                   onfocus="warnAppear('.warn.birthP',6)"
-                                   onblur="warnChange('.warn.birthP',6)"/>
+                                   onfocus="indexC.warnAppear('.warn.birthP',6)"
+                                   onblur="indexC.warnChange('.warn.birthP',6)"/>
                         </div>
                         <div class="warn birthP"></div>
                         <!--<div class="warn birthP1"></div>-->
@@ -227,15 +227,15 @@
                     <div class="menu email">
                         <label class="item">验证码</label>
                         <div class="confCode_box">
-                            <a href="" class="confirm_code"><span class="icon">&#xe609;</span> &nbsp;&nbsp;点击完成验证(该功能未实现)</a>
+                            <a href="javascript:;" class="confirm_code"><span class="icon">&#xe609;</span> &nbsp;&nbsp;点击完成验证(该功能未实现)</a>
                         </div>
                         <div class="warn confC">请先进行安全验证</div>
                     </div>
                     <div class="menu menu_7">
                         <label for="telephone" class="item">手机号码</label>
-                        <div class="item_box" onclick="verify_appear()">
+                        <div class="item_box" onclick="indexC.verify_appear()">
                             <input type="text" id="telephone" name="cellphone_number" autocomplete="off"
-                                   onfocus="warnAppear('.warn.tel',7)" onblur="warnChange('.warn.tel',7)"/>
+                                   onfocus="indexC.warnAppear('.warn.tel',7)" onblur="indexC.warnChange('.warn.tel',7)"/>
                         </div>
                         <div class="warn tel"></div>
                         <p class="reminder">可通过该手机号码快速找到密码（该功能未实现）</p>
@@ -252,7 +252,7 @@
                     </div>
 
                     <div class="submit">
-                        <input type="button" name="submit" id="submit" value="立即注册"/>
+                        <input type="button" name="submit" id="submit" onclick="indexC.subEvent()" value="立即注册"/>
                     </div>
                     <div class="state_fail">该账号已注册，请登录!</div>
                     <div class="state_success">注册成功，请在右上角选择登录!</div>
@@ -269,8 +269,13 @@
 <div id="footer">
     Copyright &copy; 1998-2016 Tencent All Rights Reserved 腾讯公司 版权所有
 </div>
-</body>
 <script src="./jquery/jquery-3.1.1.js"></script>
 <!--<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>-->
-<script type="text/javascript" src="qqjs.js"></script>
+<script type="text/javascript" src="index.js"></script>
+<script>
+    var indexC = indexAction();
+</script>
+
+</body>
+
 </html>
