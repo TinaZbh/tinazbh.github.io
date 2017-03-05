@@ -26,8 +26,8 @@
       <file leaf-file-name="qqcss.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qqcss.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="443" column="1" selection-start-line="443" selection-start-column="1" selection-end-line="443" selection-end-column="1" />
+            <state relative-caret-position="-30">
+              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -36,9 +36,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="105" column="71" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="71" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+              <folding>
+                <element signature="e#433#441#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,8 +48,8 @@
       <file leaf-file-name="qqjs.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qqjs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1635">
-              <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state relative-caret-position="320">
+              <caret line="739" column="40" selection-start-line="739" selection-start-column="40" selection-end-line="739" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -80,9 +82,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -109,6 +110,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -144,7 +146,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -156,6 +157,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="isclick3&#9;null&#9;null&#10;iscli&#9;null&#9;null&#10;isclick&#9;null&#9;null&#10;main&#9;null&#9;null" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -238,15 +240,16 @@
       <workItem from="1483259915999" duration="661000" />
       <workItem from="1483264196554" duration="2907000" />
       <workItem from="1483323726751" duration="8037000" />
+      <workItem from="1488636971974" duration="1442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72761000" />
+    <option name="totallyTimeSpent" value="74203000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="1" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -286,6 +289,32 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/qqcss.css">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6645">
+          <caret line="443" column="1" selection-start-line="443" selection-start-column="1" selection-end-line="443" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="71" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="71" />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qqjs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qqcss.css">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5100">
           <caret line="340" column="91" selection-start-line="340" selection-start-column="91" selection-end-line="340" selection-end-column="91" />
           <folding />
@@ -296,18 +325,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="41" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test1.html" />
     <entry file="file://$PROJECT_DIR$/qqjs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13425">
@@ -328,7 +352,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="10" selection-start-line="241" selection-start-column="20" selection-end-line="241" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -352,7 +378,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3615">
           <caret line="241" column="26" selection-start-line="241" selection-start-column="20" selection-end-line="241" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -376,7 +404,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
           <caret line="228" column="117" selection-start-line="228" selection-start-column="117" selection-end-line="228" selection-end-column="117" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -400,7 +430,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
           <caret line="228" column="117" selection-start-line="228" selection-start-column="117" selection-end-line="228" selection-end-column="117" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -424,7 +456,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3420">
           <caret line="228" column="117" selection-start-line="228" selection-start-column="117" selection-end-line="228" selection-end-column="117" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -448,7 +482,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -472,7 +508,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4275">
           <caret line="285" column="7" selection-start-line="285" selection-start-column="7" selection-end-line="285" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -496,7 +534,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4410">
           <caret line="294" column="22" selection-start-line="294" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -520,7 +560,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4410">
           <caret line="294" column="22" selection-start-line="294" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -544,17 +586,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1005">
           <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html" />
     <entry file="file://$PROJECT_DIR$/qqjs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5430">
@@ -575,7 +613,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -594,14 +634,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html" />
     <entry file="file://$PROJECT_DIR$/images/art.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -612,34 +645,29 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test1.html">
+    <entry file="file://$PROJECT_DIR$/test1.html" />
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1443">
-          <caret line="101" column="41" selection-start-line="101" selection-start-column="41" selection-end-line="101" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="e#433#441#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qqcss.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="443" column="1" selection-start-line="443" selection-start-column="1" selection-end-line="443" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="105" column="71" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="71" />
+        <state relative-caret-position="-30">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qqjs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="320">
+          <caret line="739" column="40" selection-start-line="739" selection-start-column="40" selection-end-line="739" selection-end-column="40" />
           <folding />
         </state>
       </provider>

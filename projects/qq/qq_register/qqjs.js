@@ -304,7 +304,7 @@ function warnChange(obj, a) {
             return;
         } else {
 
-            $.post('http://127.0.0.1:8888?m=nickname', {nickname: newInp.value}, function (data) {
+            $.post('http://104.131.102.43?m=nickname', {nickname: newInp.value}, function (data) {
                 console.log(data);
                 if (data.msg == 'good') {
                     newWarn.style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -245px no-repeat";
@@ -608,7 +608,7 @@ $(document).ready(function () {
             };
             $.ajax({
                 type: "POST",
-                url: "http://127.0.0.1:8888?m=register",
+                url: "http://104.131.102.43?m=register",
                 dataType: "json",
                 data: QQData,
                 success: function (data) {
@@ -663,7 +663,7 @@ $(document).ready(function () {
             }
             $.ajax({
                 type: "POST",
-                url: "http://127.0.0.1:8888?m=register",
+                url: "http://104.131.102.43?m=register",
                 dataType: "json",
                 data: EmailData,
                 success: function (data) {
@@ -771,8 +771,8 @@ var loginWin = {
         underLayer.style.top = 0;
         underLayer.style.left = 0;
         underLayer.style.position = "fixed";
-        underLayer.style.backgroundColor = "#000";
-        underLayer.style.opacity = "0.4";
+        underLayer.style.backgroundColor = "rgba(0,0,0,0.4)";
+        //underLayer.style.opacity = "0.4";
         underLayer.style.zIndex = "9998";
         document.body.appendChild(underLayer);
 
@@ -796,16 +796,16 @@ var loginWin = {
         document.getElementById("winLogin").onclick = function () {
             var request = new XMLHttpRequest()
             if (/^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\\d{8}$/g.test(user.value)) {//user填写的是手机号
-                request.open("POST", "http://127.0.0.1:8888?m=login");
+                request.open("POST", "http://104.131.102.43?m=login");
                 var sendData = "telephone=" + user.value + "&password=" + password.value;
                 request.send(sendData);
             } else if (/^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(\.[a-zA-Z0-9_-]+)+$/g.test(user.value)) {//user填写的是邮箱
-                request.open("POST", "http://127.0.0.1:8888?m=login");
+                request.open("POST", "http://104.131.102.43?m=login");
                 var sendData = "email=" + user.value + "&password=" + password.value;
                 request.send(sendData);
 
             } else {   //否则user就认为是昵称
-                request.open("POST", "http://127.0.0.1:8888?m=login");
+                request.open("POST", "http://104.131.102.43?m=login");
                 var sendData = "nickname=" + user.value + "&password=" + password.value;
                 request.send(sendData);
             }
