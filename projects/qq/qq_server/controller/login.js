@@ -19,11 +19,11 @@ var login=function (getData,postData,response) {
                     user_id:rows[0]['user_id']
                 };
                 myUtil.response(resData.setSuccessCode().setData(data).setMsg('登录成功').setEnd(),response);
-                return;
+                response.end();
             } else {
                 myUtil.response(resData.setFail().setFailCode().setMsg('用户不存在').setEnd(),response);
+                response.end();
             }
-            response.end();
         });
     } else if (phone_number != null && phone_number != '') {
         var selectSql2 = "SELECT * FROM `qq_reg` WHERE `phone_number`='" + phone_number + "' AND `password`='"+password+"'";
@@ -33,11 +33,11 @@ var login=function (getData,postData,response) {
                     user_id:rows[0]['user_id']
                 };
                 myUtil.response(resData.setSuccessCode().setData(data).setMsg('登录成功').setEnd(),response);
-                return;
+                response.end();
             } else {
                 myUtil.response(resData.setFail().setFailCode().setMsg('用户不存在').setEnd(),response);
+                response.end();
             }
-            response.end();
         });
     }else {
         var selectSql3 = "SELECT * FROM `qq_reg` WHERE `nick_name`='" + nick_name + "' AND `password`='"+password+"'";
@@ -47,11 +47,11 @@ var login=function (getData,postData,response) {
                     user_id:rows[0]['user_id']
                 };
                 myUtil.response(resData.setSuccessCode().setData(data).setMsg('登录成功').setEnd(),response);
-                return;
+                response.end();
             } else {
                 myUtil.response(resData.setFail().setFailCode().setMsg('用户不存在').setEnd(),response);
+                response.end();
             }
-            response.end();
         });
     }
 };

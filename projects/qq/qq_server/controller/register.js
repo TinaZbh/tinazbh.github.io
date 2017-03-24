@@ -24,13 +24,13 @@ var register = function (getData,postData,response) {
         sqlConnection(selectSql1, '', function (rows) {
             if (rows != null && rows.length > 0) {
                 myUtil.response(resData.setFail().setFailCode().setMsg('该账号已注册，请登录').setEnd(),response);
-                return;
+                response.end();
             } else {
                 sqlConnection(insertSql1, insertSql_data1, function (rows) {
                     myUtil.response(resData.setSuccessCode().setMsg("注册成功！").setEnd(),response);
+                    response.end();
                 });
             }
-            response.end();
         });
     } else if (phone_number == null || phone_number == '') {
         phone_number = '';
@@ -40,13 +40,13 @@ var register = function (getData,postData,response) {
         sqlConnection(selectSql2, '', function (rows) {
             if (rows != null && rows.length > 0) {
                 myUtil.response(resData.setFail().setFailCode().setMsg('该账号已注册，请登录').setEnd(),response);
-                return;
+                response.end();
             } else {
                 sqlConnection(insertSql2, insertSql_data2, function (rows) {
                     myUtil.response(resData.setSuccessCode().setMsg("注册成功！").setEnd(),response);
+                    response.end();
                 });
             }
-            response.end();
         });
     }
 
