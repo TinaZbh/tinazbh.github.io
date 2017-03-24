@@ -88,11 +88,11 @@ var playChess = (function () {
         function cancel() {
             if (user.value !== "") {
                 user.value = '';
-                // user.onblur();
+                user.blur();
             }
             if (password.value !== "") {
                 password.value = '';
-                // password.onblur();
+                password.blur();
             }
         }
 
