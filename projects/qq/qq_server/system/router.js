@@ -4,8 +4,8 @@
 
 var fs=require('fs');
 
-var router=function () {
-    var s=global['_get']['m'];
+var router=function (getData,postData,response) {
+    var s=getData['m'];
     if(s==null||s==''){
         s='index';
     }
@@ -14,7 +14,7 @@ var router=function () {
             s='index';
         }
         var controller=require('../controller/'+s);
-        controller();
+        controller(getData,postData,response);
     });
 };
 module.exports=router;
