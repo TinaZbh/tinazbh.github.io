@@ -2,8 +2,6 @@
  * Created by zbh on 2017/3/18.
  */
 
-
-
 var playChess = (function () {
     var myName = "";//存储本人的nickname
     var oppoName = "";//存储对手的nickname
@@ -112,9 +110,8 @@ var playChess = (function () {
         addEvent(document.querySelector("#logWindow .close"), 'click', function () {
             disNone();
         });
-        addEvent(document.getElementById("winLogin"), 'click', function () {
-            var userVal = user.value;
-
+        // addEvent(document.getElementById("winLogin"), 'click', function () {
+        document.getElementById("winLogin").onclick=function () {
             var request = new XMLHttpRequest();
             // request.open("POST", "http://104.131.102.43?m=login");
             request.open("POST", "http://127.0.0.1:8081?m=login");
@@ -147,7 +144,7 @@ var playChess = (function () {
                     }
                 }
             }
-        });
+        };
 
         // addEvent(password, 'keyup', function (e) {
         //     var userVal = user.value;

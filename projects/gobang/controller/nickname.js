@@ -5,16 +5,17 @@ var myUtil = require('../system/myUtil');
 var resData = require('../system/resData');
 var sqlConnection = require('../system/sqlConnection');
 
-var nickname=function () {
-    var nick_name = global['_post']['nickname'];
+var nickname=function (getData, postData, response) {
+    var nick_name = postData['nickname'];
 
     var selectSql = "SELECT * FROM `qq_reg` WHERE `nick_name`='" + nick_name + "'";
     sqlConnection(selectSql,'',function (rows) {
-        if(rows!=null&&rows.length>0){
-            myUtil.response(resData.setFail().setFailCode().setMsg('昵称被占用').setEnd()).responseEnd();
+        if(rows!=null && rows.length>0){
+            myUtil.response(resData.setFail().setFailCode().setMsg('昵称被占用').setEnd(),response);
         }else {
-            myUtil.response(resData.setSuccessCode().setMsg('good').setEnd()).responseEnd();
+            myUtil.response(resData.setSuccessCode().setMsg('good').setEnd(),response);
         }
+        response.end();
     });
 
 };

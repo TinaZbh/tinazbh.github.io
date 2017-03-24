@@ -14,15 +14,15 @@ var server=http.createServer(function (request,response) {
 
     request.on('end',function () {
         postData=querystring.parse(postData);
-        global['_get']=url.parse(request.url,true).query;
-        global['_post']=postData;
-        global['_response']=response;
+        var getData=url.parse(request.url,true).query;
         var headObj={
             'Content-Type':'text/html;clarset:utf-8',
             'Access-Control-Allow-Origin':'*'//用CORS法解决跨域问题，*表示接受所有跨域资源的请求
         };
-        global['_response'].writeHead(200,headObj);
-        router();
+        response.writeHead(200,headObj);
+
+        router(getData, postData, response);
     });
+
 });
 server.listen(8081);
