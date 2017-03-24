@@ -1,0 +1,16 @@
+{
+  "name": "my_five",
+  "version": "1.0.0",
+  "description": "A small game:five-in-a-row",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tina",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mysql": "^2.13.0",
+    "socket.io": "^1.7.3"
+  }
+}

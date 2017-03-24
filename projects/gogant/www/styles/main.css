@@ -1,0 +1,521 @@
+html,body{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.icon{
+    font-family: "iconfont";
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+.clearFloat:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+#underLayer{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 9998;
+}
+.info{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    color: white;
+    z-index: 9999;
+}
+
+
+/*登录注册窗口*/
+
+#logWindow {
+    display: none;
+    width: 450px;
+    height: 400px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -225px;
+    z-index: 9999;
+}
+
+.winHeader {
+    height: 60px;
+    line-height: 60px;
+}
+
+.title {
+    float: left;
+    margin-left: 25px;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.reg,.reg1 {
+    float: right;
+    margin-right: 40px;
+    color: #5188a6;
+}
+
+.close ,.regClose{
+    position: absolute;
+    top: -10px;
+    right: 4px;
+    /*height: 20px;*/
+    /*width: 20px;*/
+    /*line-height: 20px;*/
+    /*text-align: center;*/
+    /*border-radius: 10px;*/
+    color: grey;
+    font-size: 36px;
+    font-weight: 200;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    /*background-color: white;*/
+    cursor: pointer;
+
+}
+
+
+.close:hover {
+    color: #59AfE4;
+}
+.regClose:hover{
+    color: #59AfE4;
+}
+
+.win_line {
+    color: gray;
+    opacity: 0.2;
+}
+
+.winContent{
+    width: 318px;
+    margin: 0 auto;
+}
+
+.winTitle {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.winItem {
+    width: 315px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin-top: 20px;
+    position: relative;
+    outline: none;
+}
+
+.winTxt {
+    color: rgba(0, 0, 0, 0.5);
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #fff;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.winWrite {
+    width: 294px;
+    height: 16px;
+    border: 0;
+    padding-top: 8px;
+    padding-left: 5px;
+    z-index: 999;
+    outline: none;
+}
+
+.remPsw {
+    color: rgba(0, 0, 0, 0.8);
+    /*margin-left: 10px;*/
+    margin-top: 15px;
+}
+
+#winLogin ,#regLogin{
+    width: 315px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 0;
+    background-color: #59AfE4;
+    color: white;
+    font-size: 18px;
+    margin-top: 25px;
+    cursor: pointer;
+    outline: none;
+}
+
+#winLogin:hover {
+    background-color: rgba(89, 175, 228, 0.9);
+}
+
+
+.yesHint,.yesRegHint {
+    display: none;
+    color: #5188a6;
+    margin-top: 8px;
+}
+
+.noHint ,.noRegHint{
+    display: none;
+    color: red;
+    margin-top: 8px;
+}
+/*登录窗口end*/
+
+/*注册窗口start*/
+#regWindow{
+    display: none;
+    width: 550px;
+    height: 400px;
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -250px;
+    z-index: 9999;
+}
+.regHeader {
+    width: 550px;
+    height: 60px;
+    line-height: 60px;
+}
+.title {
+    float: left;
+    margin-left: 25px;
+    font-size: 20px;
+    opacity: 0.8;
+}
+.regContent{
+    text-align: center;
+}
+.menu label,.item_box,.warn{
+    float: left;
+}
+.menu label{
+    width: 80px;
+    font-size: 14px;
+    text-align: right;
+    margin-top: 25px;
+    margin-right: 5px;
+}
+.item_box{
+    width: 315px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin-top: 20px;
+    position: relative;
+    /*outline: none;*/
+}
+.item_box input{
+    width: 294px;
+    height: 16px;
+    border: 0;
+    padding-top: 8px;
+    outline: none;
+}
+.warn{
+    width: 115px;
+    /*height: 30px;*/
+    font-size: 12px;
+    margin-top: 25px;
+    margin-left: 5px;
+    padding-left: 15px;
+    background: url("http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090") 0 -216px no-repeat;
+    /*background: url("http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg") 0 -216px no-repeat;*/
+    color: grey;
+    text-align: left;
+}
+.warn.password,.warn.confPsw{
+    display: none;
+}
+#regLogin:hover{
+    background-color: rgba(89, 175, 228, 0.9);
+}
+#regLogin{
+    margin-top: 45px;
+}
+/*注册窗口end*/
+#games_wrapper{
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    display: flex;
+}
+#checkerboard{
+    width: 600px;
+    height: 620px;
+    border: 5px solid #59AfE4;
+
+}
+.header{
+    height:50px;
+    line-height: 50px;
+    font-size: 30px;
+    font-family:"Geneva","Sans-Serif";
+    text-align: center;
+}
+/*.playAgain{*/
+    /*border: none;*/
+    /*padding: 0;*/
+    /*outline: none;*/
+    /*width: 80px;*/
+    /*height: 30px;*/
+    /*line-height: 30px;*/
+    /*background-color:#c93;*/
+    /*color: antiquewhite;*/
+    /*border-radius: 2px;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.playAgain:hover{*/
+    /*background-color: #cc9966;*/
+    /*color:white;*/
+/*}*/
+.container{
+    width: 550px;
+    height: 550px;
+    /*background: url("http://ww1.sinaimg.cn/mw690/9e59afb4gw1f8rqdhhd8wg20f00f044a.gif") no-repeat;*/
+    background: url("../images/backgroup.gif") no-repeat;
+    margin: 0 auto;
+}
+table{
+    border-collapse: collapse;
+    margin-left: 7px;
+    margin-top: 7px;
+    display: inline-block;
+}
+td{
+    width: 33px;
+    height: 33px;
+}
+#additional_func{
+    width: 280px;
+    height: 620px;
+    margin-left: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction:column-reverse;
+}
+.btn_wrapper{
+    display: none;
+    width: 200px;
+    height: 30px;
+    background-color:#D7B69B;
+    margin: 40px auto;
+}
+.btn_wrapper:hover{
+    background-color:#cc9966;
+}
+.btn_wrapper input{
+    width: 200px;
+    height: 30px;
+    border: 0;
+    padding: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+.game_info{
+    width: 200px;
+    margin: 0px 40px;
+}
+.peopleA,.peopleB{
+    display: none;
+    width: 200px;
+    height: 30px;
+    background-color:#D7B69B;
+}
+.peopleA{
+    margin: 30px auto;
+}
+.peopleB{
+    margin: 10px auto;
+}
+#online_people{
+    height: 620px;
+    width: 200px;
+    border: 5px solid #59AfE4;
+    margin-left: 10px;
+}
+.yourself{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    color: #bd2c00;
+    font-weight: bold;
+    text-align: center;
+}
+.yourself a{
+    color: rgb(189,44,0);
+}
+.yourself a:hover{
+    color: rgba(189,44,0,0.8);
+}
+.online_line{
+    margin: 0;
+    color: grey\0;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(left,rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.search_wrapper{
+    border-bottom: 3px solid #59AfE4;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+.online_sum{
+    margin-left: 15px;
+    color: grey;
+}
+
+.search_box{
+    display: none;
+    height: 20px;
+    width: 140px;
+    margin-left: 15px;
+    margin-top: 4px;
+    outline: none;
+    border:1px solid #59AFE4;
+}
+.search_wrapper  .icon{
+    position: absolute;
+    top:0px;
+    right: 15px;
+    cursor: pointer;
+    color: grey;
+}
+.search_wrapper .icon:hover{
+    color:  #59AfE4;
+}
+#people_table{
+    overflow: auto;
+}
+#people_table li{
+    padding-left: 10px;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    border-bottom: 1px dashed black;
+    transition: background-color 0.3s;
+}
+#people_table li:hover{
+    background-color: #D7B69B;
+}
+#people_table .in_game{
+    color: #55a532;
+}
+#people_table .on_line{
+    color:black;
+}
+
+#popup{
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    width: 350px;
+    height: 200px;
+    background-color:white ;
+    top:50%;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -100px;
+    z-index: 9999;
+}
+.pop_head{
+    width: 350px;
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    font-size: 25px;
+    /*-moz-border-radius-topleft: 4px;*/
+    /*-moz-border-radius-topright: 4px;*/
+    text-align: center;
+    color: #59AfE4;
+}
+/*.close_it{*/
+    /*width: 25px;*/
+    /*height: 25px;*/
+    /*-webkit-transform: rotate(45deg);*/
+    /*-moz-transform: rotate(45deg);*/
+    /*-ms-transform: rotate(45deg);*/
+    /*-o-transform: rotate(45deg);*/
+    /*transform: rotate(45deg);*/
+    /*position: absolute;*/
+    /*top:5px;*/
+    /*right: 10px;*/
+    /*font-size: 20px;*/
+    /*color:rgba(0,0,0,0.3);*/
+/*}*/
+/*.close_it:hover{*/
+    /*color: #59AfE4;*/
+/*}*/
+.pop_line{
+    color: gray;
+    opacity: 0.2;
+    margin: 0;
+}
+.pop_content{
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    height: 40px;
+    /*line-height: 100px;*/
+    padding: 30px;
+    font-size: 14px;
+    text-align: center;
+    color:black;
+}
+.pop_close,.pop_other{
+    text-decoration: none;
+    background-color: #59AfE4;
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    display: inline-block;
+    *zoom: 1;
+    cursor: pointer;
+    margin-left: 63px;
+    /*margin: 0 auto;*/
+    color: white;
+}
+
+.pop_close:hover{
+    opacity: 0.8;
+}
+.pop_other:hover{
+    opacity: 0.8;
+}
+
