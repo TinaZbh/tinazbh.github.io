@@ -5,7 +5,8 @@
 var playChess = (function () {
     var myName = "";//存储本人的nickname
     var oppoName = "";//存储对手的nickname
-    var socket = io.connect('http://localhost:3000');
+    // var socket = io.connect('http://localhost:3000');
+    var socket = io.connect('http://104.131.102.43:3000');
     var a = 0;
     //事件监听的兼容性处理
     function addEvent(target, event, fn) {
@@ -113,8 +114,8 @@ var playChess = (function () {
         // addEvent(document.getElementById("winLogin"), 'click', function () {
         document.getElementById("winLogin").onclick=function () {
             var request = new XMLHttpRequest();
-            // request.open("POST", "http://104.131.102.43?m=login");
-            request.open("POST", "http://127.0.0.1:8081?m=login");
+            request.open("POST", "http://104.131.102.43:8081?m=login");
+            // request.open("POST", "http://127.0.0.1:8081?m=login");
             var sendData = "nickname=" + user.value + "&password=" + password.value;
             request.send(sendData);
             request.onreadystatechange = function () {
@@ -216,8 +217,8 @@ var playChess = (function () {
                 mark1 = 0;
                 // return;
             } else {
-                // $.post('http://104.131.102.43?m=nickname', {nickname: inPut[0].value}, function (data) {
-                $.post('http://127.0.0.1:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
+                $.post('http://104.131.102.43:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
+                // $.post('http://127.0.0.1:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
                     console.log(data);
                     if (data.msg == 'good') {
                         warn[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -250px no-repeat";
@@ -383,8 +384,8 @@ var playChess = (function () {
                 };
                 $.ajax({
                     type: "POST",
-                    // url: "http://104.131.102.43?m=register",
-                    url: "http://127.0.0.1:8081?m=register",
+                    url: "http://104.131.102.43:8081?m=register",
+                    // url: "http://127.0.0.1:8081?m=register",
                     dataType: "json",
                     data: QQData,
                     success: function (data) {
