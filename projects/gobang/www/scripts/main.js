@@ -59,10 +59,12 @@ var playChess = (function () {
         logWin.style.display = "block";
         underLayer.style.display = "block";
         user.focus();
-        var text = document.querySelector(".winTxt.two");
-        text.style.color = "rgba(0,0,0,0.5)";
-        text.style.top="0";
-        document.querySelectorAll(".winItem")[1].style.borderColor = "rgba(0,0,0,0.2)";
+        // if(password.value==""){
+        //     var text = document.querySelector(".winTxt.two");
+        //     text.style.color = "rgba(0,0,0,0.5)";
+        //     text.style.top="0";
+        //     document.querySelectorAll(".winItem")[1].style.borderColor = "rgba(0,0,0,0.2)";
+        // }
         document.querySelector('.yesHint').style.display = 'none';
         document.querySelector('.noHint').style.display = 'none';
         if (sessionStorage.getItem('user') != null && sessionStorage.getItem('user') != '') {
@@ -72,31 +74,33 @@ var playChess = (function () {
             password.value = sessionStorage.getItem('password');
         }
         //若value值为空,失去焦点,提示字又下滑回来了
-        addEvent(user, 'blur', function () {
+        user.onblur=function () {
+        // addEvent(user, 'blur', function () {
             if (user.value === "") {
                 var text = document.querySelector(".winTxt.one");
                 text.style.color = "rgba(0,0,0,0.5)";
                 $(".winTxt.one").animate({top: "0px"}, 260);
                 document.querySelectorAll(".winItem")[0].style.borderColor = "rgba(0,0,0,0.2)";
             }
-        });
-        addEvent(password, 'blur', function () {
+        };
+        password.onblur=function () {
+        // addEvent(password, 'blur', function () {
             if (password.value === "") {
                 var text = document.querySelector(".winTxt.two");
                 text.style.color = "rgba(0,0,0,0.5)";
                 $(".winTxt.two").animate({top: "0px"}, 260);
                 document.querySelectorAll(".winItem")[1].style.borderColor = "rgba(0,0,0,0.2)";
             }
-        });
+        };
         //当关闭登录窗口时要清除value其中的字
         function cancel() {
             if (user.value !== "") {
                 user.value = '';
-                // user.blur();
+                user.onblur();
             }
             if (password.value !== "") {
                 password.value = '';
-                // password.blur();
+                password.onblur();
             }
         }
 
