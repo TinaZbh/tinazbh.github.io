@@ -88,11 +88,11 @@ var playChess = (function () {
         function cancel() {
             if (user.value !== "") {
                 user.value = '';
-                user.onblur();
+                // user.onblur();
             }
             if (password.value !== "") {
                 password.value = '';
-                password.onblur();
+                // password.onblur();
             }
         }
 
@@ -136,7 +136,7 @@ var playChess = (function () {
                             //     sessionStorage.setItem('password', '');
                             // }
                         } else if (data.msg === '用户不存在') {
-                            user.focus();
+                            // user.focus();
                             document.querySelector('.yesHint').style.display = 'none';
                             document.querySelector('.noHint').style.display = 'block';
                         }
@@ -369,7 +369,8 @@ var playChess = (function () {
         addEvent(document.querySelector("#regWindow .regClose"), 'click', function () {
             disNone();
         });
-        addEvent(document.getElementById("regLogin"), 'click', function () {
+        document.getElementById("regLogin").onclick= function () {
+        // addEvent(document.getElementById("regLogin"), 'click', function () {
             if (inPut[1].value !== inPut[2].value) {
                 warn[2].innerHTML = '密码不一致';
                 warn[2].style.color = "red";
@@ -405,7 +406,7 @@ var playChess = (function () {
                 });
             }
 
-        });
+        };
 
     };
     //注册end
