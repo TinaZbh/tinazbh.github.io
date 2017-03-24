@@ -59,6 +59,10 @@ var playChess = (function () {
         logWin.style.display = "block";
         underLayer.style.display = "block";
         user.focus();
+        var text = document.querySelector(".winTxt.two");
+        text.style.color = "rgba(0,0,0,0.5)";
+        text.style.top="0";
+        document.querySelectorAll(".winItem")[1].style.borderColor = "rgba(0,0,0,0.2)";
         document.querySelector('.yesHint').style.display = 'none';
         document.querySelector('.noHint').style.display = 'none';
         if (sessionStorage.getItem('user') != null && sessionStorage.getItem('user') != '') {
@@ -88,11 +92,11 @@ var playChess = (function () {
         function cancel() {
             if (user.value !== "") {
                 user.value = '';
-                user.blur();
+                // user.blur();
             }
             if (password.value !== "") {
                 password.value = '';
-                password.blur();
+                // password.blur();
             }
         }
 
