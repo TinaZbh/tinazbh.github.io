@@ -5,8 +5,8 @@
 var playChess = (function () {
     var myName = "";//存储本人的nickname
     var oppoName = "";//存储对手的nickname
-    // var socket = io.connect('http://localhost:3000');
-    var socket = io.connect('http://104.131.102.43:3000');
+    var socket = io.connect('http://localhost:3000');
+    // var socket = io.connect('http://104.131.102.43:3000');
     var a = 0;
     //事件监听的兼容性处理
     function addEvent(target, event, fn) {
@@ -74,8 +74,8 @@ var playChess = (function () {
             password.value = sessionStorage.getItem('password');
         }
         //若value值为空,失去焦点,提示字又下滑回来了
-        user.onblur=function () {
-        // addEvent(user, 'blur', function () {
+        user.onblur = function () {
+            // addEvent(user, 'blur', function () {
             if (user.value === "") {
                 var text = document.querySelector(".winTxt.one");
                 text.style.color = "rgba(0,0,0,0.5)";
@@ -83,8 +83,8 @@ var playChess = (function () {
                 document.querySelectorAll(".winItem")[0].style.borderColor = "rgba(0,0,0,0.2)";
             }
         };
-        password.onblur=function () {
-        // addEvent(password, 'blur', function () {
+        password.onblur = function () {
+            // addEvent(password, 'blur', function () {
             if (password.value === "") {
                 var text = document.querySelector(".winTxt.two");
                 text.style.color = "rgba(0,0,0,0.5)";
@@ -120,10 +120,10 @@ var playChess = (function () {
             disNone();
         });
         // addEvent(document.getElementById("winLogin"), 'click', function () {
-        document.getElementById("winLogin").onclick=function () {
+        document.getElementById("winLogin").onclick = function () {
             var request = new XMLHttpRequest();
-            request.open("POST", "http://104.131.102.43:8081?m=login");
-            // request.open("POST", "http://127.0.0.1:8081?m=login");
+            // request.open("POST", "http://104.131.102.43:8081?m=login");
+            request.open("POST", "http://127.0.0.1:8081?m=login");
             var sendData = "nickname=" + user.value + "&password=" + password.value;
             request.send(sendData);
             request.onreadystatechange = function () {
@@ -196,15 +196,16 @@ var playChess = (function () {
             warn[a].style.paddingTop = "0px";
             // }
         };
-        addEvent(inPut[0], "focus", function () {
+        inPut[0].onfocus = function () {
             warnAppear(0, "请输入昵称");
-        });
-        addEvent(inPut[1], "focus", function () {
+        };
+        inPut[1].onfocus = function () {
             warnAppear(1, "长度为6-16个字符,不能9位以下纯数字");
-        });
-        addEvent(inPut[2], "focus", function () {
+        };
+        inPut[2].onfocus = function () {
             warnAppear(2, "请再次确认密码");
-        });
+        };
+
         addEvent(inPut[0], "input", function () {
             warnAppear(0, "请输入昵称");
         });
@@ -214,91 +215,82 @@ var playChess = (function () {
         addEvent(inPut[2], "input", function () {
             warnAppear(2, "请再次确认密码");
         });
+        var changeStyle=function (index,str1,str2,str3,str4) {
+            // str1:warn[index].style.color;str2:itemBox[index].style.borderColor;str3:warn[index].innerHTML;str4:warn[index].style.background
+            warn[index].style.color=str1;
+            itemBox[index].style.borderColor=str2;
+            warn[index].innerHTML=str3;
+            warn[index].style.background="url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 "+str4+" no-repeat";
+            // warn[index].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 "+str4+" no-repeat";
 
-        addEvent(inPut[0], "blur", function () {
+        };
+        var tempVariable="";
+        inPut[0].onblur = function () {
+            // addEvent(inPut[0], "blur", function () {
             if (inPut[0].value == "") {
-                warn[0].innerHTML = '昵称不可为空';
-                warn[0].style.color = "red";
-                warn[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
-                // warn[0].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -348px no-repeat";
-                itemBox[0].style.borderColor = "red";
+                changeStyle(0,"red","red","昵称不可为空","-348px");
                 mark1 = 0;
-                // return;
-            } else {
-                $.post('http://104.131.102.43:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
-                // $.post('http://127.0.0.1:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
-                    console.log(data);
-                    if (data.msg == 'good') {
-                        warn[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -250px no-repeat";
-                        // warn[0].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -250px no-repeat";
-                        warn[0].innerHTML = 'OK';
-                        warn[0].style.color = "grey";
-                        itemBox[0].style.borderColor = "rgba(0,0,0,0.2)";
-                        mark1 = 1;
-                    } else {
-                        warn[0].innerHTML = data.msg;
-                        warn[0].style.color = "red";
-                        warn[0].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
-                        // warn[0].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -348px no-repeat";
-                        itemBox[0].style.borderColor = "red";
-                        mark1 = 0;
-                        // return;
-                    }
-                }, 'json');
+            } else if(tempVariable==inPut[0].value){
+                if(mark1==1){
+                    changeStyle(0,"grey","rgba(0,0,0,0.2)","OK","-250px");
+                }else{
+                    changeStyle(0,"red","red","昵称被占用","-348px");
+                }
+            }else {
+                tempVariable=inPut[0].value;
+                var validateUnique = function () {
+                    // $.post('http://104.131.102.43:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
+                    $.post('http://127.0.0.1:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
+                        console.log(data);
+                        if (data.msg == 'good') {
+                            changeStyle(0,"grey","rgba(0,0,0,0.2)","OK","-250px");
+                            mark1 = 1;
+                        } else {
+                            changeStyle(0,"red","red",data.msg,"-348px");
+                            mark1 = 0;
+                        }
+                    }, 'json');
+                };
+                validateUnique();
+                // inPut[0].onchange=function () {
+                //     validateUnique();
+                // };
+
+
             }
-        });
+        };
         addEvent(inPut[1], "blur", function () {
             var sign = 1;
             if (inPut[1].value == "") {
-                warn[1].innerHTML = '密码不可为空';
-                warn[1].style.color = "red";
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
-                // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -348px no-repeat";
-                itemBox[1].style.borderColor = "red";
+                changeStyle(1,"red","red","密码不可为空","-348px")
                 sign = 0;
                 mark2 = 0;
             }
 
             if ((inPut[1].value.length < 6 && inPut[1].value.length > 0) || inPut[1].value.length > 16) {
-                warn[1].innerHTML = "长度为6-16个字符！";
-                warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
-                // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -282px no-repeat";
-                warn[1].style.color = "red";
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                itemBox[1].style.borderColor = "red";
+                changeStyle(1,"red","red","长度为6-16个字符","-282px");
                 sign = 0;
                 mark2 = 0;
             } else if (/\s/g.test(inPut[1].value)) {
-                warn[1].innerHTML = "不能有空格！";
-                warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
-                // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -282px no-repeat";
-                warn[1].style.color = "red";
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                itemBox[1].style.borderColor = "red";
+                changeStyle(1,"red","red","不能有空格","-282px");
                 sign = 0;
                 mark2 = 0;
             } else if (/^[0-9]{1,9}$/.test(inPut[1].value)) {
-                warn[1].innerHTML = "不能9位以下纯数字！";
-                warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -282px no-repeat";
-                // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -282px no-repeat";
-                warn[1].style.color = "red";
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                itemBox[1].style.borderColor = "red";
+                changeStyle(1,"red","red","不能9位以下纯数字","-282px");
                 sign = 0;
                 mark2 = 0;
             } else if (inPut[1].value !== "") {
-                warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -250px no-repeat";
-                // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -250px no-repeat";
-                warn[1].innerHTML = '';
-                warn[1].style.color = "grey";
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                itemBox[1].style.borderColor = "rgba(0,0,0,0.2)";
+                changeStyle(1,"grey","rgba(0,0,0,0.2)","","-250px");
                 sign = 1;
                 mark2 = 1;
             }
@@ -306,53 +298,29 @@ var playChess = (function () {
             if (sign == 1) {
                 warn[1].style.paddingLeft = "0px";
                 if (/^[a-zA-Z0-9]{6,7}$/g.test(inPut[1].value) || /^[A-Z]{6,16}$/g.test(inPut[1].value) || /^[0-9]{6,7}$/g.test(inPut[1].value) || /^[a-z]{6,16}$/g.test(inPut[1].value)) {
-                    warn[1].innerHTML = "试试字母、数字、标点的组合";
-                    warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -102px no-repeat";
-                    // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -102px no-repeat";
                     warn[1].style.paddingTop = "10px";
-                    warn[1].style.color = "grey";
+                    changeStyle(1,"grey","rgba(0,0,0,0.2)","试试字母、数字、标点的组合","-102px");
                 } else if (/^[a-z0-9A-Z]{8,16}$/g.test(inPut[1].value)) {
-                    warn[1].innerHTML = "密码强度一般";
-                    warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -145px no-repeat";
-                    // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -145px no-repeat";
                     warn[1].style.paddingTop = "10px";
-                    warn[1].style.color = "grey";
+                    changeStyle(1,"grey","rgba(0,0,0,0.2)","密码强度一般","-145px");
                 } else {
-                    warn[1].innerHTML = "密码强度好！";
-                    warn[1].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -192px no-repeat";
-                    // warn[1].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -192px no-repeat";
                     warn[1].style.paddingTop = "10px";
-                    warn[1].style.color = "grey";
+                    changeStyle(1,"grey","rgba(0,0,0,0.2)","密码强度好","-192px");
                 }
             }
 
         });
         addEvent(inPut[2], "blur", function () {
             if (inPut[2].value == "") {
-                warn[2].innerHTML = '请再次输入密码';
-                warn[2].style.color = "red";
-                warn[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
-                // warn[2].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -348px no-repeat";
-                itemBox[2].style.borderColor = "red";
+                changeStyle(2,"red","red","请再次输入密码","-348px");
                 mark3 = 0;
             } else if (inPut[2].value !== document.getElementById("password").value) {
-                warn[2].innerHTML = '密码不一致';
-                warn[2].style.color = "red";
-                warn[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
-                // warn[2].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -348px no-repeat";
-                itemBox[2].style.borderColor = "red";
+                changeStyle(2,"red","red","密码不一致","-348px");
                 mark3 = 0;
             } else {
-                warn[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -250px no-repeat";
-                // warn[2].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -250px no-repeat";
-                warn[2].innerHTML = '正确';
-                warn[2].style.color = "grey";
                 mark3 = 1;
-                itemBox[2].style.borderColor = "rgba(0,0,0,0.2)";
+                changeStyle(2,"grey","rgba(0,0,0,0.2)","正确","-250px");
             }
-            // if (mark === 1) {
-            //     return false;
-            // }
         });
 
         //当关闭登录窗口时要清除value其中的字
@@ -377,14 +345,10 @@ var playChess = (function () {
         addEvent(document.querySelector("#regWindow .regClose"), 'click', function () {
             disNone();
         });
-        document.getElementById("regLogin").onclick= function () {
-        // addEvent(document.getElementById("regLogin"), 'click', function () {
+        document.getElementById("regLogin").onclick = function () {
+            // addEvent(document.getElementById("regLogin"), 'click', function () {
             if (inPut[1].value !== inPut[2].value) {
-                warn[2].innerHTML = '密码不一致';
-                warn[2].style.color = "red";
-                warn[2].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 -348px no-repeat";
-                // warn[2].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 -348px no-repeat";
-                itemBox[2].style.borderColor = "red";
+                changeStyle(2,"red","red","密码不一致","-348px");
             }
             if (mark1 === 1 && mark2 === 1 && mark3 === 1 && inPut[1].value === inPut[2].value) {
                 var QQData = {
@@ -393,8 +357,8 @@ var playChess = (function () {
                 };
                 $.ajax({
                     type: "POST",
-                    url: "http://104.131.102.43:8081?m=register",
-                    // url: "http://127.0.0.1:8081?m=register",
+                    // url: "http://104.131.102.43:8081?m=register",
+                    url: "http://127.0.0.1:8081?m=register",
                     dataType: "json",
                     data: QQData,
                     success: function (data) {
@@ -723,7 +687,7 @@ var playChess = (function () {
             popAppear("提示信息", "这里已经有子了,请下到别处吧!", "确定", "取消", 1);
             return;
         }
-        if (!document.getElementById("_" + oppoName) || document.getElementById("_" + oppoName).className != "in_game"&&document.getElementById("_" + myName).className == "in_game") {
+        if (!document.getElementById("_" + oppoName) || document.getElementById("_" + oppoName).className != "in_game" && document.getElementById("_" + myName).className == "in_game") {
             popAppear("提示信息", "对方掉线了", "确定", "取消", 1);
             changeTwoColor("on_line");
             return;
