@@ -303,8 +303,8 @@ li{
 .container{
     width: 550px;
     height: 550px;
-    /*background: url("http://ww1.sinaimg.cn/mw690/9e59afb4gw1f8rqdhhd8wg20f00f044a.gif") no-repeat;*/
-    background: url("../images/backgroup.gif") no-repeat;
+    background: url("http://ww1.sinaimg.cn/mw690/9e59afb4gw1f8rqdhhd8wg20f00f044a.gif") no-repeat;
+    /*background: url("../images/backgroup.gif") no-repeat;*/
     margin: 0 auto;
 }
 table{
