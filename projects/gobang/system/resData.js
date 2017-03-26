@@ -31,6 +31,7 @@ var resData={
     },
     setEnd:function () {
         return this.resMsg;
+
     }
 };
 module.exports=resData;

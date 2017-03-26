@@ -175,9 +175,11 @@ ul>li{
 .explain p{
     width: 95%;
 }
-
+.explain a{
+    color: #80add9;
+}
 .explain a:hover{
-    color: #1a443b;
+    color: #84a8c8;
 }
 
 
