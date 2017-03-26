@@ -11,7 +11,22 @@
 <body>
 <div id="underLayer"></div>
 <div class="info">Connecting to server. . .</div>
+
 <div id="games_wrapper" class="clearFloat">
+    <div id="online_people">
+        <div class="yourself">
+            <a href="javascript:;" onclick="playChess.loginAppear()">登录</a>
+            <a href="javascript:;" onclick="playChess.regAppear()">注册</a>
+        </div>
+        <hr class="online_line">
+        <div class="search_wrapper">
+            <div class="online_sum">当前在线<span>0</span>人</div>
+            <input type="text" class="search_box" placeholder="输入你的同伴昵称">
+            <span class="icon">&#xe601;</span>
+        </div>
+        <ul id="people_table">
+        </ul>
+    </div>
     <div id="checkerboard">
         <div class="header">
             <span>五子棋</span>
@@ -284,20 +299,6 @@
         <div class="btn_wrapper">
             <input type="button" class="" value="人 机 大 战">
         </div>
-    </div>
-    <div id="online_people">
-        <div class="yourself">
-            <a href="javascript:;" onclick="playChess.loginAppear()">登录</a>
-            <a href="javascript:;" onclick="playChess.regAppear()">注册</a>
-        </div>
-        <hr class="online_line">
-        <div class="search_wrapper">
-            <div class="online_sum">当前在线<span>0</span>人</div>
-            <input type="text" class="search_box" placeholder="输入你的同伴昵称">
-            <span class="icon">&#xe601;</span>
-        </div>
-        <ul id="people_table">
-        </ul>
     </div>
 </div>
 <div id="popup">

@@ -215,38 +215,38 @@ var playChess = (function () {
         addEvent(inPut[2], "input", function () {
             warnAppear(2, "请再次确认密码");
         });
-        var changeStyle=function (index,str1,str2,str3,str4) {
+        var changeStyle = function (index, str1, str2, str3, str4) {
             // str1:warn[index].style.color;str2:itemBox[index].style.borderColor;str3:warn[index].innerHTML;str4:warn[index].style.background
-            warn[index].style.color=str1;
-            itemBox[index].style.borderColor=str2;
-            warn[index].innerHTML=str3;
-            warn[index].style.background="url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 "+str4+" no-repeat";
+            warn[index].style.color = str1;
+            itemBox[index].style.borderColor = str2;
+            warn[index].innerHTML = str3;
+            warn[index].style.background = "url('http://6.url.cn/zc/chs/img/pwd_sprite.png?v=10090') 0 " + str4 + " no-repeat";
             // warn[index].style.background = "url('http://wx3.sinaimg.cn/mw690/9e59afb4gy1fdxtha9punj204g0cgq2q.jpg') 0 "+str4+" no-repeat";
 
         };
-        var tempVariable="";
+        var tempVariable = "";
         inPut[0].onblur = function () {
             // addEvent(inPut[0], "blur", function () {
             if (inPut[0].value == "") {
-                changeStyle(0,"red","red","昵称不可为空","-348px");
+                changeStyle(0, "red", "red", "昵称不可为空", "-348px");
                 mark1 = 0;
-            } else if(tempVariable==inPut[0].value){
-                if(mark1==1){
-                    changeStyle(0,"grey","rgba(0,0,0,0.2)","OK","-250px");
-                }else{
-                    changeStyle(0,"red","red","昵称被占用","-348px");
+            } else if (tempVariable == inPut[0].value) {
+                if (mark1 == 1) {
+                    changeStyle(0, "grey", "rgba(0,0,0,0.2)", "OK", "-250px");
+                } else {
+                    changeStyle(0, "red", "red", "昵称被占用", "-348px");
                 }
-            }else {
-                tempVariable=inPut[0].value;
+            } else {
+                tempVariable = inPut[0].value;
                 var validateUnique = function () {
                     $.post('http://104.131.102.43:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
-                    // $.post('http://127.0.0.1:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
+                        // $.post('http://127.0.0.1:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
                         console.log(data);
                         if (data.msg == 'good') {
-                            changeStyle(0,"grey","rgba(0,0,0,0.2)","OK","-250px");
+                            changeStyle(0, "grey", "rgba(0,0,0,0.2)", "OK", "-250px");
                             mark1 = 1;
                         } else {
-                            changeStyle(0,"red","red",data.msg,"-348px");
+                            changeStyle(0, "red", "red", data.msg, "-348px");
                             mark1 = 0;
                         }
                     }, 'json');
@@ -264,7 +264,7 @@ var playChess = (function () {
             if (inPut[1].value == "") {
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                changeStyle(1,"red","red","密码不可为空","-348px")
+                changeStyle(1, "red", "red", "密码不可为空", "-348px")
                 sign = 0;
                 mark2 = 0;
             }
@@ -272,25 +272,25 @@ var playChess = (function () {
             if ((inPut[1].value.length < 6 && inPut[1].value.length > 0) || inPut[1].value.length > 16) {
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                changeStyle(1,"red","red","长度为6-16个字符","-282px");
+                changeStyle(1, "red", "red", "长度为6-16个字符", "-282px");
                 sign = 0;
                 mark2 = 0;
             } else if (/\s/g.test(inPut[1].value)) {
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                changeStyle(1,"red","red","不能有空格","-282px");
+                changeStyle(1, "red", "red", "不能有空格", "-282px");
                 sign = 0;
                 mark2 = 0;
             } else if (/^[0-9]{1,9}$/.test(inPut[1].value)) {
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                changeStyle(1,"red","red","不能9位以下纯数字","-282px");
+                changeStyle(1, "red", "red", "不能9位以下纯数字", "-282px");
                 sign = 0;
                 mark2 = 0;
             } else if (inPut[1].value !== "") {
                 warn[1].style.paddingLeft = "15px";
                 warn[1].style.paddingTop = "0px";
-                changeStyle(1,"grey","rgba(0,0,0,0.2)","","-250px");
+                changeStyle(1, "grey", "rgba(0,0,0,0.2)", "", "-250px");
                 sign = 1;
                 mark2 = 1;
             }
@@ -299,27 +299,27 @@ var playChess = (function () {
                 warn[1].style.paddingLeft = "0px";
                 if (/^[a-zA-Z0-9]{6,7}$/g.test(inPut[1].value) || /^[A-Z]{6,16}$/g.test(inPut[1].value) || /^[0-9]{6,7}$/g.test(inPut[1].value) || /^[a-z]{6,16}$/g.test(inPut[1].value)) {
                     warn[1].style.paddingTop = "10px";
-                    changeStyle(1,"grey","rgba(0,0,0,0.2)","试试字母、数字、标点的组合","-102px");
+                    changeStyle(1, "grey", "rgba(0,0,0,0.2)", "试试字母、数字、标点的组合", "-102px");
                 } else if (/^[a-z0-9A-Z]{8,16}$/g.test(inPut[1].value)) {
                     warn[1].style.paddingTop = "10px";
-                    changeStyle(1,"grey","rgba(0,0,0,0.2)","密码强度一般","-145px");
+                    changeStyle(1, "grey", "rgba(0,0,0,0.2)", "密码强度一般", "-145px");
                 } else {
                     warn[1].style.paddingTop = "10px";
-                    changeStyle(1,"grey","rgba(0,0,0,0.2)","密码强度好","-192px");
+                    changeStyle(1, "grey", "rgba(0,0,0,0.2)", "密码强度好", "-192px");
                 }
             }
 
         });
         addEvent(inPut[2], "blur", function () {
             if (inPut[2].value == "") {
-                changeStyle(2,"red","red","请再次输入密码","-348px");
+                changeStyle(2, "red", "red", "请再次输入密码", "-348px");
                 mark3 = 0;
             } else if (inPut[2].value !== document.getElementById("password").value) {
-                changeStyle(2,"red","red","密码不一致","-348px");
+                changeStyle(2, "red", "red", "密码不一致", "-348px");
                 mark3 = 0;
             } else {
                 mark3 = 1;
-                changeStyle(2,"grey","rgba(0,0,0,0.2)","正确","-250px");
+                changeStyle(2, "grey", "rgba(0,0,0,0.2)", "正确", "-250px");
             }
         });
 
@@ -348,7 +348,7 @@ var playChess = (function () {
         document.getElementById("regLogin").onclick = function () {
             // addEvent(document.getElementById("regLogin"), 'click', function () {
             if (inPut[1].value !== inPut[2].value) {
-                changeStyle(2,"red","red","密码不一致","-348px");
+                changeStyle(2, "red", "red", "密码不一致", "-348px");
             }
             if (mark1 === 1 && mark2 === 1 && mark3 === 1 && inPut[1].value === inPut[2].value) {
                 var QQData = {
@@ -437,6 +437,13 @@ var playChess = (function () {
                 _str = "yes";
                 emitPopRes(_str);
             }
+            if (popType == 3) {
+                loginApr();
+            }
+            if (popType == 4) {
+                a = 0;
+                changeTwoColor("on_line");
+            }
         };
 
         popOther.onclick = function () {
@@ -445,6 +452,10 @@ var playChess = (function () {
             if (popType == 2) {
                 _str = "no";
                 emitPopRes(_str);
+            }
+            if (popType == 4) {
+                a = 0;
+                changeTwoColor("on_line");
             }
         };
         // if(popType===3){
@@ -517,41 +528,47 @@ var playChess = (function () {
             }
         }
 
-        var disconnection = function () {
-            a = 0;
-            changeTwoColor("on_line");
-        };
+        // var disconnection = function () {
+        //     a = 0;
+        //     changeTwoColor("on_line");
+        // };
         if (count1 >= 4 || count2 >= 4 || count3 >= 4 || count4 >= 4) {
             if (aa == 2) {
-                popAppear("恭喜你", "黑棋胜利,游戏结束", "确定", "取消", 1);
-                disconnection();
+                popAppear("恭喜你", "黑棋胜利,游戏结束", "确定", "取消", 4);
+                // disconnection();
             }
             else if (aa == 1) {
-                popAppear("恭喜你", "白棋胜利,游戏结束", "确定", "取消", 1);
-                disconnection();
+                popAppear("恭喜你", "白棋胜利,游戏结束", "确定", "取消", 4);
+                // disconnection();
             }
         }
     };
+    var w, x, y, z;
     var setPlaying = function (i, j, aa) {
 
         if (aa == 2) {
-            // obj.style.backgroundImage = "url('http://ww2.sinaimg.cn/mw690/9e59afb4gw1f8rqdi3cajg20100103y9.gif')";
-            // obj.style.backgroundImage="url('../images/black_cur.gif')";
-            document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage = "url('http://ww1.sinaimg.cn/large/9e59afb4gw1f8rqdirl9qg20100103y9.gif')";
-            // document.getElementsByTagName('td')[s1*15+s2].style.backgroundImage="url('../images/black.gif')";
+            document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage = "url('http://ww2.sinaimg.cn/mw690/9e59afb4gw1f8rqdi3cajg20100103y9.gif')";
+            // document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage="url('../images/black_cur.gif')";
+            if (y >= 0 && z >= 0 && y < 15 && z < 15) {
+                document.getElementsByTagName('td')[y * 15 + z].style.backgroundImage = "url('http://ww4.sinaimg.cn/mw690/9e59afb4gw1f8rqdl9fjgg20100100r9.gif')";
+                // document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage="url('../images/white.gif')";
+            }
             chessData[i][j] = 2;
             a = 1;
 
         }
         else if (aa == 1) {
-            // obj.style.backgroundImage = "url('http://ww2.sinaimg.cn/mw690/9e59afb4gw1f8rqditnvsg20100100ro.gif')";
-            // obj.style.backgroundImage="url('../images/white_cur.gif')";
-            document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage = "url('http://ww4.sinaimg.cn/mw690/9e59afb4gw1f8rqdl9fjgg20100100r9.gif')";
-            // document.getElementsByTagName('td')[s1*15+s2].style.backgroundImage="url('../images/white.gif')";
+            document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage = "url('http://ww2.sinaimg.cn/mw690/9e59afb4gw1f8rqditnvsg20100100ro.gif')";
+            // document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage="url('../images/white_cur.gif')";
+            if (y >= 0 && z >= 0 && y < 15 && z < 15) {
+                document.getElementsByTagName('td')[y * 15 + z].style.backgroundImage = "url('http://ww1.sinaimg.cn/large/9e59afb4gw1f8rqdirl9qg20100103y9.gif')";
+                // document.getElementsByTagName('td')[i * 15 + j].style.backgroundImage="url('../images/black.gif')";
+            }
             chessData[i][j] = 1;
             a = 2;
         }
-
+        w = i;
+        x = j;
         judgement(i, j, aa);
     };
     //五子棋部分end
@@ -608,7 +625,8 @@ var playChess = (function () {
     //当选中列表中某个人时触发的事件
     var selectOne = function (obj) {
         if (myName == "") {
-            popAppear("提示信息", "请先登录才能邀请他人加入游戏哦！", "确定", "取消", 1);
+            // popAppear("提示信息", "请先登录才能邀请他人加入游戏哦！", "确定", "取消", 1);
+            popAppear("提示信息", "请先登录才能邀请他人加入游戏哦！", "登录", "取消", 3);
             return false;
         }
         if (obj.innerHTML == myName) {
@@ -652,7 +670,7 @@ var playChess = (function () {
             } else {
                 popAppear("抱歉", opponent + "拒绝了你的邀请", "确定", "取消", 1);
             }
-        })
+        });
     };
     var lisTranLocation = function (i, j, a) { //传递位置
         var positionInfo = {
@@ -662,18 +680,18 @@ var playChess = (function () {
             rows: j,
             a: a
         };
-
         socket.emit("tranLocation", JSON.stringify(positionInfo));
     };
     var lisSetLocation = function () {  //设置位置
         socket.on("setLocation", function (data) {
             var newData = JSON.parse(data);
             setPlaying(newData.cols, newData.rows, newData.a);
-        })
+        });
     };
     var playing = function (i, j, obj) {
         if (myName == "") {
-            popAppear("提示信息", "请先登录", "确定", "取消", 1);
+            // popAppear("提示信息", "请先登录", "确定", "取消", 1);
+            popAppear("提示信息", "请先登录", "登录", "取消", 3);
             return;
         }
         if (myName != "") {
@@ -682,7 +700,6 @@ var playChess = (function () {
                 return;
             }
         }
-
         if (chessData[i][j]) {
             popAppear("提示信息", "这里已经有子了,请下到别处吧!", "确定", "取消", 1);
             return;
@@ -693,14 +710,30 @@ var playChess = (function () {
             return;
         }
         if (a == 2) {
-            obj.style.backgroundImage = "url('http://ww1.sinaimg.cn/large/9e59afb4gw1f8rqdirl9qg20100103y9.gif')";
+            obj.style.backgroundImage = "url('http://ww2.sinaimg.cn/mw690/9e59afb4gw1f8rqdi3cajg20100103y9.gif')";
+            // obj.style.backgroundImage="url('../images/black_cur.gif')";
+            // obj.style.backgroundImage = "url('http://ww1.sinaimg.cn/large/9e59afb4gw1f8rqdirl9qg20100103y9.gif')";
             // obj.style.backgroundImage="url('../images/black.gif')";
+            if (w >= 0 && x >= 0 && w < 15 && x < 15) {
+                document.getElementsByTagName('td')[w * 15 + x].style.backgroundImage = "url('http://ww4.sinaimg.cn/mw690/9e59afb4gw1f8rqdl9fjgg20100100r9.gif')";
+                // document.getElementsByTagName('td')[w * 15 + x].style.backgroundImage="url('../images/white.gif')";
+            }
+            y = i;
+            z = j;
             chessData[i][j] = 2;
             lisTranLocation(i, j, 2);
         }
         else if (a == 1) {
-            obj.style.backgroundImage = "url('http://ww4.sinaimg.cn/mw690/9e59afb4gw1f8rqdl9fjgg20100100r9.gif')";
+            obj.style.backgroundImage = "url('http://ww2.sinaimg.cn/mw690/9e59afb4gw1f8rqditnvsg20100100ro.gif')";
+            // obj.style.backgroundImage="url('../images/white_cur.gif')";
+            // obj.style.backgroundImage = "url('http://ww4.sinaimg.cn/mw690/9e59afb4gw1f8rqdl9fjgg20100100r9.gif')";
             // obj.style.backgroundImage="url('../images/white.gif')";
+            if (w >= 0 && x >= 0 && w < 15 && x < 15) {
+                document.getElementsByTagName('td')[w * 15 + x].style.backgroundImage = "url('http://ww1.sinaimg.cn/large/9e59afb4gw1f8rqdirl9qg20100103y9.gif')";
+                // document.getElementsByTagName('td')[w * 15 + x].style.backgroundImage="url('../images/black.gif')";
+            }
+            y = i;
+            z = j;
             chessData[i][j] = 1;
             lisTranLocation(i, j, 1);
         }
@@ -710,6 +743,7 @@ var playChess = (function () {
         if (a != 0) {
             a = 0;
         }
+
     };
     var lisSearchSb = function () {
         var searchIcon = document.querySelector(".search_wrapper .icon");
