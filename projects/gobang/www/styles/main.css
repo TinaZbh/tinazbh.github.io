@@ -335,17 +335,31 @@ td{
     margin: 0px 40px;
 }
 .peopleA,.peopleB{
-    display: none;
+    /*display: none;*/
     width: 200px;
     height: 30px;
     background-color:#D7B69B;
+    letter-spacing: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f7f7f7;
 }
 .peopleA{
-    margin: 30px auto;
+    margin: 5px auto;
 }
 .peopleB{
-    margin: 10px auto;
+    margin: 5px auto;
 }
+.nameA,.nameB{
+    width: 200px;
+    height: 30px;
+    /*background-color:#D7B69B;*/
+    overflow: hidden;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+
 #online_people{
     height: 620px;
     width: 200px;

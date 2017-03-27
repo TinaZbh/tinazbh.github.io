@@ -50,6 +50,53 @@ var playChess = (function () {
             }
         }
     };
+    var timer1, timer2;
+    var setTimer = function (obj) {
+        if (obj == "A") {
+            var minuteA = document.querySelector(".minuteA");
+            var secondA = document.querySelector(".secondA");
+            // timer1 = setInterval(timerFunc(minuteA,secondA), 1000);
+            timer1 = setInterval(function () {
+                if (minuteA.innerHTML == "0" && secondA.innerHTML == "00") {
+                    if (a == 1) {
+                        clearInterval(timer1);
+                        clearInterval(timer2);
+                        popAppear("很遗憾", "您已超时,黑棋胜利,游戏结束", "确定", "取消", 4);
+                    }
+                    else if (a == 2) {
+                        clearInterval(timer1);
+                        clearInterval(timer2);
+                        popAppear("很遗憾", "您已超时,白棋胜利,游戏结束", "确定", "取消", 4);
+                    }
+                    socket.emit("timeOver",oppoName,a);
+                    return;
+                }
+                if (secondA.innerHTML == "00") {
+                    minuteA.innerHTML = minuteA.innerHTML - 1;
+                    secondA.innerHTML = 59;
+                } else if (secondA.innerHTML < 11) {
+                    secondA.innerHTML = "0" + (secondA.innerHTML - 1);
+                } else {
+                    secondA.innerHTML = secondA.innerHTML - 1;
+                }
+            }, 1000);
+        }
+        if (obj == "B") {
+            var minuteB = document.querySelector(".minuteB");
+            var secondB = document.querySelector(".secondB");
+            // timer2 = setInterval(timerFunc(minuteB,secondB), 1000);
+            timer2 = setInterval(function () {
+                if (secondB.innerHTML == "00") {
+                    minuteB.innerHTML = minuteB.innerHTML - 1;
+                    secondB.innerHTML = 59;
+                } else if (secondB.innerHTML < 11) {
+                    secondB.innerHTML = "0" + (secondB.innerHTML - 1);
+                } else {
+                    secondB.innerHTML = secondB.innerHTML - 1;
+                }
+            }, 1000);
+        }
+    };
     var loginApr = function () {
         var logWin = document.getElementById("logWindow");
         var user = document.getElementById("username");
@@ -119,8 +166,7 @@ var playChess = (function () {
         addEvent(document.querySelector("#logWindow .close"), 'click', function () {
             disNone();
         });
-        // addEvent(document.getElementById("winLogin"), 'click', function () {
-        document.getElementById("winLogin").onclick = function () {
+        var loginRequest=function () {
             var request = new XMLHttpRequest();
             request.open("POST", "http://104.131.102.43:8081?m=login");
             // request.open("POST", "http://127.0.0.1:8081?m=login");
@@ -153,19 +199,27 @@ var playChess = (function () {
                     }
                 }
             }
+        }
+        // addEvent(document.getElementById("winLogin"), 'click', function () {
+        document.getElementById("winLogin").onclick = function () {
+            loginRequest();
         };
-
-        // addEvent(password, 'keyup', function (e) {
-        //     var userVal = user.value;
-        //     var passwordVal = password.value;
-        //     if (e.keyCode == 13 && userVal.trim().length != 0 && passwordVal.trim().length != 0) {
-        //         socket.emit("login", userVal);
-        //     } else if (userVal == "") {
-        //         user.focus();
-        //     }
-        // });
-
-
+        addEvent(user, 'keyup', function (event) {
+            var e=event||window.event;
+            var userVal = user.value;
+            // var passwordVal = password.value;
+            if (e.keyCode == 13 && userVal.trim().length != 0) {
+                password.focus();
+            }
+        });
+        addEvent(password, 'keyup', function (event) {
+            var e=event||window.event;
+            var userVal = user.value;
+            var passwordVal = password.value;
+            if (e.keyCode == 13 && userVal.trim().length != 0 && passwordVal.trim().length != 0) {
+                loginRequest();
+            }
+        });
     };
     //登录框end
     //注册start
@@ -379,6 +433,21 @@ var playChess = (function () {
             }
 
         };
+        addEvent(inPut[0], 'keyup', function (event) {
+            var e=event||window.event;
+            var inputVal = inPut[0].value;
+            if (e.keyCode == 13 && inputVal.trim().length != 0) {
+                inPut[1].focus();
+            }
+        });
+        addEvent(inPut[1], 'keyup', function (event) {
+            var e=event||window.event;
+            var inputVal = inPut[1].value;
+            // var passwordVal = password.value;
+            if (e.keyCode == 13 && inputVal.trim().length != 0) {
+                inPut[2].focus();
+            }
+        });
 
     };
     //注册end
@@ -415,7 +484,8 @@ var playChess = (function () {
         socket.emit("popRes", popStr, JSON.stringify(data1));
     };
 
-    var popAppear = function (str1, str2, str3, str4, popType) {
+    function popAppear(str1, str2, str3, str4, popType) {
+    // var popAppear = function (str1, str2, str3, str4, popType) {
         var popup = document.getElementById("popup");
         var head = document.querySelector(".pop_head");
         var content = document.querySelector(".pop_content");
@@ -429,11 +499,26 @@ var playChess = (function () {
         popOther.innerHTML = str4;
         popup.style.display = "block";
         underLayer.style.display = "block";
+        //时间初始化为10:00
+        var initialTime=function () {
+            var minuteA = document.querySelector(".minuteA");
+            var secondA = document.querySelector(".secondA");
+            var minuteB = document.querySelector(".minuteB");
+            var secondB = document.querySelector(".secondB");
+            minuteA.innerHTML="10";
+            minuteB.innerHTML="10";
+            secondA.innerHTML="00";
+            secondB.innerHTML="00";
+        };
         //由于js的异步执行，使得用监听函数addEventListener会使得对popType的判断出错；
         popClose.onclick = function () {
             popup.style.display = "none";
             underLayer.style.display = 'none';
             if (popType == 2) {
+                var nameA=document.querySelector(".nameA");
+                var nameB=document.querySelector(".nameB");
+                nameA.innerHTML=myName;
+                nameB.innerHTML=oppoName;
                 _str = "yes";
                 emitPopRes(_str);
             }
@@ -442,8 +527,13 @@ var playChess = (function () {
             }
             if (popType == 4) {
                 a = 0;
+                initialTime();
                 changeTwoColor("on_line");
             }
+            if(popType==5){
+                setTimer("A");
+                socket.emit("timeStart",oppoName);
+            };
         };
 
         popOther.onclick = function () {
@@ -455,6 +545,7 @@ var playChess = (function () {
             }
             if (popType == 4) {
                 a = 0;
+                initialTime();
                 changeTwoColor("on_line");
             }
         };
@@ -534,11 +625,21 @@ var playChess = (function () {
         // };
         if (count1 >= 4 || count2 >= 4 || count3 >= 4 || count4 >= 4) {
             if (aa == 2) {
-                popAppear("恭喜你", "黑棋胜利,游戏结束", "确定", "取消", 4);
+                if(a==2){
+                    popAppear("恭喜你", "黑棋胜利,游戏结束", "确定", "取消", 4);
+                }else if(a==1){
+                    popAppear("很遗憾", "黑棋胜利,游戏结束", "确定", "取消", 4);
+                }
+
                 // disconnection();
             }
             else if (aa == 1) {
-                popAppear("恭喜你", "白棋胜利,游戏结束", "确定", "取消", 4);
+                if(a==2){
+                    popAppear("很遗憾", "白棋胜利,游戏结束", "确定", "取消", 4);
+                }else if(a==1){
+                    popAppear("恭喜你", "白棋胜利,游戏结束", "确定", "取消", 4);
+                }
+
                 // disconnection();
             }
         }
@@ -569,6 +670,8 @@ var playChess = (function () {
         }
         w = i;
         x = j;
+        clearInterval(timer2);
+        setTimer("A");
         judgement(i, j, aa);
     };
     //五子棋部分end
@@ -666,7 +769,11 @@ var playChess = (function () {
                 a = 2;//被邀请人同意后，邀请者分配为黑子
                 oppoName = opponent;
                 changeTwoColor("in_game");
-                popAppear("恭喜", opponent + "接受了你的邀请。你为黑子你先行！", "开始游戏", "关闭", 1);
+                var nameA=document.querySelector(".nameA");
+                var nameB=document.querySelector(".nameB");
+                nameA.innerHTML=myName;
+                nameB.innerHTML=oppoName;
+                popAppear("恭喜", opponent + "接受了你的邀请,你为黑子你先行！", "开始游戏", "关闭",5);
             } else {
                 popAppear("抱歉", opponent + "拒绝了你的邀请", "确定", "取消", 1);
             }
@@ -721,6 +828,8 @@ var playChess = (function () {
             y = i;
             z = j;
             chessData[i][j] = 2;
+            clearInterval(timer1);
+            setTimer("B");
             lisTranLocation(i, j, 2);
         }
         else if (a == 1) {
@@ -735,6 +844,8 @@ var playChess = (function () {
             y = i;
             z = j;
             chessData[i][j] = 1;
+            clearInterval(timer1);
+            setTimer("B");
             lisTranLocation(i, j, 1);
         }
         if (a) {
@@ -828,6 +939,26 @@ var playChess = (function () {
                 searchOne(0);
             }
         });
+
+    };
+    var lisTimeOver=function () {
+        socket.on("setTimeOver",function (aa) {
+            if (aa == 1) {
+                clearInterval(timer1);
+                clearInterval(timer2);
+                popAppear("恭喜你", "对手已超时,黑棋胜利,游戏结束", "确定", "取消", 4);
+            }
+            else if (aa == 2) {
+                clearInterval(timer1);
+                clearInterval(timer2);
+                popAppear("恭喜你", "对手已超时,白棋胜利,游戏结束", "确定", "取消", 4);
+            }
+        });
+    };
+    var lisTimeStart=function () {
+        socket.on("timeStartB",function () {
+            setTimer("B");
+        });
     };
     return {
         init: function () {
@@ -839,6 +970,8 @@ var playChess = (function () {
             lisPopReply();
             lisSetLocation();
             lisSearchSb();
+            lisTimeOver();
+            lisTimeStart();
         },
         slide: slide,
         playing: playing,

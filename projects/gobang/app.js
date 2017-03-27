@@ -75,6 +75,13 @@ io.sockets.on('connection',function (socket) {
         var newUsers=JSON.stringify(users);
         io.sockets.in(sto).emit("usersFilter",newUsers);
     });
+    //超时通知，游戏强制结束　
+    socket.on("timeOver",function (obj,aa) {
+        io.sockets.in(obj).emit("setTimeOver",aa);
+    });
+    socket.on("timeStart",function (obj) {
+        io.sockets.in(obj).emit("timeStartB");
+    });
     //用户断开连接
     socket.on('disconnect',function () {
         if(socket.nickname!=null){
