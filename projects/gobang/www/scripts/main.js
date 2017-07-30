@@ -6,7 +6,7 @@ var playChess = (function () {
     var myName = "";//存储本人的nickname
     var oppoName = "";//存储对手的nickname
     // var socket = io.connect('http://localhost:3000');
-    var socket = io.connect('http://104.131.102.43:3000');
+    var socket = io.connect('http://138.197.94.172:3000');
     var a = 0;
     //事件监听的兼容性处理
     function addEvent(target, event, fn) {
@@ -168,7 +168,7 @@ var playChess = (function () {
         });
         var loginRequest=function () {
             var request = new XMLHttpRequest();
-            request.open("POST", "http://104.131.102.43:8081?m=login");
+            request.open("POST", "http://138.197.94.172:8081?m=login");
             // request.open("POST", "http://127.0.0.1:8081?m=login");
             var sendData = "nickname=" + user.value + "&password=" + password.value;
             request.send(sendData);
@@ -293,7 +293,7 @@ var playChess = (function () {
             } else {
                 tempVariable = inPut[0].value;
                 var validateUnique = function () {
-                    $.post('http://104.131.102.43:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
+                    $.post('http://138.197.94.172:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
                         // $.post('http://127.0.0.1:8081?m=nickname', {nickname: inPut[0].value}, function (data) {
                         console.log(data);
                         if (data.msg == 'good') {
@@ -411,7 +411,7 @@ var playChess = (function () {
                 };
                 $.ajax({
                     type: "POST",
-                    url: "http://104.131.102.43:8081?m=register",
+                    url: "http://138.197.94.172:8081?m=register",
                     // url: "http://127.0.0.1:8081?m=register",
                     dataType: "json",
                     data: QQData,
